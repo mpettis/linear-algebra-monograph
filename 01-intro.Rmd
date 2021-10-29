@@ -29,3 +29,28 @@ knitr::include_graphics('images/ch01_single-vector.png')
 
 An arrow is perfect to capture what you want.  You can point it inthe direction you pushed the bottle, and you can make its length correspond to how hard you pushed it.  If an arrow is twice as long as another arrow, you pushed it twice as hard.
 
+**NOTE: RESIST THE TEMPTATION TO LAY A COORDINATE SYSTEM ON THIS YET!**  We'll get there, but at this moment, we're not ready to deal with coordinates.  We just haven't assembled the tools to figure out how to get there.  THIS IS THE RIGHT INTUITION, but we have to do some more work beforehand.  It is enough to draw an arrow on a piece of paper in the same direction of the pushed bottle, and draw lengths that record relative magnitudes of how hard you are pushing.
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="DON'T MAKE COORDINATES YET."}
+knitr::include_graphics('images/ch01_single-vector-coords-red-circle-slash.png')
+```
+
+As you do more and more experiments, you notice more things.  For instance:
+
+- The way you stop the bottle dead is to push on it again, in the exact opposite direction.
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Stopping the bottle"}
+knitr::include_graphics('images/ch01_additive-inverse.png')
+```
+
+Another thing you notice: you can do combo moves.  You can give a push of one size in one direction, then a second sized push in another direction, and that result is the same as if you started with a push of a possibly totally different size in a totally different direction.  Well, that's not surprising.  What *is* surprising is that if you take your arrow from the first push, and then put the butt of the arrow from the second push at the arrow tip of the first push, and *then* draw an arrow from the start of the first arrow to the end tip of the (moved) second arrow, *that* arrow is the arrow that represents what direction and push size you could have started with to get the same result as you got with the two-combo push you started with.
+
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="One push instead of two"}
+knitr::include_graphics('images/ch01_three-vector-resultant.png')
+```
+
+Granted, if you do one push, and afterwards, do a second push, it won't be in the same *line* that a single push would give you, but... the two lines would be in the same direction and have the same speed at the end.  So we're going to call those equal.  That's a big decision, but since no other initial push could give you exactly the same path as the two combo push, it seems to make sense to call those equal.
+
+
+## Enough Experimenting for Now
