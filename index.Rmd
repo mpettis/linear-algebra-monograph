@@ -1,0 +1,68 @@
+--- 
+title: "Linear Algebra: An Intuitionist Approach"
+author: "Matt Pettis"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a book intent on discussing linear algebra from an intuitionist
+  point of view.
+  The HTML output format for this example is bookdown::gitbook,
+  set in the _output.yml file.
+link-citations: yes
+github-repo:  mpettis/linear-algebra-monograph
+---
+
+# Preface
+
+> And you may ask yourself, "What is that beautiful house?"
+> And you may ask yourself, "Where does that highway go to?"
+> And you may ask yourself, "Am I right? Am I wrong?"
+> And you may say to yourself, "My God! What have I done?"
+> 
+> -- Talking Heads, "Once in a Lifetime"
+
+
+> What one fool can do, another can.
+>
+> -- Ancient Simian Proverb
+>
+> -- Sylvanus Thompson, "Calculus Made Easy"
+
+
+> "Everything is the way it is because it got that way."
+> 
+> -- D'Arcy Wentworth Thompson
+
+I'd like to say I'm writing this "for the democratization of science and math," but really, for my kids and their friends so that they don't get snookered into thinking this stuff is beyond them and therefore not for them.  It is for you.  It is everybody's birthright.
+
+One of the best things about science, but one I've found least talked about in the classes that I took in high school and college, is the part that explains "why do we think things work this way?"  Why do we believe things are made up of atoms?  Why did people believe that without the ability to *see* atoms?  What is it about the technology we've built that confirms that things are made of atoms?  We believe things like this because we concocted hypotheses and made experimental tests that ruthlessly and cumulatively.  We make assumptions that are verifiably true, and then we reach a little further with logic and some more subtle observations, and extend the things we get to conclude, and what we have to throw away.  That is a powerful process.
+
+Somewhere along the way, math got divorced from that process.  It wasn't helped by great mathematicians like Carl Gauss who called Number Theory "the Queen of Mathematics" mostly because it didn't have much in the way of application, and that was a good thing.  Or the eminent mathematician G. H. Hardy, who said,
+
+> "I have never done anything "useful". No discovery of mine has made, or is likely to make, directly or indirectly, for good or ill, the least difference to the amenity of the world."
+
+The perspective was, and often is, that math is a thing more akin to art, like poetry, and though it is sometimes useful, its main value is in that it is beautiful and fun.  Ironically, his favorite subject, number theory, is the foundation of our ability to transmit secrets safely on the internet, and does, in fact, probably cause more good and ill than he was comfortable with.
+
+The downside of such a perspective is that it makes it seem like learning the discipline of mathematics is inscrutable.  When you encounter mathematical definitions, such as, "What makes a thing a vector space?", or "What makes a thing a group?", or "What makes a set measureable?", what you read are a bunch of seemingly awkward little statements that seem either indecipherable, or unknowable, or so stupidly dead-simple as to make you wonder why one would even need to say such a thing.  For instance, when we get to the definition of a vector space, you'll see this as a defining characteristic that your, uh, we'll call a thingy for now, needs to have to be called a vector space:
+
+$$ (\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z}) $$
+
+For those familiar with how numbers work, this seems like something Captain Obvious would say about math.  It could also make you wonder "what's the point of saying such a thing?"
+
+These definitions don't come in an inspiration, like Athena springing fully formed from the forehead of Zeus.  When you study the history of mathematics, you'll see that when trying to come up with descriptions like this, mathematicians will often argue, and even disagree violently.  You'll often see different characterizations like this depending on where you look, because originators disagreed on what was *fundamental* about what was going on.  For systems to be compatible, though, the fundamental assumptions of one camp need to be at least derivable from the other, and vice versa.
+
+This monograph is intended give you the motivations of why linear algebra is the way it is.  It will address:
+
+- Where do those rules about a vector space come from?
+- What's the big deal about linear independence?
+- What would make you come up with an idea like an inner product?
+- What's helpful about orthogonality?
+- Eigenvectors: how do they even work?
+
+I'll approach this as science would ideally approach this.  What do we observe?  What sort of simplifications can we make to help us understand what is going on?  What sort of models help us understand the important parts?
+
+

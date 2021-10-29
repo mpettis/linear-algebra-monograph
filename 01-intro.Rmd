@@ -1,0 +1,31 @@
+# Well, How Did I Get Here?
+
+> Note: I am going to give a physical motivation for vectors here.  If you know this pretty well, feel free to skip it.
+
+Let's dive in by making up a scenario that is half-realistic in the surroundings, and half fantasy in the activities you choose to engage in.  The former grounds us in images we can relate to, the latter reminds us that scientists do think of weird things to with their time, and those things are often fruitful to humanity.
+
+Living in Minnesota, you discover that one of the recreations is pushing things around on ice sheets.  We are a fascinating lot.  So, let's imagine you are on a frozen lake with a liter bottle of vodka.  This activity is commonly known as "ice fishing" here, though many people never come home with fish.
+
+So you decide to just kick the bottle around for a while before you drink it.  While doing this, you make some pretty obvious observations that surprise no one at this point, but for some reason, stick with you.  They are:
+
+- The harder you push on the bottle, the faster it ends up going.
+- The bottle goes in the direction you push it.
+
+Yes, you are a genius for making this observation.  As I said, half of the things we do in the story are fantastical things you really wouldn't do with a bottle of vodka on the ice.
+
+Still bored, you decide to try and be more precise about your observations.  So, you decide that you will only push on the bottle for one second spans of time.  When you do this, you make these observations.
+
+- If you push twice as hard on the bottle, it will end up going twice as fast.
+- No matter how hard you push, the bottle still goes in the direction you push it.  Generalissimo Francisco Franco is still dead.
+
+In this scenario, I assume you have some way of guaging what "twice as hard" means.  For you physics buffs out there, yes, this is measuring the force you apply to the bottle.
+
+After much hard thinking, you decide to start recording your observations.  Since the final speed and direction of the bottle depend only on how hard you push it and what direction you push, you decide to start keeping track of each combination of effort and direction with a drawn arrow.
+
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Rockin' Recording System"}
+knitr::include_graphics('images/ch01_single-vector.png')
+```
+
+An arrow is perfect to capture what you want.  You can point it inthe direction you pushed the bottle, and you can make its length correspond to how hard you pushed it.  If an arrow is twice as long as another arrow, you pushed it twice as hard.
+
