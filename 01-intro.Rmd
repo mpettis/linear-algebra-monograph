@@ -46,7 +46,7 @@ knitr::include_graphics('images/ch01_additive-inverse.png')
 ```
 
 
-## Combo moves
+## Combo Moves and Equivalent Move
 
 Another thing you notice: you can do combo moves.  You can give a push of one size in one direction, then a second sized push in another direction, and that result is the same as if you started with a push of a possibly totally different size in a totally different direction.  Well, that's not surprising.  What *is* surprising is that if you take your arrow from the first push, and then put the butt of the arrow from the second push at the arrow tip of the first push, and *then* draw an arrow from the start of the first arrow to the end tip of the (moved) second arrow, *that* arrow is the arrow that represents what direction and push size you could have started with to get the same result as you got with the two-combo push you started with.
 
@@ -62,13 +62,16 @@ Granted, if you do one push, and afterwards, do a second push, it won't be in th
 
 - If you do two pushes in sequence, the result is the same no matter which order you do it in.
 
-```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="One push instead of two"}
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Pushing order doesn't matter."}
 knitr::include_graphics('images/ch01_push-commutivity.png')
 ```
 
 
 
 
-## Enough Experimenting for Now
+## The Vector Space Axioms
 
-A lot of talk of pushing and recording and choosing to observe weird things.  
+```{r, echo=FALSE, out.width="100%", out.height="100%", fig.align="center", fig.cap="Vector space axioms from Wikipedia"}
+knitr::include_graphics('images/vector-space-axioms-wikipedia.png')
+```
+
