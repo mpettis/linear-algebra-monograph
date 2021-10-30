@@ -2,11 +2,16 @@ fig:unnamed-chunk-1
 fig:unnamed-chunk-2
 fig:unnamed-chunk-3
 fig:unnamed-chunk-4
+fig:unnamed-chunk-5
 fig:nice-fig
 tab:nice-tab
 eq:binom
 preface
 well-how-did-i-get-here
+stopping-what-you-started
+combo-moves
+order-of-pushing
+enough-experimenting-for-now
 cross
 chapters-and-sub-chapters
 captioned-figures-and-tables

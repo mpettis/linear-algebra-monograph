@@ -8,6 +8,7 @@
 
 library(ggplot2)
 library(dplyr)
+library(patchwork)
 
 #;; Draw an arrow
 #;; Save as: images/ch01_single-vector.png
@@ -78,6 +79,64 @@ ggsave(here::here("images", "ch01_additive-inverse.png"), p, width=3, height=3, 
 
 
 
+#;; Push commutivity
+#;; images/ch01_push-commutivity.png
+#;; Ref: https://ggplot2-book.org/arranging-plots.html
+
+data1_df <-
+    tribble(
+        ~startx, ~dx, ~starty, ~dy, ~color,
+        0, 1, 0, 1,"black",
+        1, 1, 1, 0,"black",
+        0, 2, 0, 1,"red"
+    )
+dataLabels1_df <-
+    data1_df %>%
+    transmute(pointx = c(0.5,1.5,1.3),
+           pointy = c(0.7, 1.1, 0.45),
+           lab = c("push 1", "push 2", "push 1 then push 2"))
+(p1 <- ggplot(data=data1_df, aes(x=startx,y=starty), environment = environment()) + 
+        geom_point(size = 1) + 
+        geom_segment(aes(xend=startx+dx, yend=starty+dy, color=color), arrow = arrow(length = unit(0.5, "cm")),
+                     lineend = "round", linejoin = "round", size=2) + 
+        geom_text(data=dataLabels1_df, mapping=aes(x=pointx, y=pointy, label=lab), size=3) +
+        scale_color_manual(values=c("black"="black", "red"="red")) +
+        xlim(0,2) + 
+        ylim(0,2) +
+        theme_void() +
+        theme(legend.position = "none")
+)
+
+
+
+data2_df <-
+    tribble(
+        ~startx, ~dx, ~starty, ~dy, ~color,
+        0, 1, 0, 0,"black",
+        1, 1, 0, 1,"black",
+        0, 2, 0, 1,"red"
+    )
+dataLabels2_df <-
+    data1_df %>%
+    transmute(pointx = c(0.5, 1.5, 0.7 ),
+           pointy =    c(0.1, 0.25,0.7),
+           lab = c("push 2", "push 1", "push 2 then push 1"))
+(p2 <- ggplot(data=data2_df, aes(x=startx,y=starty), environment = environment()) + 
+        geom_point(size = 1) + 
+        geom_segment(aes(xend=startx+dx, yend=starty+dy, color=color), arrow = arrow(length = unit(0.5, "cm")),
+                     lineend = "round", linejoin = "round", size=2) + 
+        geom_text(data=dataLabels2_df, mapping=aes(x=pointx, y=pointy, label=lab), size=3) +
+        scale_color_manual(values=c("black"="black", "red"="red")) +
+        xlim(0,2) + 
+        ylim(0,2) +
+        theme_void() +
+        theme(legend.position = "none")
+)
+
+ggsave(here::here("images", "ch01_push-commutivity.png"), p1 / p2, width=5, height=5, units = "in")
+
+
+
 
 
 
@@ -86,6 +145,7 @@ ggsave(here::here("images", "ch01_additive-inverse.png"), p, width=3, height=3, 
 
 
 #;; 3 Vectors
+#;; images/ch01_three-vector-resultant.png
 #;; Ref: https://stackoverflow.com/questions/50163855/label-the-midpoint-of-a-segment-in-ggplot
 data_df <-
     tribble(

@@ -16,3 +16,7 @@ Resources:
 - https://corybrunson.github.io/ordr/reference/index.html
 - https://stackoverflow.com/questions/10882336/plotting-vectors-in-a-coordinate-system-with-r-or-python
 
+# Arranging plots
+
+- https://ggplot2-book.org/arranging-plots.html
+

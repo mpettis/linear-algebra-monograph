@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-10-29" />
+<meta name="date" content="2021-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -169,7 +169,13 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html"><i class="fa fa-check"></i><b>2</b> Well, How Did I Get Here?</a></li>
+<li class="chapter" data-level="2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html"><i class="fa fa-check"></i><b>2</b> Well, How Did I Get Here?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#stopping-what-you-started"><i class="fa fa-check"></i><b>2.1</b> Stopping what you started</a></li>
+<li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#combo-moves"><i class="fa fa-check"></i><b>2.2</b> Combo moves</a></li>
+<li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#order-of-pushing"><i class="fa fa-check"></i><b>2.3</b> Order of pushing</a></li>
+<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#enough-experimenting-for-now"><i class="fa fa-check"></i><b>2.4</b> Enough Experimenting for Now</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Cross-references</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>3.1</b> Chapters and sub-chapters</a></li>
@@ -217,7 +223,7 @@ div.csl-indent {
 <div id="well-how-did-i-get-here" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Well, How Did I Get Here?</h1>
 <blockquote>
-<p>Note: I am going to give a physical motivation for vectors here. If you know this pretty well, feel free to skip it.</p>
+<p>Note: I am going to give a physical motivation for vectors here. If you know this pretty well, feel free to skim it.</p>
 </blockquote>
 <p>Let’s dive in by making up a scenario that is half-realistic in the surroundings, and half fantasy in the activities you choose to engage in. The former grounds us in images we can relate to, the latter reminds us that scientists do think of weird things to with their time, and those things are often fruitful to humanity.</p>
 <p>Living in Minnesota, you discover that one of the recreations is pushing things around on ice sheets. We are a fascinating lot. So, let’s imagine you are on a frozen lake with a liter bottle of vodka. This activity is commonly known as “ice fishing” here, though many people never come home with fish.</p>
@@ -249,6 +255,8 @@ Figure 2.2: DON’T MAKE COORDINATES YET.
 </p>
 </div>
 <p>As you do more and more experiments, you notice more things. For instance:</p>
+<div id="stopping-what-you-started" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Stopping what you started</h2>
 <ul>
 <li>The way you stop the bottle dead is to push on it again, in the exact opposite direction.</li>
 </ul>
@@ -258,6 +266,9 @@ Figure 2.2: DON’T MAKE COORDINATES YET.
 Figure 2.3: Stopping the bottle
 </p>
 </div>
+</div>
+<div id="combo-moves" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Combo moves</h2>
 <p>Another thing you notice: you can do combo moves. You can give a push of one size in one direction, then a second sized push in another direction, and that result is the same as if you started with a push of a possibly totally different size in a totally different direction. Well, that’s not surprising. What <em>is</em> surprising is that if you take your arrow from the first push, and then put the butt of the arrow from the second push at the arrow tip of the first push, and <em>then</em> draw an arrow from the start of the first arrow to the end tip of the (moved) second arrow, <em>that</em> arrow is the arrow that represents what direction and push size you could have started with to get the same result as you got with the two-combo push you started with.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="images/ch01_three-vector-resultant.png" alt="One push instead of two" width="50%" height="50%" />
@@ -266,7 +277,24 @@ Figure 2.4: One push instead of two
 </p>
 </div>
 <p>Granted, if you do one push, and afterwards, do a second push, it won’t be in the same <em>line</em> that a single push would give you, but… the two lines would be in the same direction and have the same speed at the end. So we’re going to call those equal. That’s a big decision, but since no other initial push could give you exactly the same path as the two combo push, it seems to make sense to call those equal.</p>
+</div>
+<div id="order-of-pushing" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Order of pushing</h2>
+<ul>
+<li>If you do two pushes in sequence, the result is the same no matter which order you do it in.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="images/ch01_push-commutivity.png" alt="One push instead of two" width="50%" height="50%" />
+<p class="caption">
+Figure 2.5: One push instead of two
+</p>
+</div>
+</div>
+<div id="enough-experimenting-for-now" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Enough Experimenting for Now</h2>
+<p>A lot of talk of pushing and recording and choosing to observe weird things.</p>
 
+</div>
 </div>
             </section>
 

@@ -1,6 +1,6 @@
 # Well, How Did I Get Here?
 
-> Note: I am going to give a physical motivation for vectors here.  If you know this pretty well, feel free to skip it.
+> Note: I am going to give a physical motivation for vectors here.  If you know this pretty well, feel free to skim it.
 
 Let's dive in by making up a scenario that is half-realistic in the surroundings, and half fantasy in the activities you choose to engage in.  The former grounds us in images we can relate to, the latter reminds us that scientists do think of weird things to with their time, and those things are often fruitful to humanity.
 
@@ -37,14 +37,18 @@ knitr::include_graphics('images/ch01_single-vector-coords-red-circle-slash.png')
 
 As you do more and more experiments, you notice more things.  For instance:
 
+## Stopping what you started
+
 - The way you stop the bottle dead is to push on it again, in the exact opposite direction.
 
 ```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Stopping the bottle"}
 knitr::include_graphics('images/ch01_additive-inverse.png')
 ```
 
-Another thing you notice: you can do combo moves.  You can give a push of one size in one direction, then a second sized push in another direction, and that result is the same as if you started with a push of a possibly totally different size in a totally different direction.  Well, that's not surprising.  What *is* surprising is that if you take your arrow from the first push, and then put the butt of the arrow from the second push at the arrow tip of the first push, and *then* draw an arrow from the start of the first arrow to the end tip of the (moved) second arrow, *that* arrow is the arrow that represents what direction and push size you could have started with to get the same result as you got with the two-combo push you started with.
 
+## Combo moves
+
+Another thing you notice: you can do combo moves.  You can give a push of one size in one direction, then a second sized push in another direction, and that result is the same as if you started with a push of a possibly totally different size in a totally different direction.  Well, that's not surprising.  What *is* surprising is that if you take your arrow from the first push, and then put the butt of the arrow from the second push at the arrow tip of the first push, and *then* draw an arrow from the start of the first arrow to the end tip of the (moved) second arrow, *that* arrow is the arrow that represents what direction and push size you could have started with to get the same result as you got with the two-combo push you started with.
 
 ```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="One push instead of two"}
 knitr::include_graphics('images/ch01_three-vector-resultant.png')
@@ -53,4 +57,18 @@ knitr::include_graphics('images/ch01_three-vector-resultant.png')
 Granted, if you do one push, and afterwards, do a second push, it won't be in the same *line* that a single push would give you, but... the two lines would be in the same direction and have the same speed at the end.  So we're going to call those equal.  That's a big decision, but since no other initial push could give you exactly the same path as the two combo push, it seems to make sense to call those equal.
 
 
+
+## Order of pushing
+
+- If you do two pushes in sequence, the result is the same no matter which order you do it in.
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="One push instead of two"}
+knitr::include_graphics('images/ch01_push-commutivity.png')
+```
+
+
+
+
 ## Enough Experimenting for Now
+
+A lot of talk of pushing and recording and choosing to observe weird things.  
