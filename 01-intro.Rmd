@@ -21,10 +21,10 @@ There's so many questions that should be triggered.  Like:
 - How do I know what other vector $a \cdot \vec{u}$ becomes?
 - It looks like the scalar field talks about how *scalar addition* and *scalar multiplication* works.  But vectors only talk about *vector addition*.  What's up with that?
 
-The way I do think about this is, **assuming I know the answer to the above questions**, is:
+The things I think about this are, **assuming I know the answer to the above questions**:
 
-- Vector addition works the way you think it should, it kinda-sorta works like regular numbers.
-- Scalar multiplication works the way you think it should, it kinda-sorta works like regular numbers.
-- Scalars, coming from the field, can have both addition and multiplication.  But vectors only have addition.
+- Vectors work the way you think they should, it kinda-sorta works like addition for regular numbers.
+- Scalar multiplication works the way you think it should, it kinda-sorta works like addition and multiplication for regular numbers.
+- Scalars have both addition and multiplication, while vectors only have addition.  That's gotta mean something.
 
 
