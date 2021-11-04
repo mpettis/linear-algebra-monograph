@@ -1,3 +1,9 @@
 fig:unnamed-chunk-1
+fig:unnamed-chunk-2
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
 preface
 well-how-did-i-get-here
+how-do-i-work-this
+lay-of-the-land
+what-things-do-we-need-to-model-this

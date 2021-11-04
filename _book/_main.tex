@@ -77,7 +77,7 @@
 
 \title{Linear Algebra: An Intuitionist Approach}
 \author{Matt Pettis}
-\date{2021-10-30}
+\date{2021-11-04}
 
 \begin{document}
 \maketitle
@@ -156,9 +156,29 @@ I'll approach this as science would ideally approach this. What do we observe? W
 \hypertarget{well-how-did-i-get-here}{%
 \chapter{Well, How Did I Get Here?}\label{well-how-did-i-get-here}}
 
-Most linear algebra textbooks I've read have the axioms of a vector space within the first 3 pages. It is a bad way to start, because you really have no frame of reference for what any of the terms mean. It is frustrating and made me angry.
+At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of \(\mathbb{R}^2\) and \(\mathbb{R}^3\). These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.
 
-Let's start how every linear algebra book starts, \textbf{but know that we shouldn't really start here.} And we won't, in the traditional sense.
+You know that you can add two vectors by putting the tail of one vector at the head of the other and connecting the base of one to the tip of the other vector. And we know how to stretch, shrink, and flip a vector, which we do by multiplying a vector by a real number. If you multiply a vector by \(1/2\), the length of the vector shrinks to one-half its original length (but the direction doesn't change). If you multiply a vector by \(3 \sqrt{2}\) the magnitude of the result is stretched by that amount.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/vector_parallelogram_law} 
+
+}
+
+\caption{Parallelogram Law of Addition}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/Vector-scaling} 
+
+}
+
+\caption{Vector Scaling}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+These are the prototypical vector spaces, one I'd argue 99 times out of 100 people imagine if they know what a vector space is already. If that was all that vector spaces were, mathematicians probably wouldn't make the seemingly awkward definition that are always presented in the first three pages of any textbook:
 
 From Wikipedia:
 
@@ -168,8 +188,10 @@ From Wikipedia:
 
 }
 
-\caption{[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...}\label{fig:unnamed-chunk-1}
+\caption{[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...}\label{fig:unnamed-chunk-3}
 \end{figure}
+
+It is a bad way to start, because you really have no frame of reference for what any of the terms mean. It is frustrating and made me angry \textbf{We shouldn't really start here.}
 
 This reminds me of the joke about a cab driver driving around the Seattle area in a fog, and he asks a guy coming out of a building if he can tell the cabbie where he is. The guy looks at him and says, ``You're in a cab,'' and walks on. The cabbie says ``Perfect, I know where I am.'' The fare asks him how he can figure out anything from what the guy outside said, and the cabbie say, ``Well, he told me something that was completely true and completely useless. So this must be the Microsoft building.''
 
@@ -177,6 +199,8 @@ There's so many questions that should be triggered. Like:
 
 \begin{itemize}
 \tightlist
+\item
+  Why so many simple axioms?
 \item
   What are vectors, really?
 \item
@@ -191,7 +215,9 @@ There's so many questions that should be triggered. Like:
   It looks like the scalar field talks about how \emph{scalar addition} and \emph{scalar multiplication} works. But vectors only talk about \emph{vector addition}. What's up with that?
 \end{itemize}
 
-The things I think about this are, \textbf{assuming I know the answer to the above questions}:
+We know from \(\mathbb{R}^2\) and \(\mathbb{R}^3\) how vector spaces works, and we can look over the axioms and confirm that yep, those vector spaces meet the axioms. But that doesn't answer why we lay out the axioms that way. Even more, we don't have a good idea of what other structures my meet these axioms and be a vector space. Or how to interpret that.
+
+Let's view the axioms in light of what we know about the \(\mathbb{R}\) spaces:
 
 \begin{itemize}
 \tightlist
@@ -202,6 +228,104 @@ The things I think about this are, \textbf{assuming I know the answer to the abo
 \item
   Scalars have both addition and multiplication, while vectors only have addition. That's gotta mean something.
 \end{itemize}
+
+Let's further focus on scalar multiplication. In the \(\mathbb{R}\) spaces, we intuitively know when you pick a scalar to multiply a vector by, you are stretching one vector into another, both vectors being same direction. Another, more abstract way of thinking about this (and one that will be useful in the near future!) is that a scalar is a function that takes one vector to another one. With our vector spaces, it's easy to see which one: if the scalar is \(2\), it maps the vector to the one that is twice it's magnitude in the same direction.
+
+But there's more to these scalars. If you think of them as functions, per the axioms, adding two scalars will get you to a new scalar that will map vectors. if \(\alpha = \alpha_{1} + \alpha_{2}\) is your new scalar, and you operate on \(\vec{x}\), it will work the same was if you operated on \(\vec{x}\) with \(\alpha_{1}\) and \(\alpha_{2}\), and then added those two vectors together. That is, \(\alpha \vec{x} = \alpha_{1} \vec{x} + \alpha_{2} \vec{x}\). This is a \textbf{strong} constraint on any function that moves vectors around -- that you can combine the scalars first and apply the operation, or apply the constituent scalars individually to \(\vec{x}\) and use the vector \(+\) operation to combine the individual applications.
+
+This is the property claimed by the last axiom above. We can go through the other axioms and make similar arguments for them, and make similar observations, each putting \textbf{very strong} constraints on how scalar multiplication and vector addition actually construct new vectors. We really filter out a lot of functions that scalar multiplication and vector addition could potentially use in the vector space with these axioms. The rules are really restrictive.
+
+The point here is this: we have a good intuitive idea of how vectors behave in \(\mathbb{R}\) spaces. As we stated above, we can just follow our noses: scalars can be added and multiplied, vectors can be added, and we can put them together in ways such that if we construct a vector \(\vec{x} = \alpha_{1} \vec{x_{1}} + \alpha_{2} \vec{x_{2}}\), we can figure out exactly what vector \(\vec{x}\) we must have.
+
+But we don't \emph{have} to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule. We don't have to have any idea what the elements of the vector space really look like (as in, they don't have to be arrows in \(\mathbb{R}\) space). They just have to be objects that have a vector \(+\) structure, and you can define some maps on those objects, which you can \emph{label} with scalars (from \(\mathbb{R}\) or \(\mathbb{C}\), as we'll see), and they just have to obey the axioms. We will need to lift off from this \(\mathbb{R}\) prototype of vector spaces for some of the vector spaces we will use in quantum theory. At first, you will want to use your intuition about \(\mathbb{R}\) to reason about these more abstract vector spaces (the quantum ``state space''), but it won't \emph{quite} work, and you'll need this more sophisticated abstraction.
+
+In the next chapter, we'll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need. And illuminate a little more how linear algebra hangs together.
+
+\hypertarget{how-do-i-work-this}{%
+\chapter{How do I work this?}\label{how-do-i-work-this}}
+
+My uncle tells the story of how they help transition mechanical engineers fresh out of school to working in industry. A senior engineer tasks them with a simple task: a near complete machine needs a piece -- it is missing a cog. The tell the new engineer to get them one. The new engineer studies the plans, designs the cog, painstakingly laying out the CAD designs for it, and comes back to the senior engineer after a week with his work to review how to machine that part, and how much it will cost. The senior engineer looks it over, says it is the right piece, and pulls out a catalog, and shows him how much it will cost to buy, usually at a fraction of the cost. The lesson they learn: don't create from scratch stuff you can buy cheaply from a catalog.
+
+We might think of physics and mathematics having a similar relationship. Often, as you painstakingly observe a physical system, you figure out what are the important bits you need to capture with a model, and how those bits behave in the system. Then, you go shopping to your local math department, describing what you are doing, and hope that a mathematician can recommend a system they've already investigated that you can map your problem into, and take advantage of the notions, the notations, and theorems about the system behavior that they've already come up with.
+
+So, let's proceed by looking at a simple spin-\(1/2\) system, of electrons that can have either a spin up or down measurement, depending on how the spin-detector is oriented. Many newer books start their quantum discussion this way, and two I can recommend that do this are \emph{Quantum Mechanics: The Theoretical Minimum} by Len Susskind and \emph{Quantum Mechanics: A Paradigms Approach} by David McIntyre. I won't repeat their treatment here, and will assume you know the basics of measuring spins in those systems. I will talk about how you start to pick your mathematics from the catalog to model this phenomenon.
+
+\hypertarget{lay-of-the-land}{%
+\section{Lay of the Land}\label{lay-of-the-land}}
+
+Here is a picture that captures some of the important information about a quantum experiment we run:
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/McIntyre_two-spin-experiment} 
+
+}
+
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+Some notes on the picture:
+
+\begin{itemize}
+\tightlist
+\item
+  The apparatus on the left emits electrons, which have a spin we want to measure.
+\item
+  The detectors are labeled with a `Z' or `X' to tell you which direction in space we are orienting the detector. We pick the directions arbitrarily, but `Z' and `X' are orthogonal directions.
+\item
+  The arrows on the detectors indicate which spin orientation an electron comes out of. If it is measured with a spin up, relative to the how the detector is oriented, it exits from the top port, with the up arrow. If down, it exits from the lower port.
+\item
+  The labels \texttt{\textbar{}+\textgreater{}} and \texttt{\textbar{}-\textgreater{}} are also labels for the spins. The indicate absolute directions of the spin (spin up or down in the Z direction), rather than the up and down arrows on the port, that indicate if the spin is up or down \emph{relative to the how the port is oriented}, in the `Z' or `X' direction.
+\item
+  The labels \texttt{\textbar{}+\textgreater{}}\_x and \texttt{\textbar{}-\textgreater{}}\_x represent the absolute spin up/down orientations, but for the X direction. Again, the detector can be reoriented, but if the electron has one of these labels, it is independent of how the detector is oriented.
+\item
+  The numbers and shaded bars represent a percentage of electrons that end up in that bucket or state over a large number of electrons entering the system. Like a histogram.
+\end{itemize}
+
+Here are some things you, the experimenter, observe about the system:
+
+\begin{itemize}
+\tightlist
+\item
+  In (a), if you measure the Z spin, then the X spin, then the second time you measure the Z spin, it will be 50-50 up/down.
+\item
+  In (b), it just tells you that the same thing happens, no matter if the secon measurement for X is up or down, like in experiment (a).
+\item
+  In (c), somthing really weird happens: If you put the X spin detector in the middle, but carefully recombine both beams, as if you didn't measure the X spin, then the Z spin will be as if you didn't measure X spin at all, and stays in the spin state you measured it in in the first detector.
+\end{itemize}
+
+That can stand as the first of many weirdnesses you encounter in quantum. As McIntyre says: going from (a) or (b) to (c), it's as if you are in a half-lit room, throw open a window shade, and the whole room goes dark. In a classical model, (c) would still have a 50-50 split of spin measurements, but that doesn't happen in the quantum world.
+
+\hypertarget{what-things-do-we-need-to-model-this}{%
+\section{What things do we need to model this?}\label{what-things-do-we-need-to-model-this}}
+
+So, we make the following observations.
+
+\begin{itemize}
+\tightlist
+\item
+  If we measure a spin as up in the Z direction, and keep measuring the spin with detectors all pointed along the same Z axis, we will always get the same spin up measurement. That is true as long as we don't orient the detector in a different direction.
+\item
+  Focusing on Z measurements, we have two states: spin up (\texttt{\textbar{}+\textgreater{}}) and spin down (\texttt{\textbar{}-\textgreater{}}). We get that with the detector registering a +1 or -1.
+\item
+  If we measure a Z spin with a detector, and it registers a +1, we call it spin up, and take a second, identical detector, and flip it upside, it will register a -1. This scenario is not pictured.
+\item
+  If we take a Z detector and measure a spin up electron, and then take a second detector, and start to slightly tilt the detector away from a straight Z orientation, we still only measure +1 and -1 readings. For a slight tilt, almost all electrons will measure spin up, and a few spin down. As it rotates to be perpendicular to the Z direction, electrons measure +1 and -1 with a 50\% probability. As we get closer to the tilt making the detector upside down, then most of the electrons will measure -1, until it is exactly upside down, and the detetcor will consistently measure -1.
+\end{itemize}
+
+This is kind of weird. Note that if this were a classical spin, you would expect that if you measured a spin of +1, and tilted the detector a little bit, you would measure a value a little less than +1. But quantum doesn't work that way. Instead of reducing the spin a little bit, what happens is that the probability of a +1 starts to decrease as you tilt the detector. The \emph{average} of multiple measurements approaches the value of what you would expect a single measured spin to decrease by (if it were classical).
+
+So, whatever math we come up, it can't be the same classical math that gives a single spin measurement decreasing continuously from +1. It has to be something that accounts for:
+
+\begin{itemize}
+\tightlist
+\item
+  A spin will always either be +1 or -1
+\item
+  The \emph{probability} of detecting +1 and -1 change as you tilt the detector.
+\end{itemize}
+
+So we go talk to the math department\ldots{}
 
   \bibliography{book.bib,packages.bib}
 

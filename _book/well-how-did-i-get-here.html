@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-10-30" />
+<meta name="date" content="2021-11-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,7 +41,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="how-do-i-work-this.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -84,6 +84,11 @@ set in the _output.yml file.</p>" />
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
 <li class="chapter" data-level="2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html"><i class="fa fa-check"></i><b>2</b> Well, How Did I Get Here?</a></li>
+<li class="chapter" data-level="3" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>3</b> How do I work this?</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>3.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="3.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>3.2</b> What things do we need to model this?</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -106,18 +111,33 @@ set in the _output.yml file.</p>" />
             <section class="normal" id="section-">
 <div id="well-how-did-i-get-here" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Well, How Did I Get Here?</h1>
-<p>Most linear algebra textbooks I’ve read have the axioms of a vector space within the first 3 pages. It is a bad way to start, because you really have no frame of reference for what any of the terms mean. It is frustrating and made me angry.</p>
-<p>Let’s start how every linear algebra book starts, <strong>but know that we shouldn’t really start here.</strong> And we won’t, in the traditional sense.</p>
-<p>From Wikipedia:</p>
+<p>At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of <span class="math inline">\(\mathbb{R}^2\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span>. These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.</p>
+<p>You know that you can add two vectors by putting the tail of one vector at the head of the other and connecting the base of one to the tip of the other vector. And we know how to stretch, shrink, and flip a vector, which we do by multiplying a vector by a real number. If you multiply a vector by <span class="math inline">\(1/2\)</span>, the length of the vector shrinks to one-half its original length (but the direction doesn’t change). If you multiply a vector by <span class="math inline">\(3 \sqrt{2}\)</span> the magnitude of the result is stretched by that amount.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="images/vector-space-axioms-wikipedia_2.png" alt="[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story..." width="100%" height="100%" />
+<img src="images/vector_parallelogram_law.png" alt="Parallelogram Law of Addition" width="75%" height="75%" />
 <p class="caption">
-Figure 2.1: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of incomprehensible stuff. But I wasn’t always like this. Let me tell you a story…
+Figure 2.1: Parallelogram Law of Addition
 </p>
 </div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/Vector-scaling.jpg" alt="Vector Scaling" width="100%" height="100%" />
+<p class="caption">
+Figure 2.2: Vector Scaling
+</p>
+</div>
+<p>These are the prototypical vector spaces, one I’d argue 99 times out of 100 people imagine if they know what a vector space is already. If that was all that vector spaces were, mathematicians probably wouldn’t make the seemingly awkward definition that are always presented in the first three pages of any textbook:</p>
+<p>From Wikipedia:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/vector-space-axioms-wikipedia_2.png" alt="[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story..." width="100%" height="100%" />
+<p class="caption">
+Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of incomprehensible stuff. But I wasn’t always like this. Let me tell you a story…
+</p>
+</div>
+<p>It is a bad way to start, because you really have no frame of reference for what any of the terms mean. It is frustrating and made me angry <strong>We shouldn’t really start here.</strong></p>
 <p>This reminds me of the joke about a cab driver driving around the Seattle area in a fog, and he asks a guy coming out of a building if he can tell the cabbie where he is. The guy looks at him and says, “You’re in a cab,” and walks on. The cabbie says “Perfect, I know where I am.” The fare asks him how he can figure out anything from what the guy outside said, and the cabbie say, “Well, he told me something that was completely true and completely useless. So this must be the Microsoft building.”</p>
 <p>There’s so many questions that should be triggered. Like:</p>
 <ul>
+<li>Why so many simple axioms?</li>
 <li>What are vectors, really?</li>
 <li>What is a field, really?</li>
 <li>What does it mean to add vectors?</li>
@@ -125,12 +145,19 @@ Figure 2.1: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
 <li>How do I know what other vector <span class="math inline">\(a \cdot \vec{u}\)</span> becomes?</li>
 <li>It looks like the scalar field talks about how <em>scalar addition</em> and <em>scalar multiplication</em> works. But vectors only talk about <em>vector addition</em>. What’s up with that?</li>
 </ul>
-<p>The things I think about this are, <strong>assuming I know the answer to the above questions</strong>:</p>
+<p>We know from <span class="math inline">\(\mathbb{R}^2\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span> how vector spaces works, and we can look over the axioms and confirm that yep, those vector spaces meet the axioms. But that doesn’t answer why we lay out the axioms that way. Even more, we don’t have a good idea of what other structures my meet these axioms and be a vector space. Or how to interpret that.</p>
+<p>Let’s view the axioms in light of what we know about the <span class="math inline">\(\mathbb{R}\)</span> spaces:</p>
 <ul>
 <li>Vectors work the way you think they should, it kinda-sorta works like addition for regular numbers.</li>
 <li>Scalar multiplication works the way you think it should, it kinda-sorta works like addition and multiplication for regular numbers.</li>
 <li>Scalars have both addition and multiplication, while vectors only have addition. That’s gotta mean something.</li>
 </ul>
+<p>Let’s further focus on scalar multiplication. In the <span class="math inline">\(\mathbb{R}\)</span> spaces, we intuitively know when you pick a scalar to multiply a vector by, you are stretching one vector into another, both vectors being same direction. Another, more abstract way of thinking about this (and one that will be useful in the near future!) is that a scalar is a function that takes one vector to another one. With our vector spaces, it’s easy to see which one: if the scalar is <span class="math inline">\(2\)</span>, it maps the vector to the one that is twice it’s magnitude in the same direction.</p>
+<p>But there’s more to these scalars. If you think of them as functions, per the axioms, adding two scalars will get you to a new scalar that will map vectors. if <span class="math inline">\(\alpha = \alpha_{1} + \alpha_{2}\)</span> is your new scalar, and you operate on <span class="math inline">\(\vec{x}\)</span>, it will work the same was if you operated on <span class="math inline">\(\vec{x}\)</span> with <span class="math inline">\(\alpha_{1}\)</span> and <span class="math inline">\(\alpha_{2}\)</span>, and then added those two vectors together. That is, <span class="math inline">\(\alpha \vec{x} = \alpha_{1} \vec{x} + \alpha_{2} \vec{x}\)</span>. This is a <strong>strong</strong> constraint on any function that moves vectors around – that you can combine the scalars first and apply the operation, or apply the constituent scalars individually to <span class="math inline">\(\vec{x}\)</span> and use the vector <span class="math inline">\(+\)</span> operation to combine the individual applications.</p>
+<p>This is the property claimed by the last axiom above. We can go through the other axioms and make similar arguments for them, and make similar observations, each putting <strong>very strong</strong> constraints on how scalar multiplication and vector addition actually construct new vectors. We really filter out a lot of functions that scalar multiplication and vector addition could potentially use in the vector space with these axioms. The rules are really restrictive.</p>
+<p>The point here is this: we have a good intuitive idea of how vectors behave in <span class="math inline">\(\mathbb{R}\)</span> spaces. As we stated above, we can just follow our noses: scalars can be added and multiplied, vectors can be added, and we can put them together in ways such that if we construct a vector <span class="math inline">\(\vec{x} = \alpha_{1} \vec{x_{1}} + \alpha_{2} \vec{x_{2}}\)</span>, we can figure out exactly what vector <span class="math inline">\(\vec{x}\)</span> we must have.</p>
+<p>But we don’t <em>have</em> to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule. We don’t have to have any idea what the elements of the vector space really look like (as in, they don’t have to be arrows in <span class="math inline">\(\mathbb{R}\)</span> space). They just have to be objects that have a vector <span class="math inline">\(+\)</span> structure, and you can define some maps on those objects, which you can <em>label</em> with scalars (from <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span>, as we’ll see), and they just have to obey the axioms. We will need to lift off from this <span class="math inline">\(\mathbb{R}\)</span> prototype of vector spaces for some of the vector spaces we will use in quantum theory. At first, you will want to use your intuition about <span class="math inline">\(\mathbb{R}\)</span> to reason about these more abstract vector spaces (the quantum “state space”), but it won’t <em>quite</em> work, and you’ll need this more sophisticated abstraction.</p>
+<p>In the next chapter, we’ll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need. And illuminate a little more how linear algebra hangs together.</p>
 
 </div>
             </section>
@@ -138,8 +165,8 @@ Figure 2.1: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="how-do-i-work-this.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
