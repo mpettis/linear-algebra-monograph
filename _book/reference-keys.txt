@@ -4,6 +4,9 @@ fig:unnamed-chunk-3
 fig:unnamed-chunk-4
 preface
 well-how-did-i-get-here
+intuition-about-mathbbrn
+the-axioms
+why-are-the-axioms-this-way
 how-do-i-work-this
 lay-of-the-land
 what-things-do-we-need-to-model-this
