@@ -127,9 +127,30 @@ set in the _output.yml file.</p>" />
 <h2><span class="header-section-number">3.1</span> Going Backwards</h2>
 <p>The approach I’ll take here is to start with <span class="math inline">\(\mathbb{R}^2\)</span>, and work up to more general abstractions. We’ll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we’ll be able to pull over the general abstractions, as some of the concrete intuitions don’t work in quantum vector spaces.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="images/simple-vector-orthogonal-unit-vectors.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
+<img src="images/orthonormal-decomposition.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
 <p class="caption">
 Figure 3.1: How most of us understand vector decomposition
+</p>
+</div>
+<p>To recap the highlights:</p>
+<ul>
+<li>You are given two unit vectors that are perpendicular to each other, <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>.</li>
+<li>You are given the vector <span class="math inline">\(\vec{r}\)</span></li>
+<li>You figure out the way to write <span class="math inline">\(\vec{r}\)</span> in terms of <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> by dropping perpendiculars to the lines determined by <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>, and then figuring out the ratio of the length of those intersections to the origin to the length of the individual unit vectors. We call those lengths <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> respectively.</li>
+<li>You can then write <span class="math inline">\(\vec{r}\)</span> as follows:</li>
+</ul>
+<p><span class="math display">\[\vec{r} = a1 \cdot \vec{v1} + a2 \cdot \vec{v2}\]</span></p>
+<p>The big idea here is that, because we can draw perpendiculars and measure lengths, it’s easy to compute the scalars <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span>.</p>
+<p>I contend that it is pretty self-evident here that the following two statements are true:</p>
+<ul>
+<li>You can figure out the scalars (also known as <em>components</em>) for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> for <em>any</em> vector <span class="math inline">\(\vec{r}\)</span>, no matter the size or direction.</li>
+<li>If you have <span class="math inline">\(\vec{r}\)</span> in hand, the values you compute for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> are unique – you can’t use some other way of constructing parallels and measuring lengths, and legitimately come up with different numbers.</li>
+</ul>
+<p>This seems like a boring observation, but, as I’ve said before, this will be important.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="images/parallelogram-decomposition.png" alt="Scalars decomposition using general vectors." width="75%" height="75%" />
+<p class="caption">
+Figure 3.2: Scalars decomposition using general vectors.
 </p>
 </div>
 

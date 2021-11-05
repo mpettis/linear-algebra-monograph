@@ -335,11 +335,50 @@ The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to mo
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/simple-vector-orthogonal-unit-vectors} 
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/orthonormal-decomposition} 
 
 }
 
 \caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+To recap the highlights:
+
+\begin{itemize}
+\tightlist
+\item
+  You are given two unit vectors that are perpendicular to each other, \(\vec{v1}\) and \(\vec{v2}\).
+\item
+  You are given the vector \(\vec{r}\)
+\item
+  You figure out the way to write \(\vec{r}\) in terms of \(\vec{v1}\) and \(\vec{v2}\) by dropping perpendiculars to the lines determined by \(\vec{v1}\) and \(\vec{v2}\), and then figuring out the ratio of the length of those intersections to the origin to the length of the individual unit vectors. We call those lengths \(a1\) and \(a2\) respectively.
+\item
+  You can then write \(\vec{r}\) as follows:
+\end{itemize}
+
+\[\vec{r} = a1 \cdot \vec{v1} + a2 \cdot \vec{v2}\]
+
+The big idea here is that, because we can draw perpendiculars and measure lengths, it's easy to compute the scalars \(a1\) and \(a2\).
+
+I contend that it is pretty self-evident here that the following two statements are true:
+
+\begin{itemize}
+\tightlist
+\item
+  You can figure out the scalars (also known as \emph{components}) for \(a1\) and \(a2\) for \emph{any} vector \(\vec{r}\), no matter the size or direction.
+\item
+  If you have \(\vec{r}\) in hand, the values you compute for \(a1\) and \(a2\) are unique -- you can't use some other way of constructing parallels and measuring lengths, and legitimately come up with different numbers.
+\end{itemize}
+
+This seems like a boring observation, but, as I've said before, this will be important.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/parallelogram-decomposition} 
+
+}
+
+\caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 \hypertarget{how-do-i-work-this}{%
@@ -362,7 +401,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-5}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 Some notes on the picture:
