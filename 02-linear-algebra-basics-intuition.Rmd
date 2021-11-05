@@ -1,0 +1,17 @@
+# What is This Beautiful House?
+
+As with most useful finds in life, you grope around blindly in the darkness for a long time, stumbling and swearing, messing up, giving up, coming back, and sometimes tripping over something useful. If what you trip over is really useful, you take it to the garage, clean and polish it, put it on display, and tell lies about how you followed a primrose path, stemming from your genius, to its discovery, making people in awe of you.
+
+We're going to follow that a bit.  It will have some convenient lies that will have enough grains of truth in it to be helpful.  I don't pretend to know the history of how linear algebra came into its present form, but I have made a satisfying hero's origin story narrative that has helped me keep important notions straight.  I'll tell that lie here.
+
+
+## Going Backwards
+
+The approach I'll take here is to start with $\mathbb{R}^2$, and work up to more general abstractions.  We'll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it.  We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like.  Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality.  With this established, we will hop over to the vector space of quantum states, and we'll be able to pull over the general abstractions, as some of the concrete intuitions don't work in quantum vector spaces.
+
+
+
+```{r, echo=FALSE, out.width="75%", out.height="75%", fig.align="center", fig.cap="How most of us understand vector decomposition"}
+# From https://www.examfear.com/notes/Class-11/Physics/Motion-In-A-Plane/769/Unit-Vectors.htm :
+knitr::include_graphics('images/simple-vector-orthogonal-unit-vectors.png')
+```

@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 How do I work this? | Linear Algebra: An Intuitionist Approach</title>
+  <title>Chapter 4 How do I work this? | Linear Algebra: An Intuitionist Approach</title>
   <meta name="description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 How do I work this? | Linear Algebra: An Intuitionist Approach" />
+  <meta property="og:title" content="Chapter 4 How do I work this? | Linear Algebra: An Intuitionist Approach" />
   <meta property="og:type" content="book" />
   
   
@@ -22,7 +22,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="mpettis/linear-algebra-monograph" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 How do I work this? | Linear Algebra: An Intuitionist Approach" />
+  <meta name="twitter:title" content="Chapter 4 How do I work this? | Linear Algebra: An Intuitionist Approach" />
   
   <meta name="twitter:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
@@ -40,7 +40,7 @@ set in the _output.yml file.</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="well-how-did-i-get-here.html"/>
+<link rel="prev" href="what-is-this-beautiful-house.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -88,11 +88,16 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#intuition-about-mathbbrn"><i class="fa fa-check"></i><b>2.1</b> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></a></li>
 <li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-axioms"><i class="fa fa-check"></i><b>2.2</b> The Axioms</a></li>
 <li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#why-are-the-axioms-this-way"><i class="fa fa-check"></i><b>2.3</b> Why are the axioms this way?</a></li>
+<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#section"><i class="fa fa-check"></i><b>2.4</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>3</b> How do I work this?</a>
+<li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>3.1</b> Lay of the Land</a></li>
-<li class="chapter" data-level="3.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>3.2</b> What things do we need to model this?</a></li>
+<li class="chapter" data-level="3.1" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#going-backwards"><i class="fa fa-check"></i><b>3.1</b> Going Backwards</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -114,18 +119,18 @@ set in the _output.yml file.</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="how-do-i-work-this" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> How do I work this?</h1>
+<div id="how-do-i-work-this" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> How do I work this?</h1>
 <p>My uncle tells the story of how they help transition mechanical engineers fresh out of school to working in industry. A senior engineer tasks them with a simple task: a near complete machine needs a piece – it is missing a cog. The tell the new engineer to get them one. The new engineer studies the plans, designs the cog, painstakingly laying out the CAD designs for it, and comes back to the senior engineer after a week with his work to review how to machine that part, and how much it will cost. The senior engineer looks it over, says it is the right piece, and pulls out a catalog, and shows him how much it will cost to buy, usually at a fraction of the cost. The lesson they learn: don’t create from scratch stuff you can buy cheaply from a catalog.</p>
 <p>We might think of physics and mathematics having a similar relationship. Often, as you painstakingly observe a physical system, you figure out what are the important bits you need to capture with a model, and how those bits behave in the system. Then, you go shopping to your local math department, describing what you are doing, and hope that a mathematician can recommend a system they’ve already investigated that you can map your problem into, and take advantage of the notions, the notations, and theorems about the system behavior that they’ve already come up with.</p>
 <p>So, let’s proceed by looking at a simple spin-<span class="math inline">\(1/2\)</span> system, of electrons that can have either a spin up or down measurement, depending on how the spin-detector is oriented. Many newer books start their quantum discussion this way, and two I can recommend that do this are <em>Quantum Mechanics: The Theoretical Minimum</em> by Len Susskind and <em>Quantum Mechanics: A Paradigms Approach</em> by David McIntyre. I won’t repeat their treatment here, and will assume you know the basics of measuring spins in those systems. I will talk about how you start to pick your mathematics from the catalog to model this phenomenon.</p>
-<div id="lay-of-the-land" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Lay of the Land</h2>
+<div id="lay-of-the-land" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Lay of the Land</h2>
 <p>Here is a picture that captures some of the important information about a quantum experiment we run:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="images/McIntyre_two-spin-experiment.png" alt="Two-spin experiment, McIntire" width="75%" height="75%" />
 <p class="caption">
-Figure 3.1: Two-spin experiment, McIntire
+Figure 4.1: Two-spin experiment, McIntire
 </p>
 </div>
 <p>Some notes on the picture:</p>
@@ -145,8 +150,8 @@ Figure 3.1: Two-spin experiment, McIntire
 </ul>
 <p>That can stand as the first of many weirdnesses you encounter in quantum. As McIntyre says: going from (a) or (b) to (c), it’s as if you are in a half-lit room, throw open a window shade, and the whole room goes dark. In a classical model, (c) would still have a 50-50 split of spin measurements, but that doesn’t happen in the quantum world.</p>
 </div>
-<div id="what-things-do-we-need-to-model-this" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> What things do we need to model this?</h2>
+<div id="what-things-do-we-need-to-model-this" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> What things do we need to model this?</h2>
 <p>So, we make the following observations.</p>
 <ul>
 <li>If we measure a spin as up in the Z direction, and keep measuring the spin with detectors all pointed along the same Z axis, we will always get the same spin up measurement. That is true as long as we don’t orient the detector in a different direction.</li>
@@ -169,7 +174,7 @@ Figure 3.1: Two-spin experiment, McIntire
           </div>
         </div>
       </div>
-<a href="well-how-did-i-get-here.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="what-is-this-beautiful-house.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -201,7 +206,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-quantum-linear-mapping.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-quantum-linear-mapping.Rmd",
 "text": "Edit"
 },
 "history": {

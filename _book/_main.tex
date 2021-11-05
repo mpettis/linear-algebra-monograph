@@ -160,8 +160,17 @@ I'll approach this as science would ideally approach this. What do we observe? W
 \begin{quote}
 It takes a very unusual mind to undertake the analysis of the obvious.
 
-Alfred North Whitehead
+-- Alfred North Whitehead
 \end{quote}
+
+\begin{quote}
+Point of view is worth 80 IQ points
+
+-- Alan Kay
+\end{quote}
+
+\hypertarget{intuition-about-mathbbrn}{%
+\section{\texorpdfstring{Intuition about \(\mathbb{R}^n\)}{Intuition about \textbackslash mathbb\{R\}\^{}n}}\label{intuition-about-mathbbrn}}
 
 At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of \(\mathbb{R}^2\) and \(\mathbb{R}^3\). These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.
 
@@ -191,12 +200,7 @@ These are the prototypical vector spaces, one I'd argue 99 times out of 100 peop
 
 So it may help to go back to \(\mathbb{R}^n\) and do some careful syntax-to-interpretation explanations. And take some of the things we take for granted as obvious and cast them in new, abstract lights.
 
-Before we get to the vector space axioms, let's review our intuitions a bit more about \(\mathbb{R}^n\) vector spaces.
-
-\hypertarget{intuition-about-mathbbrn}{%
-\section{\texorpdfstring{Intuition about \(\mathbb{R}^n\)}{Intuition about \textbackslash mathbb\{R\}\^{}n}}\label{intuition-about-mathbbrn}}
-
-We already discussed how addition and scalar multiplication are performed. But we should note the choices we made to do what seems so natural to us.
+We just discussed how addition and scalar multiplication are performed. But we should note the choices we made to do what seems so natural to us.
 
 First, addition. We did it using the parallelogram law. How come we didn't choose to make the resulting vector have a length equal to the sum of the length of the two starting vectors? You can see from the picture the length of our resulting vector is usually shorter, but never longer, than the length of the two vectors you are adding. You should counter, ``well, that's because things like forces don't work that way. If I have two equal and opposite forces acting on an object, I want the result to be no net force. If the magnitudes were added, which direction would the result point? Doesn't make sense, so we can't use that because it doesn't model the situation.''
 
@@ -262,11 +266,11 @@ We can boil these axioms down as follows:
 \begin{itemize}
 \tightlist
 \item
-  It won't matter what order you do your operations in, you are guaranteed to get the same answer. All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us.
+  It won't matter what order you do your operations in, you are guaranteed to get the same answer. All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us this.
 \item
   Your vector space has an element that acts as a \(\vec{0}\) element, and every vector has an opposite that, when you add them together, gives you \(\vec{0}\).
 \item
-  Your scalar field, which has a \(\vec{1}\) in it, when combined with a vector, won't change that vector.
+  Your scalar field, which has a 1 in it, when combined with a vector, won't change that vector. Or, \(1 \cdot \vec{x} = \vec{x}\)
 \end{itemize}
 
 But that doesn't answer why we say what we want in a vector space that way. Even more, we don't have a good idea of what other structures my meet these axioms and be a vector space. Or how to interpret that.
@@ -274,9 +278,9 @@ But that doesn't answer why we say what we want in a vector space that way. Even
 \hypertarget{why-are-the-axioms-this-way}{%
 \section{Why are the axioms this way?}\label{why-are-the-axioms-this-way}}
 
-In elementary school, you learned your 1-digit by 1-digit times tables by rote. And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together. You need only know the 1-digit times tables and a procedure with adjusted addition to handle the multiplication of any two numbers of any length.
+In elementary school, you learned your 1-digit by 1-digit times tables by rote. And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together. You need only know the 1-digit times tables and a procedure with special addition rules to handle the multiplication of any two numbers of any length.
 
-\emph{That} reduction to a set of memorized computations and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces. We don't want to have to memorize the sum of every two-vector combination in the space, because by my last count, I'm pretty sure there are more than 57 vectors in \(\mathbb{R}^2\) alone. What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.
+\emph{That} reduction to a small set of memorized multiplication facts and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces. We don't want to have to memorize the sum of every two-vector combination in the space, because by my last count, I'm pretty sure there are more than 57 vectors in \(\mathbb{R}^2\) alone. What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.
 
 So here's the game plan, to try and tackle complex things like \(\mathbb{R}^n\) and other things that will qualify as vector spaces. We are going to reference some topics that will be familiar to you if you've dealt with linear algebras before, but haven't talked about yet here:
 
@@ -291,14 +295,17 @@ Get a fixed number of facts (vectors \(\vec{x}_{i}\)) we need to deal with, like
 Figure out how to express them as simple combinations of known facts & Linear combinations with scalars: \(\vec{x} = \alpha_{1} \vec{x}_{1} + \alpha_{1} \vec{x}_{1} + ... + \alpha_{n} \vec{x}_{n}\). A minimal set of linearly independent vectors that can do this is called a \emph{basis}. \\
 Discover that for vector spaces (finite ones), any set of vectors that work to do this \emph{always} has the same number of vectors & This is the dimensionality \(N\) of the space. \\
 Figure out how to calculate \(\alpha_{i}\) for a given set of vectors. & To do this, we'll have to create the concept of the \emph{inner product}. \\
-Find out that lots of choices of \(\vec{x}_{i}\) will work to express any vector, but \emph{certain} ones are easier to compute the \(\alpha_{i}\)'s for. & These will vectors that are orthogonal and of a certain size (magnitude = 1). The word that captures both of these concepts is \emph{orthonormal}. There are still lots of orthonormal sets. \\
+Find out that lots of choices of \(\vec{x}_{i}\) will work to express any vector, but \emph{certain} ones are easier to compute the \(\alpha_{i}\)'s for. & These will be vectors that are orthogonal and of a certain size (magnitude = 1). The word that captures both of these concepts is \emph{orthonormal}. There are still lots of orthonormal sets. \\
 Figure out how to take an arbirary linear independent set and construct an equivalent orthonormal set out of them, because they are easier to deal with. & This is the Gram-Schmidt theorem. \\
 \bottomrule
 \end{longtable}
 
 This will be enough for now. Once we get into functions \emph{between} vector spaces, and pick out the special functions (the \emph{linear} transforms), we'll talk about what \emph{eigenvectors} and \emph{eigenvalues} are. But not yet.
 
-The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, basis, orthonormal bases, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves.
+The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.
+
+\hypertarget{section}{%
+\section{}\label{section}}
 
 \ldots{}
 
@@ -313,6 +320,27 @@ The point here is this: we have a good intuitive idea of how vectors behave in \
 But we don't \emph{have} to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule. We don't have to have any idea what the elements of the vector space really look like (as in, they don't have to be arrows in \(\mathbb{R}\) space). They just have to be objects that have a vector \(+\) structure, and you can define some maps on those objects, which you can \emph{label} with scalars (from \(\mathbb{R}\) or \(\mathbb{C}\), as we'll see), and they just have to obey the axioms. We will need to lift off from this \(\mathbb{R}\) prototype of vector spaces for some of the vector spaces we will use in quantum theory. At first, you will want to use your intuition about \(\mathbb{R}\) to reason about these more abstract vector spaces (the quantum ``state space''), but it won't \emph{quite} work, and you'll need this more sophisticated abstraction.
 
 In the next chapter, we'll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need. And illuminate a little more how linear algebra hangs together.
+
+\hypertarget{what-is-this-beautiful-house}{%
+\chapter{What is This Beautiful House?}\label{what-is-this-beautiful-house}}
+
+As with most useful finds in life, you grope around blindly in the darkness for a long time, stumbling and swearing, messing up, giving up, coming back, and sometimes tripping over something useful. If what you trip over is really useful, you take it to the garage, clean and polish it, put it on display, and tell lies about how you followed a primrose path, stemming from your genius, to its discovery, making people in awe of you.
+
+We're going to follow that a bit. It will have some convenient lies that will have enough grains of truth in it to be helpful. I don't pretend to know the history of how linear algebra came into its present form, but I have made a satisfying hero's origin story narrative that has helped me keep important notions straight. I'll tell that lie here.
+
+\hypertarget{going-backwards}{%
+\section{Going Backwards}\label{going-backwards}}
+
+The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to more general abstractions. We'll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we'll be able to pull over the general abstractions, as some of the concrete intuitions don't work in quantum vector spaces.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/simple-vector-orthogonal-unit-vectors} 
+
+}
+
+\caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-4}
+\end{figure}
 
 \hypertarget{how-do-i-work-this}{%
 \chapter{How do I work this?}\label{how-do-i-work-this}}
@@ -334,7 +362,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-4}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 Some notes on the picture:

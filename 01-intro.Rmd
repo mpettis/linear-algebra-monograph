@@ -2,7 +2,14 @@
 
 > It takes a very unusual mind to undertake the analysis of the obvious.
 >
-> Alfred North Whitehead
+> -- Alfred North Whitehead
+
+> Point of view is worth 80 IQ points
+>
+> -- Alan Kay
+
+
+## Intuition about $\mathbb{R}^n$
 
 At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of $\mathbb{R}^2$ and $\mathbb{R}^3$.  These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.
 
@@ -22,12 +29,7 @@ These are the prototypical vector spaces, one I'd argue 99 times out of 100 peop
 
 So it may help to go back to $\mathbb{R}^n$ and do some careful syntax-to-interpretation explanations.  And take some of the things we take for granted as obvious and cast them in new, abstract lights.
 
-
-Before we get to the vector space axioms, let's review our intuitions a bit more about $\mathbb{R}^n$ vector spaces.
-
-## Intuition about $\mathbb{R}^n$
-
-We already discussed how addition and scalar multiplication are performed.  But we should note the choices we made to do what seems so natural to us.
+We just discussed how addition and scalar multiplication are performed.  But we should note the choices we made to do what seems so natural to us.
 
 First, addition.  We did it using the parallelogram law.  How come we didn't choose to make the resulting vector have a length equal to the sum of the length of the two starting vectors?  You can see from the picture the length of our resulting vector is usually shorter, but never longer, than the length of the two vectors you are adding.  You should counter, "well, that's because things like forces don't work that way.  If I have two equal and opposite forces acting on an object, I want the result to be no net force.  If the magnitudes were added, which direction would the result point?  Doesn't make sense, so we can't use that because it doesn't model the situation."
 
@@ -76,9 +78,9 @@ With $\mathbb{R}^n$, we can look over the axioms and confirm that yep, they meet
 
 We can boil these axioms down as follows:
 
-- It won't matter what order you do your operations in, you are guaranteed to get the same answer.  All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us.
+- It won't matter what order you do your operations in, you are guaranteed to get the same answer.  All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us this.
 - Your vector space has an element that acts as a $\vec{0}$ element, and every vector has an opposite that, when you add them together, gives you $\vec{0}$.
-- Your scalar field, which has a $\vec{1}$ in it, when combined with a vector, won't change that vector.
+- Your scalar field, which has a 1 in it, when combined with a vector, won't change that vector.  Or, $1 \cdot \vec{x} = \vec{x}$ 
 
 But that doesn't answer why we say what we want in a vector space that way.  Even more, we don't have a good idea of what other structures my meet these axioms and be a vector space.  Or how to interpret that.
 
@@ -87,7 +89,7 @@ But that doesn't answer why we say what we want in a vector space that way.  Eve
 
 In elementary school, you learned your 1-digit by 1-digit times tables by rote.  And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together.  You need only know the 1-digit times tables and a procedure with special addition rules to handle the multiplication of any two numbers of any length.
 
-*That* reduction to a set of memorized computations and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces.  We don't want to have to memorize the sum of every two-vector combination in the space, because by my last count, I'm pretty sure there are more than 57 vectors in $\mathbb{R}^2$ alone.  What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.
+*That* reduction to a small set of memorized multiplication facts and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces.  We don't want to have to memorize the sum of every two-vector combination in the space, because by my last count, I'm pretty sure there are more than 57 vectors in $\mathbb{R}^2$ alone.  What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.
 
 So here's the game plan, to try and tackle complex things like $\mathbb{R}^n$ and other things that will qualify as vector spaces.  We are going to reference some topics that will be familiar to you if you've dealt with linear algebras before, but haven't talked about yet here:
 
@@ -103,7 +105,17 @@ So here's the game plan, to try and tackle complex things like $\mathbb{R}^n$ an
 
 This will be enough for now.  Once we get into functions *between* vector spaces, and pick out the special functions (the *linear* transforms), we'll talk about what *eigenvectors* and *eigenvalues* are.  But not yet.
 
-The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors.  This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme.  So we go through all of this work to find linear independent sets, basis, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves.
+The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors.  This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme.  So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.
+
+
+## 
+
+
+
+
+
+
+
 
 
 

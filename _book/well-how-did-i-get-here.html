@@ -41,7 +41,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="how-do-i-work-this.html"/>
+<link rel="next" href="what-is-this-beautiful-house.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -88,11 +88,16 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#intuition-about-mathbbrn"><i class="fa fa-check"></i><b>2.1</b> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></a></li>
 <li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-axioms"><i class="fa fa-check"></i><b>2.2</b> The Axioms</a></li>
 <li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#why-are-the-axioms-this-way"><i class="fa fa-check"></i><b>2.3</b> Why are the axioms this way?</a></li>
+<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#section"><i class="fa fa-check"></i><b>2.4</b> </a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>3</b> How do I work this?</a>
+<li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>3.1</b> Lay of the Land</a></li>
-<li class="chapter" data-level="3.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>3.2</b> What things do we need to model this?</a></li>
+<li class="chapter" data-level="3.1" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#going-backwards"><i class="fa fa-check"></i><b>3.1</b> Going Backwards</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -118,8 +123,14 @@ set in the _output.yml file.</p>" />
 <h1><span class="header-section-number">Chapter 2</span> Well, How Did I Get Here?</h1>
 <blockquote>
 <p>It takes a very unusual mind to undertake the analysis of the obvious.</p>
-<p>Alfred North Whitehead</p>
+<p>– Alfred North Whitehead</p>
 </blockquote>
+<blockquote>
+<p>Point of view is worth 80 IQ points</p>
+<p>– Alan Kay</p>
+</blockquote>
+<div id="intuition-about-mathbbrn" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></h2>
 <p>At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of <span class="math inline">\(\mathbb{R}^2\)</span> and <span class="math inline">\(\mathbb{R}^3\)</span>. These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.</p>
 <p>You know that you can add two vectors by putting the tail of one vector at the head of the other and connecting the base of one to the tip of the other vector.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
@@ -137,10 +148,7 @@ Figure 2.2: Vector Scaling
 </div>
 <p>These are the prototypical vector spaces, one I’d argue 99 times out of 100 people imagine if they know what a vector space is already. And if this is the only space you have to deal with, this intuition is pretty much all you need. It will take you far. But if you study quantum state space vectors, with their complex entries, and the notion of <span class="math inline">\(\mathbb{R}^n\)</span> vector spaces can help some of your intuition, and for other parts, you are totally at sea as to how the hell you are supposed to interpret things.</p>
 <p>So it may help to go back to <span class="math inline">\(\mathbb{R}^n\)</span> and do some careful syntax-to-interpretation explanations. And take some of the things we take for granted as obvious and cast them in new, abstract lights.</p>
-<p>Before we get to the vector space axioms, let’s review our intuitions a bit more about <span class="math inline">\(\mathbb{R}^n\)</span> vector spaces.</p>
-<div id="intuition-about-mathbbrn" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></h2>
-<p>We already discussed how addition and scalar multiplication are performed. But we should note the choices we made to do what seems so natural to us.</p>
+<p>We just discussed how addition and scalar multiplication are performed. But we should note the choices we made to do what seems so natural to us.</p>
 <p>First, addition. We did it using the parallelogram law. How come we didn’t choose to make the resulting vector have a length equal to the sum of the length of the two starting vectors? You can see from the picture the length of our resulting vector is usually shorter, but never longer, than the length of the two vectors you are adding. You should counter, “well, that’s because things like forces don’t work that way. If I have two equal and opposite forces acting on an object, I want the result to be no net force. If the magnitudes were added, which direction would the result point? Doesn’t make sense, so we can’t use that because it doesn’t model the situation.”</p>
 <p>Good answer, reader!</p>
 <p>We want our model to reflect what is going on. So that sort of addition is out. It turns out head-to-tail addition does model things like forces. What is also intuitive is that for any arrow, or force, or velocity, you can “counteract” it with another arrow/force/velocity. You could not do this if the magnitues themselves always add. You can never add two positive things to get a net zero, which would represent two things counteracting each other.</p>
@@ -176,16 +184,16 @@ Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
 <p>With <span class="math inline">\(\mathbb{R}^n\)</span>, we can look over the axioms and confirm that yep, they meet the axioms, because we have a strong intuition about how addtion of vectors work, how scalars stretch the vectors, and how the addition and multiplication of scalar (read: real) numbers work.</p>
 <p>We can boil these axioms down as follows:</p>
 <ul>
-<li>It won’t matter what order you do your operations in, you are guaranteed to get the same answer. All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us.</li>
+<li>It won’t matter what order you do your operations in, you are guaranteed to get the same answer. All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us this.</li>
 <li>Your vector space has an element that acts as a <span class="math inline">\(\vec{0}\)</span> element, and every vector has an opposite that, when you add them together, gives you <span class="math inline">\(\vec{0}\)</span>.</li>
-<li>Your scalar field, which has a <span class="math inline">\(\vec{1}\)</span> in it, when combined with a vector, won’t change that vector.</li>
+<li>Your scalar field, which has a 1 in it, when combined with a vector, won’t change that vector. Or, <span class="math inline">\(1 \cdot \vec{x} = \vec{x}\)</span></li>
 </ul>
 <p>But that doesn’t answer why we say what we want in a vector space that way. Even more, we don’t have a good idea of what other structures my meet these axioms and be a vector space. Or how to interpret that.</p>
 </div>
 <div id="why-are-the-axioms-this-way" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Why are the axioms this way?</h2>
-<p>In elementary school, you learned your 1-digit by 1-digit times tables by rote. And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together. You need only know the 1-digit times tables and a procedure with adjusted addition to handle the multiplication of any two numbers of any length.</p>
-<p><em>That</em> reduction to a set of memorized computations and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces. We don’t want to have to memorize the sum of every two-vector combination in the space, because by my last count, I’m pretty sure there are more than 57 vectors in <span class="math inline">\(\mathbb{R}^2\)</span> alone. What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.</p>
+<p>In elementary school, you learned your 1-digit by 1-digit times tables by rote. And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together. You need only know the 1-digit times tables and a procedure with special addition rules to handle the multiplication of any two numbers of any length.</p>
+<p><em>That</em> reduction to a small set of memorized multiplication facts and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces. We don’t want to have to memorize the sum of every two-vector combination in the space, because by my last count, I’m pretty sure there are more than 57 vectors in <span class="math inline">\(\mathbb{R}^2\)</span> alone. What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.</p>
 <p>So here’s the game plan, to try and tackle complex things like <span class="math inline">\(\mathbb{R}^n\)</span> and other things that will qualify as vector spaces. We are going to reference some topics that will be familiar to you if you’ve dealt with linear algebras before, but haven’t talked about yet here:</p>
 <table>
 <colgroup>
@@ -217,7 +225,7 @@ Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
 </tr>
 <tr class="odd">
 <td>Find out that lots of choices of <span class="math inline">\(\vec{x}_{i}\)</span> will work to express any vector, but <em>certain</em> ones are easier to compute the <span class="math inline">\(\alpha_{i}\)</span>’s for.</td>
-<td>These will vectors that are orthogonal and of a certain size (magnitude = 1). The word that captures both of these concepts is <em>orthonormal</em>. There are still lots of orthonormal sets.</td>
+<td>These will be vectors that are orthogonal and of a certain size (magnitude = 1). The word that captures both of these concepts is <em>orthonormal</em>. There are still lots of orthonormal sets.</td>
 </tr>
 <tr class="even">
 <td>Figure out how to take an arbirary linear independent set and construct an equivalent orthonormal set out of them, because they are easier to deal with.</td>
@@ -226,7 +234,10 @@ Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
 </tbody>
 </table>
 <p>This will be enough for now. Once we get into functions <em>between</em> vector spaces, and pick out the special functions (the <em>linear</em> transforms), we’ll talk about what <em>eigenvectors</em> and <em>eigenvalues</em> are. But not yet.</p>
-<p>The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, basis, orthonormal bases, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves.</p>
+<p>The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.</p>
+</div>
+<div id="section" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> </h2>
 <p>…</p>
 <p>You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors. You just have to find that rule in the set. It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school. Some savants do this to perform faster computations – they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations. Some even have some key 3-digit by 3-digit products memorized.</p>
 <p>If you think about it, in <span class="math inline">\(\mathbb{R}^n\)</span>, that scalar relationship is a pattern you notice about how the vectors adhere to. But it isn’t necessary – you could just memorize what resulting vector you get when you add any two vectors together.</p>
@@ -243,7 +254,7 @@ Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="how-do-i-work-this.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="what-is-this-beautiful-house.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
