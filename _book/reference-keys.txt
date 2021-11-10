@@ -4,6 +4,7 @@ fig:unnamed-chunk-3
 fig:unnamed-chunk-4
 fig:unnamed-chunk-5
 fig:unnamed-chunk-6
+fig:unnamed-chunk-7
 preface
 well-how-did-i-get-here
 intuition-about-mathbbrn
@@ -11,7 +12,11 @@ the-axioms
 why-are-the-axioms-this-way
 section
 what-is-this-beautiful-house
-going-backwards
+starting-with-what-we-know
+scenario-1-orthonormal-vectors
+scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors
+important-observations
+inner-products
 how-do-i-work-this
 lay-of-the-land
 what-things-do-we-need-to-model-this

@@ -78,7 +78,7 @@
 
 \title{Linear Algebra: An Intuitionist Approach}
 \author{Matt Pettis}
-\date{2021-11-05}
+\date{2021-11-08}
 
 \begin{document}
 \maketitle
@@ -328,10 +328,13 @@ As with most useful finds in life, you grope around blindly in the darkness for 
 
 We're going to follow that a bit. It will have some convenient lies that will have enough grains of truth in it to be helpful. I don't pretend to know the history of how linear algebra came into its present form, but I have made a satisfying hero's origin story narrative that has helped me keep important notions straight. I'll tell that lie here.
 
-\hypertarget{going-backwards}{%
-\section{Going Backwards}\label{going-backwards}}
+\hypertarget{starting-with-what-we-know}{%
+\section{Starting with what we know}\label{starting-with-what-we-know}}
 
 The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to more general abstractions. We'll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we'll be able to pull over the general abstractions, as some of the concrete intuitions don't work in quantum vector spaces.
+
+\hypertarget{scenario-1-orthonormal-vectors}{%
+\subsection{Scenario 1: Orthonormal vectors}\label{scenario-1-orthonormal-vectors}}
 
 \begin{figure}
 
@@ -342,12 +345,14 @@ The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to mo
 \caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-4}
 \end{figure}
 
+This is picking vectors so that you have effectively the Cartesian coordinate plane that you are used to -- \(v1\) and \(v2\) act like the x- and y-axis of your high school years.
+
 To recap the highlights:
 
 \begin{itemize}
 \tightlist
 \item
-  You are given two unit vectors that are perpendicular to each other, \(\vec{v1}\) and \(\vec{v2}\).
+  You are given two vectors that are perpendicular to each other (\emph{ortho-}), \(\vec{v1}\) and \(\vec{v2}\), and are of unit length(\emph{-normal}).
 \item
   You are given the vector \(\vec{r}\)
 \item
@@ -358,19 +363,22 @@ To recap the highlights:
 
 \[\vec{r} = a1 \cdot \vec{v1} + a2 \cdot \vec{v2}\]
 
-The big idea here is that, because we can draw perpendiculars and measure lengths, it's easy to compute the scalars \(a1\) and \(a2\).
+The big idea here is that, because we can draw perpendiculars and measure lengths (which we are allowed to do because we can do all of the good things the geometry we learned allows us to do), it's easy to compute the scalars \(a1\) and \(a2\).
 
 I contend that it is pretty self-evident here that the following two statements are true:
 
 \begin{itemize}
 \tightlist
 \item
-  You can figure out the scalars (also known as \emph{components}) for \(a1\) and \(a2\) for \emph{any} vector \(\vec{r}\), no matter the size or direction.
+  You can figure out the scalars (also known as \emph{components}) for \(a1\) and \(a2\) for \emph{any} vector \(\vec{r}\), no matter the size or direction. You can do this with geometric tools (marking of unit lengths, dropping perpendiculars or drawing parallels -- anything you can do with a compass and straight-edge).
 \item
   If you have \(\vec{r}\) in hand, the values you compute for \(a1\) and \(a2\) are unique -- you can't use some other way of constructing parallels and measuring lengths, and legitimately come up with different numbers.
 \end{itemize}
 
 This seems like a boring observation, but, as I've said before, this will be important.
+
+\hypertarget{scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors}{%
+\subsection{Scenario 2: Getting a little more artsy: any two linearly independent vectors}\label{scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors}}
 
 \begin{figure}
 
@@ -380,6 +388,57 @@ This seems like a boring observation, but, as I've said before, this will be imp
 
 \caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-5}
 \end{figure}
+
+You might find yourself in a situation where you have two reference vectors that are not perpendicular to each other, and not of unit lenghts. That is the situation above. It is not neat and familiar like the first orthonormal case. But it will work. Any vector \(\vec{r}\) can be written by stretching or shrinking both \(\vec{v1}\) and \(\vec{v2}\) by just the right amounts so that you can add them, parallelogram-wise, to get to the same spot as \(\vec{r}\).
+
+The one caveat is that in this case, instead of dropping perpendiculars to lines, we constructed lines parallel to each of the different vectors through the end of \(\vec{r}\). We could have constructed parallels in the orthonormal case as well, and gotten the same results. The interesting thing to keep in your back pocket is, if you ever end up studying tensors, these alternate ways of finding the \emph{components} of the vectors are both used, depending on if you want what tensors refer to as \emph{contravariant} or the \emph{covariant} components. It's not exacly like we show here, but very, very close in spirit. So it's nice to have an example. See: \url{http://www.danfleisch.com/sgvt/} .
+
+\hypertarget{important-observations}{%
+\subsection{Important observations}\label{important-observations}}
+
+We should have a pretty good intuition that the amount we have to stretch vectors to have it represent \(\vec{r}\) are going to totally depend on which vectors \(\vec{v1}\) and \(\vec{v2}\) you use as your reference set. To be clear, for \(\mathbb{R}^2\), the two independent vectors you choose to represent any other arbitrary vector \(\vec{r}\) is called the \emph{basis}.
+
+We are able to use our intuition on \(\mathbb{R}^2\) because we understand how geometry works. We know how to draw perpendiculars and parallels, and measure distances. When we got to more abstract spaces, or when we use complex numbers as a scalar field, we will have to leave our intuition behind, as we won't really have perpendicular and parallel lines to deal with. We will have to replace ``perpendicular'' with ``orthogonal'', which we will be able to determine by having the inner product being 0.
+
+The scaling factors \(a1\) and \(a2\) are called the \emph{components}, to repeat myself. Components are important because they are the numbers that actually get thrown around, showing up as the entries in any matrix and vector representation once a basis is chosen.
+
+Note that the vector \(\vec{r}\) is it's own, eternal, platonic thing. It exists no matter what two basis vectors you choose to decompose it in.
+
+Every vector can be decomposed into a set of basis vectors and appropriate scalar factors. We pretty much have to decompose an arbitrary vector into it's basis representation to do any meaningful computations on the vector.
+
+\hypertarget{inner-products}{%
+\section{Inner products}\label{inner-products}}
+
+I will start with the admission: I don't know what, in general, a good interpretation is of the inner product in general. What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other. Let's start by talking about why we care.
+
+We've already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions). In \(\mathbb{R}^2\), we've shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.
+
+But what happens if, say, the dimension of your space gets bigger than 3? I have no idea how to use a compass and straight edge if it's not on a piece of paper. What I really want is an easy process to get the scalars for my vectors in any dimension, and not have to use the compass and straight-edge. What we need is some sort of function that can take in two vectors, like a vector you want to decompose, and one of the basis vectors you want to focus on, and spit out the scalar that you will need to multiply the basis vector by when you are trying to represent the vector you want to decompose.
+
+Enter the inner product function. This function, should you have one, will give you these scalar coefficients \emph{provided that the basis set you have is made up of mutually perpendicular vectors and they all have unit length (i.e., orthonormal)}. If your basis vectors don't meet this criteria, it won't work out of the box, but there is stuff we can do to still make the inner product ultimately get you what you want. We'll address that later.
+
+The function for an inner product is typically written as: \(\sqrt{<\cdot,\cdot>}\)
+
+Here's how an inner product function is defined on a vector space. Do not study this too hard just yet. It's enough to know it has some weird stuff going on right now that looks like it doesn't really have much to do with what we want to use it for.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/inner-product-definition-wikipedia} 
+
+}
+
+\caption{Like with Medusa, don't look directly at this, at least not yet.}\label{fig:unnamed-chunk-6}
+\end{figure}
+
+Let's talk a little bit about what some of the definition is there to do.
+
+First, in geometry, we know that vectors have lengths. Inner products somehow have to account for dealing with lengths. The way this is addressed is by making functions that qualify as inner products have the property that, for any vector, \(\sqrt{<\vec{x},\vec{x}>}\) maps to the length of your vector. Really, once all of the other conditions of the inner product are fufilled, this actually \emph{defines} what is meant by length of vectors in your space.
+
+Second, the inner product is used to tell us when vectors are orthogonal (in \(\mathbb{R}^n\), this means that vectors are geometrically perpendicular). Vectors that are orthogonal have their inner product being 0. That is, if \(\vec{x}\) and \(\vec{y}\) are orthogonal, then \(<\vec{x},\vec{y}> = 0\).
+
+To look ahead -- once you have a orthonormal set of vectors \(\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}\), you will be able to write any vector \(\vec{x}\) as
+
+\[\vec{x} = <\vec{x}, \vec{x}_{1}> \vec{x}_{1} \]
 
 \hypertarget{how-do-i-work-this}{%
 \chapter{How do I work this?}\label{how-do-i-work-this}}
@@ -401,7 +460,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-6}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 Some notes on the picture:

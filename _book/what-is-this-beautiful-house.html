@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-11-05" />
+<meta name="date" content="2021-11-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,13 @@ set in the _output.yml file.</p>" />
 </ul></li>
 <li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#going-backwards"><i class="fa fa-check"></i><b>3.1</b> Going Backwards</a></li>
+<li class="chapter" data-level="3.1" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#starting-with-what-we-know"><i class="fa fa-check"></i><b>3.1</b> Starting with what we know</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#scenario-1-orthonormal-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Scenario 1: Orthonormal vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors"><i class="fa fa-check"></i><b>3.1.2</b> Scenario 2: Getting a little more artsy: any two linearly independent vectors</a></li>
+<li class="chapter" data-level="3.1.3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#important-observations"><i class="fa fa-check"></i><b>3.1.3</b> Important observations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html#inner-products"><i class="fa fa-check"></i><b>3.2</b> Inner products</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
 <ul>
@@ -123,36 +129,73 @@ set in the _output.yml file.</p>" />
 <h1><span class="header-section-number">Chapter 3</span> What is This Beautiful House?</h1>
 <p>As with most useful finds in life, you grope around blindly in the darkness for a long time, stumbling and swearing, messing up, giving up, coming back, and sometimes tripping over something useful. If what you trip over is really useful, you take it to the garage, clean and polish it, put it on display, and tell lies about how you followed a primrose path, stemming from your genius, to its discovery, making people in awe of you.</p>
 <p>We’re going to follow that a bit. It will have some convenient lies that will have enough grains of truth in it to be helpful. I don’t pretend to know the history of how linear algebra came into its present form, but I have made a satisfying hero’s origin story narrative that has helped me keep important notions straight. I’ll tell that lie here.</p>
-<div id="going-backwards" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Going Backwards</h2>
+<div id="starting-with-what-we-know" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Starting with what we know</h2>
 <p>The approach I’ll take here is to start with <span class="math inline">\(\mathbb{R}^2\)</span>, and work up to more general abstractions. We’ll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we’ll be able to pull over the general abstractions, as some of the concrete intuitions don’t work in quantum vector spaces.</p>
+<div id="scenario-1-orthonormal-vectors" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Scenario 1: Orthonormal vectors</h3>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="images/orthonormal-decomposition.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
 <p class="caption">
 Figure 3.1: How most of us understand vector decomposition
 </p>
 </div>
+<p>This is picking vectors so that you have effectively the Cartesian coordinate plane that you are used to – <span class="math inline">\(v1\)</span> and <span class="math inline">\(v2\)</span> act like the x- and y-axis of your high school years.</p>
 <p>To recap the highlights:</p>
 <ul>
-<li>You are given two unit vectors that are perpendicular to each other, <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>.</li>
+<li>You are given two vectors that are perpendicular to each other (<em>ortho-</em>), <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>, and are of unit length(<em>-normal</em>).</li>
 <li>You are given the vector <span class="math inline">\(\vec{r}\)</span></li>
 <li>You figure out the way to write <span class="math inline">\(\vec{r}\)</span> in terms of <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> by dropping perpendiculars to the lines determined by <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>, and then figuring out the ratio of the length of those intersections to the origin to the length of the individual unit vectors. We call those lengths <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> respectively.</li>
 <li>You can then write <span class="math inline">\(\vec{r}\)</span> as follows:</li>
 </ul>
 <p><span class="math display">\[\vec{r} = a1 \cdot \vec{v1} + a2 \cdot \vec{v2}\]</span></p>
-<p>The big idea here is that, because we can draw perpendiculars and measure lengths, it’s easy to compute the scalars <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span>.</p>
+<p>The big idea here is that, because we can draw perpendiculars and measure lengths (which we are allowed to do because we can do all of the good things the geometry we learned allows us to do), it’s easy to compute the scalars <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span>.</p>
 <p>I contend that it is pretty self-evident here that the following two statements are true:</p>
 <ul>
-<li>You can figure out the scalars (also known as <em>components</em>) for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> for <em>any</em> vector <span class="math inline">\(\vec{r}\)</span>, no matter the size or direction.</li>
+<li>You can figure out the scalars (also known as <em>components</em>) for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> for <em>any</em> vector <span class="math inline">\(\vec{r}\)</span>, no matter the size or direction. You can do this with geometric tools (marking of unit lengths, dropping perpendiculars or drawing parallels – anything you can do with a compass and straight-edge).</li>
 <li>If you have <span class="math inline">\(\vec{r}\)</span> in hand, the values you compute for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> are unique – you can’t use some other way of constructing parallels and measuring lengths, and legitimately come up with different numbers.</li>
 </ul>
 <p>This seems like a boring observation, but, as I’ve said before, this will be important.</p>
+</div>
+<div id="scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Scenario 2: Getting a little more artsy: any two linearly independent vectors</h3>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="images/parallelogram-decomposition.png" alt="Scalars decomposition using general vectors." width="75%" height="75%" />
 <p class="caption">
 Figure 3.2: Scalars decomposition using general vectors.
 </p>
 </div>
+<p>You might find yourself in a situation where you have two reference vectors that are not perpendicular to each other, and not of unit lenghts. That is the situation above. It is not neat and familiar like the first orthonormal case. But it will work. Any vector <span class="math inline">\(\vec{r}\)</span> can be written by stretching or shrinking both <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> by just the right amounts so that you can add them, parallelogram-wise, to get to the same spot as <span class="math inline">\(\vec{r}\)</span>.</p>
+<p>The one caveat is that in this case, instead of dropping perpendiculars to lines, we constructed lines parallel to each of the different vectors through the end of <span class="math inline">\(\vec{r}\)</span>. We could have constructed parallels in the orthonormal case as well, and gotten the same results. The interesting thing to keep in your back pocket is, if you ever end up studying tensors, these alternate ways of finding the <em>components</em> of the vectors are both used, depending on if you want what tensors refer to as <em>contravariant</em> or the <em>covariant</em> components. It’s not exacly like we show here, but very, very close in spirit. So it’s nice to have an example. See: <a href="http://www.danfleisch.com/sgvt/" class="uri">http://www.danfleisch.com/sgvt/</a> .</p>
+</div>
+<div id="important-observations" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Important observations</h3>
+<p>We should have a pretty good intuition that the amount we have to stretch vectors to have it represent <span class="math inline">\(\vec{r}\)</span> are going to totally depend on which vectors <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> you use as your reference set. To be clear, for <span class="math inline">\(\mathbb{R}^2\)</span>, the two independent vectors you choose to represent any other arbitrary vector <span class="math inline">\(\vec{r}\)</span> is called the <em>basis</em>.</p>
+<p>We are able to use our intuition on <span class="math inline">\(\mathbb{R}^2\)</span> because we understand how geometry works. We know how to draw perpendiculars and parallels, and measure distances. When we got to more abstract spaces, or when we use complex numbers as a scalar field, we will have to leave our intuition behind, as we won’t really have perpendicular and parallel lines to deal with. We will have to replace “perpendicular” with “orthogonal,” which we will be able to determine by having the inner product being 0.</p>
+<p>The scaling factors <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> are called the <em>components</em>, to repeat myself. Components are important because they are the numbers that actually get thrown around, showing up as the entries in any matrix and vector representation once a basis is chosen.</p>
+<p>Note that the vector <span class="math inline">\(\vec{r}\)</span> is it’s own, eternal, platonic thing. It exists no matter what two basis vectors you choose to decompose it in.</p>
+<p>Every vector can be decomposed into a set of basis vectors and appropriate scalar factors. We pretty much have to decompose an arbitrary vector into it’s basis representation to do any meaningful computations on the vector.</p>
+</div>
+</div>
+<div id="inner-products" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Inner products</h2>
+<p>I will start with the admission: I don’t know what, in general, a good interpretation is of the inner product in general. What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other. Let’s start by talking about why we care.</p>
+<p>We’ve already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions). In <span class="math inline">\(\mathbb{R}^2\)</span>, we’ve shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.</p>
+<p>But what happens if, say, the dimension of your space gets bigger than 3? I have no idea how to use a compass and straight edge if it’s not on a piece of paper. What I really want is an easy process to get the scalars for my vectors in any dimension, and not have to use the compass and straight-edge. What we need is some sort of function that can take in two vectors, like a vector you want to decompose, and one of the basis vectors you want to focus on, and spit out the scalar that you will need to multiply the basis vector by when you are trying to represent the vector you want to decompose.</p>
+<p>Enter the inner product function. This function, should you have one, will give you these scalar coefficients <em>provided that the basis set you have is made up of mutually perpendicular vectors and they all have unit length (i.e., orthonormal)</em>. If your basis vectors don’t meet this criteria, it won’t work out of the box, but there is stuff we can do to still make the inner product ultimately get you what you want. We’ll address that later.</p>
+<p>The function for an inner product is typically written as: <span class="math inline">\(\sqrt{&lt;\cdot,\cdot&gt;}\)</span></p>
+<p>Here’s how an inner product function is defined on a vector space. Do not study this too hard just yet. It’s enough to know it has some weird stuff going on right now that looks like it doesn’t really have much to do with what we want to use it for.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
+<p class="caption">
+Figure 3.3: Like with Medusa, don’t look directly at this, at least not yet.
+</p>
+</div>
+<p>Let’s talk a little bit about what some of the definition is there to do.</p>
+<p>First, in geometry, we know that vectors have lengths. Inner products somehow have to account for dealing with lengths. The way this is addressed is by making functions that qualify as inner products have the property that, for any vector, <span class="math inline">\(\sqrt{&lt;\vec{x},\vec{x}&gt;}\)</span> maps to the length of your vector. Really, once all of the other conditions of the inner product are fufilled, this actually <em>defines</em> what is meant by length of vectors in your space.</p>
+<p>Second, the inner product is used to tell us when vectors are orthogonal (in <span class="math inline">\(\mathbb{R}^n\)</span>, this means that vectors are geometrically perpendicular). Vectors that are orthogonal have their inner product being 0. That is, if <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{y}\)</span> are orthogonal, then <span class="math inline">\(&lt;\vec{x},\vec{y}&gt; = 0\)</span>.</p>
+<p>To look ahead – once you have a orthonormal set of vectors <span class="math inline">\(\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}\)</span>, you will be able to write any vector <span class="math inline">\(\vec{x}\)</span> as</p>
+<p><span class="math display">\[\vec{x} = &lt;\vec{x}, \vec{x}_{1}&gt; \vec{x}_{1} \]</span></p>
 
 </div>
 </div>
