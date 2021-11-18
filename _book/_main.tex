@@ -78,7 +78,7 @@
 
 \title{Linear Algebra: An Intuitionist Approach}
 \author{Matt Pettis}
-\date{2021-11-08}
+\date{2021-11-10}
 
 \begin{document}
 \maketitle
@@ -304,23 +304,6 @@ This will be enough for now. Once we get into functions \emph{between} vector sp
 
 The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.
 
-\hypertarget{section}{%
-\section{}\label{section}}
-
-\ldots{}
-
-You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors. You just have to find that rule in the set. It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school. Some savants do this to perform faster computations -- they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations. Some even have some key 3-digit by 3-digit products memorized.
-
-If you think about it, in \(\mathbb{R}^n\), that scalar relationship is a pattern you notice about how the vectors adhere to. But it isn't necessary -- you could just memorize what resulting vector you get when you add any two vectors together.
-
-Here's one of the guiding intuitions about vector spaces. Vector spaces are huge. Like, I'm pretty sure there are more than 57 vectors in \(\mathbb{R}^2\) alone.
-
-The point here is this: we have a good intuitive idea of how vectors behave in \(\mathbb{R}\) spaces. As we stated above, we can just follow our noses: scalars can be added and multiplied, vectors can be added, and we can put them together in ways such that if we construct a vector \(\vec{x} = \alpha_{1} \vec{x_{1}} + \alpha_{2} \vec{x_{2}}\), we can figure out exactly what vector \(\vec{x}\) we must have.
-
-But we don't \emph{have} to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule. We don't have to have any idea what the elements of the vector space really look like (as in, they don't have to be arrows in \(\mathbb{R}\) space). They just have to be objects that have a vector \(+\) structure, and you can define some maps on those objects, which you can \emph{label} with scalars (from \(\mathbb{R}\) or \(\mathbb{C}\), as we'll see), and they just have to obey the axioms. We will need to lift off from this \(\mathbb{R}\) prototype of vector spaces for some of the vector spaces we will use in quantum theory. At first, you will want to use your intuition about \(\mathbb{R}\) to reason about these more abstract vector spaces (the quantum ``state space''), but it won't \emph{quite} work, and you'll need this more sophisticated abstraction.
-
-In the next chapter, we'll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need. And illuminate a little more how linear algebra hangs together.
-
 \hypertarget{what-is-this-beautiful-house}{%
 \chapter{What is This Beautiful House?}\label{what-is-this-beautiful-house}}
 
@@ -409,36 +392,66 @@ Every vector can be decomposed into a set of basis vectors and appropriate scala
 \hypertarget{inner-products}{%
 \section{Inner products}\label{inner-products}}
 
-I will start with the admission: I don't know what, in general, a good interpretation is of the inner product in general. What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other. Let's start by talking about why we care.
+Inner products, in their most general form, don't seem to lend themselves to a good intuition. Parts of inner products have useful interpretations, in certain circumstances, but it will be helpful to build up to that.
 
-We've already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions). In \(\mathbb{R}^2\), we've shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.
+So let's start with a place where the inner product shows up naturally -- The Law of Cosines:
 
-But what happens if, say, the dimension of your space gets bigger than 3? I have no idea how to use a compass and straight edge if it's not on a piece of paper. What I really want is an easy process to get the scalars for my vectors in any dimension, and not have to use the compass and straight-edge. What we need is some sort of function that can take in two vectors, like a vector you want to decompose, and one of the basis vectors you want to focus on, and spit out the scalar that you will need to multiply the basis vector by when you are trying to represent the vector you want to decompose.
-
-Enter the inner product function. This function, should you have one, will give you these scalar coefficients \emph{provided that the basis set you have is made up of mutually perpendicular vectors and they all have unit length (i.e., orthonormal)}. If your basis vectors don't meet this criteria, it won't work out of the box, but there is stuff we can do to still make the inner product ultimately get you what you want. We'll address that later.
-
-The function for an inner product is typically written as: \(\sqrt{<\cdot,\cdot>}\)
-
-Here's how an inner product function is defined on a vector space. Do not study this too hard just yet. It's enough to know it has some weird stuff going on right now that looks like it doesn't really have much to do with what we want to use it for.
+\[c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/inner-product-definition-wikipedia} 
+{\centering \includegraphics[width=0.5\linewidth,height=0.5\textheight]{images/law-of-cosines} 
 
 }
 
-\caption{Like with Medusa, don't look directly at this, at least not yet.}\label{fig:unnamed-chunk-6}
+\caption{Law of Cosines}\label{fig:unnamed-chunk-6}
 \end{figure}
 
-Let's talk a little bit about what some of the definition is there to do.
+Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
+\[<\vec{x},\vec{y}> = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]
+That is, the inner product between two vectors (lengths, in this case), is the product of the lengths of the two vectors multiplied by the cosine of the angle between the vectors/lines.
 
-First, in geometry, we know that vectors have lengths. Inner products somehow have to account for dealing with lengths. The way this is addressed is by making functions that qualify as inner products have the property that, for any vector, \(\sqrt{<\vec{x},\vec{x}>}\) maps to the length of your vector. Really, once all of the other conditions of the inner product are fufilled, this actually \emph{defines} what is meant by length of vectors in your space.
+We will take for granted that we can write the vector lengths with just plain Roman letters.
 
-Second, the inner product is used to tell us when vectors are orthogonal (in \(\mathbb{R}^n\), this means that vectors are geometrically perpendicular). Vectors that are orthogonal have their inner product being 0. That is, if \(\vec{x}\) and \(\vec{y}\) are orthogonal, then \(<\vec{x},\vec{y}> = 0\).
+You can think of the law of cosines as a generalized Pythagorean theorem. You can figure out the length of a third side \(c\) if you know the other two sides of the triange \(a\) and \(b\), but \emph{adjusting for how much in the same direction \(a\) and \(b\) are.}
 
-To look ahead -- once you have a orthonormal set of vectors \(\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}\), you will be able to write any vector \(\vec{x}\) as
+Let's imagine some limiting cases. Consider \(a\) and \(b\) as fixed lengths. As angle \(C\) widens to be close to 180 degrees, the triangle height shrinks to 0, and \(c\) becomes equal to \(a + b\). The limit in the law of cosines agrees with this -- as \(C \rightarrow 180\), then \(cos(C) \rightarrow -1\), and so the law of cosines becomes:
 
-\[\vec{x} = <\vec{x}, \vec{x}_{1}> \vec{x}_{1} \]
+\[c^2 = a^2 + b^2 - 2 a b (-1) = a^2 + b^2 + 2 a b = (a + b)^2\]
+or, \(c = a + b\).
+
+At the other extreme, as \(C\) shrinks to 0, the triangle again collapses, and \(a\) and \(b\) are again in the same line, but but this time \(c\) approaches the \emph{difference} of \(a\) and \(b\).
+
+\[c^2 = a^2 + b^2 - 2 a b (1) = a^2 + b^2 - 2 a b = (a - b)^2\]
+or \(c = a - b\), or \(b - a\), whichever doesn't give you a negative number.
+
+In between, at some point, \(C\) becomes a right angle. In that case, \(cos(C) = 0\), and the entire last term goes to 0. Then we are just left with the formula fom the Pythagorean Theorem.
+
+One way to think about this is that the last term in the law of cosines is an adjustment factor for \emph{how collinear \(a\) and \(b\) are.} When \(C = 180\), \(a\) and \(b\) are in opposite directions, and the Pythagorean theorem underestimates how long \(C\) is, and we have to add that factor to the computation to get the right length. At the extreme of \(C = 0\), the Pythagorean theorem \emph{overestimates} \(c\), so we have to subtract some to get the right amount.
+
+In between, when the lines are perpendicular, no adjustment to the Pythagorean theorem calculation is needed.
+
+So, when the angle is small, the lines point pretty much in the same direction, and the inner product is more positive. At the other end, when the angle is wide, the lines are pointing away from each other, and the inner product is more negative.
+
+So you can get the idea that the inner product measures some notion of two lines pointing in the same, opposite, or perpendicular direction, based on the size of the inner product value.
+
+As an aside, you may recall that:
+
+\[\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]
+and
+\[|\vec{x} \times \vec{y}| = |\vec{x}| \cdot |\vec{y}| \cdot \sin(\theta)\]
+There is a bit of a parallel going on here.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.50}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.50}}@{}}
+\toprule
+cos & sin \\
+\midrule
+\endhead
+Gives a sense of how collinear two lines are & Gives a sense of how much planar area (the paralleleogram they define) the lines subtend \\
+\bottomrule
+\end{longtable}
 
 \hypertarget{how-do-i-work-this}{%
 \chapter{How do I work this?}\label{how-do-i-work-this}}
@@ -460,7 +473,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-7}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 Some notes on the picture:

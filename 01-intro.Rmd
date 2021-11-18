@@ -108,7 +108,6 @@ This will be enough for now.  Once we get into functions *between* vector spaces
 The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors.  This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme.  So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.
 
 
-## 
 
 
 
@@ -119,7 +118,6 @@ The insight here is that for a given vector space, rather than work with the raw
 
 
 
-...
 
 
 
@@ -128,6 +126,8 @@ The insight here is that for a given vector space, rather than work with the raw
 
 
 
+
+<!--
 You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors.  You just have to find that rule in the set.  It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school.  Some savants do this to perform faster computations -- they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations.  Some even have some key 3-digit by 3-digit products memorized.
 
 If you think about it, in $\mathbb{R}^n$, that scalar relationship is a pattern you notice about how the vectors adhere to.  But it isn't necessary -- you could just memorize what resulting vector you get when you add any two vectors together.
@@ -143,3 +143,4 @@ The point here is this: we have a good intuitive idea of how vectors behave in $
 But we don't *have* to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule.  We don't have to have any idea what the elements of the vector space really look like (as in, they don't have to be arrows in $\mathbb{R}$ space).  They just have to be objects that have a vector $+$ structure, and you can define some maps on those objects, which you can *label* with scalars (from $\mathbb{R}$ or $\mathbb{C}$, as we'll see), and they just have to obey the axioms.  We will need to lift off from this $\mathbb{R}$ prototype of vector spaces for some of the vector spaces we will use in quantum theory.  At first, you will want to use your intuition about $\mathbb{R}$ to reason about these more abstract vector spaces (the quantum "state space"), but it won't *quite* work, and you'll need this more sophisticated abstraction.
 
 In the next chapter, we'll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need.  And illuminate a little more how linear algebra hangs together.
+-->

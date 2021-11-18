@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-11-08" />
+<meta name="date" content="2021-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,6 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#intuition-about-mathbbrn"><i class="fa fa-check"></i><b>2.1</b> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></a></li>
 <li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-axioms"><i class="fa fa-check"></i><b>2.2</b> The Axioms</a></li>
 <li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#why-are-the-axioms-this-way"><i class="fa fa-check"></i><b>2.3</b> Why are the axioms this way?</a></li>
-<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#section"><i class="fa fa-check"></i><b>2.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
@@ -241,16 +240,23 @@ Figure 2.3: [Record scratch] Yep, that’s me, Vector Space, spewing a lot of in
 </table>
 <p>This will be enough for now. Once we get into functions <em>between</em> vector spaces, and pick out the special functions (the <em>linear</em> transforms), we’ll talk about what <em>eigenvectors</em> and <em>eigenvalues</em> are. But not yet.</p>
 <p>The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.</p>
-</div>
-<div id="section" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> </h2>
-<p>…</p>
-<p>You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors. You just have to find that rule in the set. It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school. Some savants do this to perform faster computations – they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations. Some even have some key 3-digit by 3-digit products memorized.</p>
-<p>If you think about it, in <span class="math inline">\(\mathbb{R}^n\)</span>, that scalar relationship is a pattern you notice about how the vectors adhere to. But it isn’t necessary – you could just memorize what resulting vector you get when you add any two vectors together.</p>
-<p>Here’s one of the guiding intuitions about vector spaces. Vector spaces are huge. Like, I’m pretty sure there are more than 57 vectors in <span class="math inline">\(\mathbb{R}^2\)</span> alone.</p>
-<p>The point here is this: we have a good intuitive idea of how vectors behave in <span class="math inline">\(\mathbb{R}\)</span> spaces. As we stated above, we can just follow our noses: scalars can be added and multiplied, vectors can be added, and we can put them together in ways such that if we construct a vector <span class="math inline">\(\vec{x} = \alpha_{1} \vec{x_{1}} + \alpha_{2} \vec{x_{2}}\)</span>, we can figure out exactly what vector <span class="math inline">\(\vec{x}\)</span> we must have.</p>
-<p>But we don’t <em>have</em> to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule. We don’t have to have any idea what the elements of the vector space really look like (as in, they don’t have to be arrows in <span class="math inline">\(\mathbb{R}\)</span> space). They just have to be objects that have a vector <span class="math inline">\(+\)</span> structure, and you can define some maps on those objects, which you can <em>label</em> with scalars (from <span class="math inline">\(\mathbb{R}\)</span> or <span class="math inline">\(\mathbb{C}\)</span>, as we’ll see), and they just have to obey the axioms. We will need to lift off from this <span class="math inline">\(\mathbb{R}\)</span> prototype of vector spaces for some of the vector spaces we will use in quantum theory. At first, you will want to use your intuition about <span class="math inline">\(\mathbb{R}\)</span> to reason about these more abstract vector spaces (the quantum “state space”), but it won’t <em>quite</em> work, and you’ll need this more sophisticated abstraction.</p>
-<p>In the next chapter, we’ll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need. And illuminate a little more how linear algebra hangs together.</p>
+<!--
+You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors.  You just have to find that rule in the set.  It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school.  Some savants do this to perform faster computations -- they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations.  Some even have some key 3-digit by 3-digit products memorized.
+
+If you think about it, in $\mathbb{R}^n$, that scalar relationship is a pattern you notice about how the vectors adhere to.  But it isn't necessary -- you could just memorize what resulting vector you get when you add any two vectors together.
+
+Here's one of the guiding intuitions about vector spaces.  Vector spaces are huge.  Like, I'm pretty sure there are more than 57 vectors in $\mathbb{R}^2$ alone.
+
+
+
+
+
+The point here is this: we have a good intuitive idea of how vectors behave in $\mathbb{R}$ spaces.  As we stated above, we can just follow our noses: scalars can be added and multiplied, vectors can be added, and we can put them together in ways such that if we construct a vector $\vec{x} = \alpha_{1} \vec{x_{1}} + \alpha_{2} \vec{x_{2}}$, we can figure out exactly what vector $\vec{x}$ we must have.
+
+But we don't *have* to rely on that geometry of arrows in general, and how they stretch and add with the parralelogram rule.  We don't have to have any idea what the elements of the vector space really look like (as in, they don't have to be arrows in $\mathbb{R}$ space).  They just have to be objects that have a vector $+$ structure, and you can define some maps on those objects, which you can *label* with scalars (from $\mathbb{R}$ or $\mathbb{C}$, as we'll see), and they just have to obey the axioms.  We will need to lift off from this $\mathbb{R}$ prototype of vector spaces for some of the vector spaces we will use in quantum theory.  At first, you will want to use your intuition about $\mathbb{R}$ to reason about these more abstract vector spaces (the quantum "state space"), but it won't *quite* work, and you'll need this more sophisticated abstraction.
+
+In the next chapter, we'll take some quantum phenomenon, and figure out how we pick linear algebra to model our phenomenon, and what tools from its toolbox we will need.  And illuminate a little more how linear algebra hangs together.
+-->
 
 </div>
 </div>

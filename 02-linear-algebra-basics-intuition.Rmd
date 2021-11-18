@@ -67,6 +67,60 @@ Every vector can be decomposed into a set of basis vectors and appropriate scala
 
 ## Inner products
 
+Inner products, in their most general form, don't seem to lend themselves to a good intuition.  Parts of inner products have useful interpretations, in certain circumstances, but it will be helpful to build up to that.
+
+So let's start with a place where the inner product shows up naturally -- The Law of Cosines:
+
+$$c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
+
+```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Law of Cosines"}
+knitr::include_graphics('images/law-of-cosines.png')
+```
+
+Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
+$$<\vec{x},\vec{y}> = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)$$
+That is, the inner product between two vectors (lengths, in this case), is the product of the lengths of the two vectors multiplied by the cosine of the angle between the vectors/lines.
+
+We will take for granted that we can write the vector lengths with just plain Roman letters.
+
+You can think of the law of cosines as a generalized Pythagorean theorem.  You can figure out the length of a third side $c$ if you know the other two sides of the triange $a$ and $b$, but *adjusting for how much in the same direction $a$ and $b$ are.*
+
+Let's imagine some limiting cases.  Consider $a$ and $b$ as fixed lengths.  As angle $C$ widens to be close to 180 degrees, the triangle height shrinks to 0, and $c$ becomes equal to $a + b$.  The limit in the law of cosines agrees with this -- as $C \rightarrow 180$, then $cos(C) \rightarrow -1$, and so the law of cosines becomes:
+
+$$c^2 = a^2 + b^2 - 2 a b (-1) = a^2 + b^2 + 2 a b = (a + b)^2$$
+or, $c = a + b$.
+
+At the other extreme, as $C$ shrinks to 0, the triangle again collapses, and $a$ and $b$ are again in the same line, but but this time $c$ approaches the *difference* of $a$ and $b$.
+
+
+$$c^2 = a^2 + b^2 - 2 a b (1) = a^2 + b^2 - 2 a b = (a - b)^2$$
+or $c = a - b$, or $b - a$, whichever doesn't give you a negative number.
+
+In between, at some point, $C$ becomes a right angle.  In that case, $cos(C) = 0$, and the entire last term goes to 0.  Then we are just left with the formula fom the Pythagorean Theorem.
+
+One way to think about this is that the last term in the law of cosines is an adjustment factor for *how collinear $a$ and $b$ are.*  When $C = 180$, $a$ and $b$ are in opposite directions, and the Pythagorean theorem underestimates how long $C$ is, and we have to add that factor to the computation to get the right length.  At the extreme of $C = 0$, the Pythagorean theorem *overestimates* $c$, so we have to subtract some to get the right amount.
+
+In between, when the lines are perpendicular, no adjustment to the Pythagorean theorem calculation is needed.
+
+So, when the angle is small, the lines point pretty much in the same direction, and the inner product is more positive.  At the other end, when the angle is wide, the lines are pointing away from each other, and the inner product is more negative.
+
+So you can get the idea that the inner product measures some notion of two lines pointing in the same, opposite, or perpendicular direction, based on the size of the inner product value.
+
+As an aside, there's some cool analogs between $cos$ and $sin$.  You may recall that:
+
+$$\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)$$
+and 
+$$|\vec{x} \times \vec{y}| = |\vec{x}| \cdot |\vec{y}| \cdot \sin(\theta)$$
+There is a bit of a parallel going on here.
+
+cos | sin |
+------------------------------ | ------------------------------ |
+Gives a sense of how collinear two lines are | Gives a sense of how much planar area (the paralleleogram they define) the lines subtend |
+
+
+
+
+<!--
 I will start with the admission: I don't know what, in general, a good interpretation is of the inner product in general.  What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other.  Let's start by talking about why we care.
 
 We've already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions).  In $\mathbb{R}^2$, we've shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.
@@ -92,3 +146,5 @@ Second, the inner product is used to tell us when vectors are orthogonal (in $\m
 To look ahead -- once you have a orthonormal set of vectors $\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}$, you will be able to write any vector $\vec{x}$ as
 
 $$\vec{x} = <\vec{x}, \vec{x}_{1}> \vec{x}_{1} $$
+-->
+

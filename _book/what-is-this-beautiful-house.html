@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-11-08" />
+<meta name="date" content="2021-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -88,7 +88,6 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#intuition-about-mathbbrn"><i class="fa fa-check"></i><b>2.1</b> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></a></li>
 <li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-axioms"><i class="fa fa-check"></i><b>2.2</b> The Axioms</a></li>
 <li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#why-are-the-axioms-this-way"><i class="fa fa-check"></i><b>2.3</b> Why are the axioms this way?</a></li>
-<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#section"><i class="fa fa-check"></i><b>2.4</b> </a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
@@ -179,23 +178,82 @@ Figure 3.2: Scalars decomposition using general vectors.
 </div>
 <div id="inner-products" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Inner products</h2>
-<p>I will start with the admission: I don’t know what, in general, a good interpretation is of the inner product in general. What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other. Let’s start by talking about why we care.</p>
-<p>We’ve already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions). In <span class="math inline">\(\mathbb{R}^2\)</span>, we’ve shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.</p>
-<p>But what happens if, say, the dimension of your space gets bigger than 3? I have no idea how to use a compass and straight edge if it’s not on a piece of paper. What I really want is an easy process to get the scalars for my vectors in any dimension, and not have to use the compass and straight-edge. What we need is some sort of function that can take in two vectors, like a vector you want to decompose, and one of the basis vectors you want to focus on, and spit out the scalar that you will need to multiply the basis vector by when you are trying to represent the vector you want to decompose.</p>
-<p>Enter the inner product function. This function, should you have one, will give you these scalar coefficients <em>provided that the basis set you have is made up of mutually perpendicular vectors and they all have unit length (i.e., orthonormal)</em>. If your basis vectors don’t meet this criteria, it won’t work out of the box, but there is stuff we can do to still make the inner product ultimately get you what you want. We’ll address that later.</p>
-<p>The function for an inner product is typically written as: <span class="math inline">\(\sqrt{&lt;\cdot,\cdot&gt;}\)</span></p>
-<p>Here’s how an inner product function is defined on a vector space. Do not study this too hard just yet. It’s enough to know it has some weird stuff going on right now that looks like it doesn’t really have much to do with what we want to use it for.</p>
+<p>Inner products, in their most general form, don’t seem to lend themselves to a good intuition. Parts of inner products have useful interpretations, in certain circumstances, but it will be helpful to build up to that.</p>
+<p>So let’s start with a place where the inner product shows up naturally – The Law of Cosines:</p>
+<p><span class="math display">\[c^2 = a^2 + b^2 - 2 a b \ cos(C)\]</span></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
+<img src="images/law-of-cosines.png" alt="Law of Cosines" width="50%" height="50%" />
 <p class="caption">
-Figure 3.3: Like with Medusa, don’t look directly at this, at least not yet.
+Figure 3.3: Law of Cosines
 </p>
 </div>
-<p>Let’s talk a little bit about what some of the definition is there to do.</p>
-<p>First, in geometry, we know that vectors have lengths. Inner products somehow have to account for dealing with lengths. The way this is addressed is by making functions that qualify as inner products have the property that, for any vector, <span class="math inline">\(\sqrt{&lt;\vec{x},\vec{x}&gt;}\)</span> maps to the length of your vector. Really, once all of the other conditions of the inner product are fufilled, this actually <em>defines</em> what is meant by length of vectors in your space.</p>
-<p>Second, the inner product is used to tell us when vectors are orthogonal (in <span class="math inline">\(\mathbb{R}^n\)</span>, this means that vectors are geometrically perpendicular). Vectors that are orthogonal have their inner product being 0. That is, if <span class="math inline">\(\vec{x}\)</span> and <span class="math inline">\(\vec{y}\)</span> are orthogonal, then <span class="math inline">\(&lt;\vec{x},\vec{y}&gt; = 0\)</span>.</p>
-<p>To look ahead – once you have a orthonormal set of vectors <span class="math inline">\(\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}\)</span>, you will be able to write any vector <span class="math inline">\(\vec{x}\)</span> as</p>
-<p><span class="math display">\[\vec{x} = &lt;\vec{x}, \vec{x}_{1}&gt; \vec{x}_{1} \]</span></p>
+<p>Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
+<span class="math display">\[&lt;\vec{x},\vec{y}&gt; = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]</span>
+That is, the inner product between two vectors (lengths, in this case), is the product of the lengths of the two vectors multiplied by the cosine of the angle between the vectors/lines.</p>
+<p>We will take for granted that we can write the vector lengths with just plain Roman letters.</p>
+<p>You can think of the law of cosines as a generalized Pythagorean theorem. You can figure out the length of a third side <span class="math inline">\(c\)</span> if you know the other two sides of the triange <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, but <em>adjusting for how much in the same direction <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are.</em></p>
+<p>Let’s imagine some limiting cases. Consider <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> as fixed lengths. As angle <span class="math inline">\(C\)</span> widens to be close to 180 degrees, the triangle height shrinks to 0, and <span class="math inline">\(c\)</span> becomes equal to <span class="math inline">\(a + b\)</span>. The limit in the law of cosines agrees with this – as <span class="math inline">\(C \rightarrow 180\)</span>, then <span class="math inline">\(cos(C) \rightarrow -1\)</span>, and so the law of cosines becomes:</p>
+<p><span class="math display">\[c^2 = a^2 + b^2 - 2 a b (-1) = a^2 + b^2 + 2 a b = (a + b)^2\]</span>
+or, <span class="math inline">\(c = a + b\)</span>.</p>
+<p>At the other extreme, as <span class="math inline">\(C\)</span> shrinks to 0, the triangle again collapses, and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are again in the same line, but but this time <span class="math inline">\(c\)</span> approaches the <em>difference</em> of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p><span class="math display">\[c^2 = a^2 + b^2 - 2 a b (1) = a^2 + b^2 - 2 a b = (a - b)^2\]</span>
+or <span class="math inline">\(c = a - b\)</span>, or <span class="math inline">\(b - a\)</span>, whichever doesn’t give you a negative number.</p>
+<p>In between, at some point, <span class="math inline">\(C\)</span> becomes a right angle. In that case, <span class="math inline">\(cos(C) = 0\)</span>, and the entire last term goes to 0. Then we are just left with the formula fom the Pythagorean Theorem.</p>
+<p>One way to think about this is that the last term in the law of cosines is an adjustment factor for <em>how collinear <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are.</em> When <span class="math inline">\(C = 180\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are in opposite directions, and the Pythagorean theorem underestimates how long <span class="math inline">\(C\)</span> is, and we have to add that factor to the computation to get the right length. At the extreme of <span class="math inline">\(C = 0\)</span>, the Pythagorean theorem <em>overestimates</em> <span class="math inline">\(c\)</span>, so we have to subtract some to get the right amount.</p>
+<p>In between, when the lines are perpendicular, no adjustment to the Pythagorean theorem calculation is needed.</p>
+<p>So, when the angle is small, the lines point pretty much in the same direction, and the inner product is more positive. At the other end, when the angle is wide, the lines are pointing away from each other, and the inner product is more negative.</p>
+<p>So you can get the idea that the inner product measures some notion of two lines pointing in the same, opposite, or perpendicular direction, based on the size of the inner product value.</p>
+<p>As an aside, you may recall that:</p>
+<p><span class="math display">\[\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]</span>
+and
+<span class="math display">\[|\vec{x} \times \vec{y}| = |\vec{x}| \cdot |\vec{y}| \cdot \sin(\theta)\]</span>
+There is a bit of a parallel going on here.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>cos</th>
+<th>sin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gives a sense of how collinear two lines are</td>
+<td>Gives a sense of how much planar area (the paralleleogram they define) the lines subtend</td>
+</tr>
+</tbody>
+</table>
+<!--
+I will start with the admission: I don't know what, in general, a good interpretation is of the inner product in general.  What I do have are good interpretations for the inner products when one or both of the vectors in the inner product is of unit length, and also when one or both of those vectors are orthogonal to each other.  Let's start by talking about why we care.
+
+We've already pointed out that it is easier to deal with a vector in the vector space if we can reduce it to the sum of scalar combinations of a fixed set of vectors that we always use (like a fixed set of rulers in different directions).  In $\mathbb{R}^2$, we've shown how you can start with your basis set of vectors and use a compass and straight edge to help you figure out what scalars you should use on those basis vectors to represent the original vector.
+
+But what happens if, say, the dimension of your space gets bigger than 3?  I have no idea how to use a compass and straight edge if it's not on a piece of paper.  What I really want is an easy process to get the scalars for my vectors in any dimension, and not have to use the compass and straight-edge.  What we need is some sort of function that can take in two vectors, like a vector you want to decompose, and one of the basis vectors you want to focus on, and spit out the scalar that you will need to multiply the basis vector by when you are trying to represent the vector you want to decompose.
+
+Enter the inner product function.  This function, should you have one, will give you these scalar coefficients *provided that the basis set you have is made up of mutually perpendicular vectors and they all have unit length (i.e., orthonormal)*.  If your basis vectors don't meet this criteria, it won't work out of the box, but there is stuff we can do to still make the inner product ultimately get you what you want.  We'll address that later.
+
+The function for an inner product is typically written as: $\sqrt{<\cdot,\cdot>}$
+
+Here's how an inner product function is defined on a vector space.  Do not study this too hard just yet.  It's enough to know it has some weird stuff going on right now that looks like it doesn't really have much to do with what we want to use it for.
+
+<div class="figure" style="text-align: center">
+<img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)Like with Medusa, don't look directly at this, at least not yet.</p>
+</div>
+
+Let's talk a little bit about what some of the definition is there to do.
+
+First, in geometry, we know that vectors have lengths.  Inner products somehow have to account for dealing with lengths.  The way this is addressed is by making functions that qualify as inner products have the property that, for any vector, $\sqrt{<\vec{x},\vec{x}>}$ maps to the length of your vector.  Really, once all of the other conditions of the inner product are fufilled, this actually *defines* what is meant by length of vectors in your space.
+
+Second, the inner product is used to tell us when vectors are orthogonal (in $\mathbb{R}^n$, this means that vectors are geometrically perpendicular).  Vectors that are orthogonal have their inner product being 0.  That is, if $\vec{x}$ and $\vec{y}$  are orthogonal, then $<\vec{x},\vec{y}> = 0$.
+
+To look ahead -- once you have a orthonormal set of vectors $\{\vec{x}_{1},\vec{x}_{2}, ..., \vec{x}_{n}\}$, you will be able to write any vector $\vec{x}$ as
+
+$$\vec{x} = <\vec{x}, \vec{x}_{1}> \vec{x}_{1} $$
+-->
 
 </div>
 </div>
