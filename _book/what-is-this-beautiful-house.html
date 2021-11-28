@@ -87,6 +87,12 @@ set in the _output.yml file.</p>" />
 <ul>
 <li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
 <li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
+<li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>2.3</b> Writing vectors in terms of other vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.4</b> Orthogonality and Normality</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.4.1</b> Gram-Schmidt Orthonormalization</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.5</b> Summarizing the big points</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
@@ -132,7 +138,7 @@ set in the _output.yml file.</p>" />
 <p>The approach I’ll take here is to start with <span class="math inline">\(\mathbb{R}^2\)</span>, and work up to more general abstractions. We’ll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we’ll be able to pull over the general abstractions, as some of the concrete intuitions don’t work in quantum vector spaces.</p>
 <div id="scenario-1-orthonormal-vectors" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Scenario 1: Orthonormal vectors</h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="images/orthonormal-decomposition.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
 <p class="caption">
 Figure 3.1: How most of us understand vector decomposition
@@ -157,7 +163,7 @@ Figure 3.1: How most of us understand vector decomposition
 </div>
 <div id="scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Scenario 2: Getting a little more artsy: any two linearly independent vectors</h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="images/parallelogram-decomposition.png" alt="Scalars decomposition using general vectors." width="75%" height="75%" />
 <p class="caption">
 Figure 3.2: Scalars decomposition using general vectors.
@@ -180,7 +186,7 @@ Figure 3.2: Scalars decomposition using general vectors.
 <p>Inner products, in their most general form, don’t seem to lend themselves to a good intuition. Parts of inner products have useful interpretations, in certain circumstances, but it will be helpful to build up to that.</p>
 <p>So let’s start with a place where the inner product shows up naturally – The Law of Cosines:</p>
 <p><span class="math display">\[(\text{Law of Cosines}) \ \ \  c^2 = a^2 + b^2 - 2 a b \ cos(C)\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="images/law-of-cosines.png" alt="Law of Cosines" width="50%" height="50%" />
 <p class="caption">
 Figure 3.3: Law of Cosines
@@ -240,7 +246,7 @@ Here's how an inner product function is defined on a vector space.  Do not study
 
 <div class="figure" style="text-align: center">
 <img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)Like with Medusa, don't look directly at this, at least not yet.</p>
+<p class="caption">(\#fig:unnamed-chunk-10)Like with Medusa, don't look directly at this, at least not yet.</p>
 </div>
 
 Let's talk a little bit about what some of the definition is there to do.

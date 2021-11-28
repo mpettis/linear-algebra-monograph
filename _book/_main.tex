@@ -204,7 +204,7 @@ You'll note that the length of \(\vec{c}\) will shrink or grow from what it is i
 
 \[(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
 
-This should make some rough sense as a formula. As C shrinks below 90 degrees, \(cos(C)\) becomes slightly positive, and \(-2 a b \ cos(C)\) will ultimately reduce the value of the right side of the equation, and \(c^2\) will be a little smaller than what it would be if \(C\) were a right trangle. In the other direction, as C grows above 90 degrees, \(cos(C)\) becomes slightly negative, and so \(-2 a b \ cos(C)\) becomes slightly positive, and \(c^2\) the right hand side makes \(c^2\) a little larger, so length \(c\) is a little larger.
+This should make some rough sense as a formula. As C shrinks below 90 degrees, the endpoints of the legs of the triangle get closer to each other, so the length of c shrinks. Algebraically, \(cos(C)\) becomes slightly positive, and \(-2 a b \ cos(C)\) will ultimately reduce the value of the right side of the equation, and \(c^2\) will be a little smaller than what it would be if \(C\) were a right triangle. In the other direction, as C grows above 90 degrees, the base of the triangle spreads, and \(c\) gets longer. Algebraically, \(cos(C)\) becomes slightly negative, and so \(-2 a b \ cos(C)\) becomes slightly positive, and \(c^2\) the right hand side makes \(c^2\) a little larger, so length \(c\) is a little larger.
 
 I won't derive it here, as it is easy to find proofs. We should ask why this formula is important. Note that if you look at the diagrams, you will notice that:
 
@@ -262,6 +262,95 @@ or,
 
 That's what I mean by symmetry, and that the Law of Cosines has it, but the Pythagorean Theorem does not.
 
+\hypertarget{writing-vectors-in-terms-of-other-vectors}{%
+\section{Writing vectors in terms of other vectors}\label{writing-vectors-in-terms-of-other-vectors}}
+
+Apart from the nice observation that we can calculate lengths of a third side soley from information about the other two sides, who cares? We do. It turns out that a great simplification in dealing with vectors is if, instead of dealing with each vector on its own, like \(\vec{c}\) in \(\mathbb{R}^2\), we pick just two vectors that point in somewhat different directions, like \(\vec{a}\) and \(\vec{b}\), and then stretch or shrink those vectors (that is, make them point in the same direction, but of different lengths from the original), add them, and then use the sum of those two vectors as a stand-in for whatever vector \(\vec{c}\) we want. In math terms, we want to find multiples \(\alpha\) of \(\vec{a}\) and \(\beta\) of \(\vec{b}\) such that:
+
+\[\vec{c} = \alpha\vec{a} + \beta\vec{b}\]
+It may seem weird, but it does turn out that writing every possible vector \(\vec{c}\) in terms of two other vectors you pick at the outset (scalar multiples of \(\vec{a}\) and \(\vec{b}\)) makes other calculations you want to much more manageable. In the end, if you have some experience, you will probably end up picking \(\vec{a}\) and \(\vec{b}\) as you standard coordinate axes in the \(x\) and \(y\) direction, also denoted as either \(\hat{i}\) and \(\hat{j}\), or once you get into more dimensions than two, \(\hat{e}_{1}\) and \(\hat{e}_{2}\). But that will come later.
+
+How do you do this? It turns out that you can calculate \(\alpha\) and \(\beta\) for that representation above purely with inner products, and combining inner products with the standard addition, subtraction, multiplication, and division operations. It's not pretty -- in fact, it looks kind of gross, but it is ultimately calculable. I won't go into the derivations of how you get there, but it turns out that with enough algebra, you can show that you can calculate the following. Mind you, don't look at the equations here right now and try to figure out how the terms are being used -- just note that you can indeed calculate the coefficients \(\alpha\) and \(\beta\) with just inner products and basic operations on numbers (add/subtract/multiply/divide). So, squint when you look at these equations:
+
+\[\alpha = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{b}\cdot\vec{c})-(\vec{b}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{b})}\]
+\[\beta = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})-(\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{b})}\]
+As I said, not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.
+
+\hypertarget{orthogonality-and-normality}{%
+\section{Orthogonality and Normality}\label{orthogonality-and-normality}}
+
+Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between \(\vec{a}\) and \(\vec{b}\) is 90 degrees, then \(\vec{a}\cdot\vec{b} = 0\). If you, at the outset, \emph{pick} the vectors \(\vec{a}\) and \(\vec{b}\) to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:
+
+\[\alpha = \frac{\vec{a}\cdot\vec{c}}{\vec{a}\cdot\vec{a}}\]
+
+\[\beta = \frac{\vec{b}\cdot\vec{c}}{\vec{b}\cdot\vec{b}}\]
+With this simplification, you should think, ``Wow, I should probably choose my vectors to be perpendicular to each other!'' And that is what orthogonality is -- vectors whose inner products are 0. When they are geometric vectors, like above, orthogonality is a synonym for perpendicularity. We just use \emph{orthogonality} in the future when we have inner product, but not good geometry to go with them.
+
+To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of \(\vec{a}\) and \(vec{b}\) are \(= 1\). Then you can forget about the denomiators, as you then get:
+
+\[\alpha = \vec{a}\cdot\vec{c}\]
+\[\beta = \vec{b}\cdot\vec{c}\]
+Having length one also has a general name, called being \emph{normal}, or \emph{normality}. And it too helps simplify calculations, like above. You can always compute a vector that is normal and in the same direction as your original vector if you divide the vector by its length. Or, scalar multiply it by its reciprocal length. So, for any vector \(\vec{v}\), regardless of length (other than 0), the following vector will have length 1:
+\[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]
+Again -- same direction as \(\vec{v}\), but of length 1.
+
+\hypertarget{gram-schmidt-orthonormalization}{%
+\subsection{Gram-Schmidt Orthonormalization}\label{gram-schmidt-orthonormalization}}
+
+Big words, straightforward idea.
+
+Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn't? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, \emph{and} those vectors will be orthonormal. Here is a picture -- note the algebra looks worse than it is.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/gram-schmidt} 
+
+}
+
+\caption{Gram-Schmidt: algebra looks worse than it is.}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+Here's the idea, in straightforward language.
+
+\begin{itemize}
+\tightlist
+\item
+  Take your two vectors, \(\vec{a}\) and \(\vec{b}\), and pick one of them to start. Say, \(\vec{a}\).
+\item
+  Normalize it by dividing by it's length, and call the result \(v1\). Congrats, you have your first orthonormal vector of your new set.
+\item
+  Find the spot/vector along \(\vec{v1}\), which is the same line/direction as \(\vec{a}\), that will make a right triangle with \(\vec{b}\). Turns out, this calculation is straightforward, and is \(<\vec{b},\vec{v1}>\ \vec{v1}\), or \((\vec{b}\cdot\vec{v1})\ \vec{v1}\).
+\item
+  Subtract that from \(\vec{b}\), which is \(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1}\). What you are left with is a vector perpendicular to \(\vec{v1}\), so you are almost home.
+\item
+  Divide that vector by its own length so that you have a normalized vector: \(\vec{v2} = \frac{1}{length(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})}\ (\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})\). Not as ugly as it seems. Congrats, you now have an orthonormal basis with \(\vec{v1}\) and \(\vec{v2}\).
+\end{itemize}
+
+This process can be extended to more than 2 dimensions. It is a process of taking vectors, scaling them to length 1 for normalization, finding projections (making right triangles and picking the cosine leg), subtracting it from your next vector, and then normalizing again. It's like a great big geometric construction you might have done in geometry in high school with a compass and straight-edge. The process gets a little more algorithmically hairy for more dimensions, but it is repeating this same idea/process over and over again.
+
+We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a \emph{basis}. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an \emph{orthonormal basis}.
+
+\hypertarget{summarizing-the-big-points}{%
+\section{Summarizing the big points}\label{summarizing-the-big-points}}
+
+We've only worked with \(\mathbb{R}^2\), but we've learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:
+
+\begin{itemize}
+\tightlist
+\item
+  You can generalize the Pythagorean Theorem via the Law of Cosines. This allows you to compute the length of any leg of a triangle from the length of the other two sides and the angle between the other two sides.
+\item
+  The Law of Cosines has embedded in it a quantity we end up calling the \emph{inner product} of two vectors. This gives some measure of how much in the same direction two sides of a triangle point, and incorporate the length of those two sides so that ultimately you can get a Pythagorean Theorem like equation.
+\item
+  The inner product has a lot of symmetries that allow you to flexibly compute any of the sides.
+\item
+  If we pick the right vectors, we can use the inner product, and standard addition/subtraction/multiplication/division to compute coefficients that can be used with those vectors to represent any other vector we want.
+\item
+  It's easier if the vectors we use to write other vectors with are mutually perpendicular and of length 1 (orthonormal).
+\item
+  We can always make an orthonormal set using the Gram-Schmidt process.
+\end{itemize}
+
 \hypertarget{what-is-this-beautiful-house}{%
 \chapter{What is This Beautiful House?}\label{what-is-this-beautiful-house}}
 
@@ -283,7 +372,7 @@ The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to mo
 
 }
 
-\caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-6}
+\caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 This is picking vectors so that you have effectively the Cartesian coordinate plane that you are used to -- \(v1\) and \(v2\) act like the x- and y-axis of your high school years.
@@ -327,7 +416,7 @@ This seems like a boring observation, but, as I've said before, this will be imp
 
 }
 
-\caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-7}
+\caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 You might find yourself in a situation where you have two reference vectors that are not perpendicular to each other, and not of unit lenghts. That is the situation above. It is not neat and familiar like the first orthonormal case. But it will work. Any vector \(\vec{r}\) can be written by stretching or shrinking both \(\vec{v1}\) and \(\vec{v2}\) by just the right amounts so that you can add them, parallelogram-wise, to get to the same spot as \(\vec{r}\).
@@ -362,7 +451,7 @@ So let's start with a place where the inner product shows up naturally -- The La
 
 }
 
-\caption{Law of Cosines}\label{fig:unnamed-chunk-8}
+\caption{Law of Cosines}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
@@ -431,7 +520,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-10}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 Some notes on the picture:
