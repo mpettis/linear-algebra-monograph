@@ -1,5 +1,10 @@
 # What is This Beautiful House?
 
+
+
+
+
+
 As with most useful finds in life, you grope around blindly in the darkness for a long time, stumbling and swearing, messing up, giving up, coming back, and sometimes tripping over something useful. If what you trip over is really useful, you take it to the garage, clean and polish it, put it on display, and tell lies about how you followed a primrose path, stemming from your genius, to its discovery, making people in awe of you.
 
 We're going to follow that a bit.  It will have some convenient lies that will have enough grains of truth in it to be helpful.  I don't pretend to know the history of how linear algebra came into its present form, but I have made a satisfying hero's origin story narrative that has helped me keep important notions straight.  I'll tell that lie here.
@@ -71,7 +76,7 @@ Inner products, in their most general form, don't seem to lend themselves to a g
 
 So let's start with a place where the inner product shows up naturally -- The Law of Cosines:
 
-$$c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
+$$(\text{Law of Cosines}) \ \ \  c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
 
 ```{r, echo=FALSE, out.width="50%", out.height="50%", fig.align="center", fig.cap="Law of Cosines"}
 knitr::include_graphics('images/law-of-cosines.png')

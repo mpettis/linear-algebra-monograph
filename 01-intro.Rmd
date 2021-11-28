@@ -9,7 +9,121 @@
 > -- Alan Kay
 
 
-## Intuition about $\mathbb{R}^n$
+## $\mathbb{R}^2$, the Pythagorean Theorem, and the Law of Cosines
+
+Let's start with what we know pretty solidly -- the Pythagorean Theorem.  We know that, if we have a triangle $\triangle ABC$, with $C$ being a right angle, then:
+
+$$(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2$$
+
+```{r, echo=FALSE, out.width="75%", out.height="75%", fig.align="center", fig.cap="Pythagorean Theorem"}
+knitr::include_graphics('images/LofC-PythThm.jpg')
+```
+
+The thing to note here is that the relationship of the three sides in a right triangle has a very tidy little relationship according to the theorem.  $\vec{c}^2$ is totally determined by $a$'s and $b$'s value in a right triangle.
+
+But what happens if we keep $\vec{a}$ and $\vec{b}$ the same length, but start to wiggle the right angle at the top, making it smaller or larger?
+
+```{r, echo=FALSE, out.width="75%", out.height="75%", fig.align="center", fig.cap="Acute and obtuse triangles"}
+knitr::include_graphics('images/LofC-acute-obtuse.jpg')
+```
+
+You'll note that the length of $\vec{c}$ will shrink or grow from what it is in a right triangle with the same leg lengths.  Can we make an equation like the Pythagorean Theorem that accounts for this deviation from what you get if you had a right triangle?  Turns out, yes you can, and that *adjusted* formula is known as **The Law of Cosines**:
+
+$$(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
+
+This should make some rough sense as a formula.  As C shrinks below 90 degrees, $cos(C)$ becomes slightly positive, and $-2 a b \ cos(C)$ will ultimately reduce the value of the right side of the equation, and $c^2$ will be a little smaller than what it would be if $C$ were a right trangle.  In the other direction, as C grows above 90 degrees, $cos(C)$ becomes slightly negative, and so $-2 a b \ cos(C)$ becomes slightly positive, and $c^2$ the right hand side makes $c^2$ a little larger, so length $c$ is a little larger.
+
+I won't derive it here, as it is easy to find proofs.  We should ask why this formula is important. Note that if you look at the diagrams, you will notice that:
+
+$$(1) \ \ \ \ \ c = b \ cos(A) + a \ cos(B)$$
+
+in all cases.  That's pretty easy to see.  What the Law of Cosines does, through some trigonometric identity substitutions, is re-express that equation, going from the angles that $\vec{c}$ makes with $\vec{a}$ and $\vec{b}$, to using the angle that $\vec{a}$ and $\vec{b}$ make with each other instead.  So the Law of cosines expresses $\vec{c}$ totally in terms of the lengths of $\vec{a}$ and $\vec{b}$ and the angle they make with each other, never relying on information about $c$.
+
+It turns out that that this concept, of expressing vectors in terms of other vectors, is crucial in linear algebra, and we'll build up some concepts which may seem weird or abstract at the beginning, but turns out to be super useful in general, as it helps us lift off of reasoning about vector spaces in Euclidian space to general vector spaces.
+
+
+
+## The Inner Product, or Dot Product
+
+Let's look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two.  Taking out the factor of $-2$, we are left with:
+
+$$(2) \ \ \ \ \ a b \ cos(C)$$
+
+That particular computation, in Euclidian Space, is known as the **inner product of $\vec{a}$ and $\vec{b}$**.  It shows up in many contexts, and in general, the inner product will have different notations:
+$$\vec{a} \cdot \vec{b}$$
+
+$$ <\vec{a}, \vec{b}>$$
+
+$$ <\vec{a}|\vec{b}>$$
+
+How do we interpret this?  There are a few components that go into building this up.
+
+First is $cos(C)$, which is the angle between $\vec{a}$ and $\vec{b}$.  The cosine can be thought of as a measure of how much two lines, or vectors, point in the same direction.  A value of 1 means they point completely in the same direction, -1 means they point in opposite directions, and 0 means that they are perpendicular to each other.  We discussed above with the Law of Cosines that "point-in-the-same-direction" measure is baked into the adjustment to the Pythagorean Theorem to calculate the length of a third side of a triangle given the other two.
+
+Second, how do we interpret multiplying the cosine by the lengths of $a$ and $b$?  Here we will make a stunning insight.  Let's look back at equation (1).  If we multiply both sides of the equation by $c$, we get:
+
+$$c^2 = cb\ cos(A) + ca\ cos(B)$$
+or,
+$$c^2 = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}$$
+by the definition of inner product we saw above.  So if you squint, this kinda sorta looks like the Pythagorean Theorem.  Furthermore, You can think of $c^2$ as the inner product of a vector with itself, as the angle between a vector and itself can reasonably be thought of as 0, and $cos(0) = 1$.  So we can further rewrite the above as:
+
+$$\vec{c}\cdot\vec{c} = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}$$
+Again, squinting, that is starting to look a lot like the Pythagorean Theorem, at least on the surface.
+
+So, for Euclidian space, I like to think of the inner product, or dot product, as something you can calculate that accounts for how much in the same direction two vectors point (the cosine part), and add factors that make it dimensionally correct so that you can write a Pythagorean Theorem-like formula relating the lengths of sides of any triangle.
+
+It turns out that the inner product has a lot of super-useful properties, mostly due to the high degree of symmetry it has.
+
+What do I mean by "symmetry"?  Notice in the Pythagorean Theorem we distinguish between the hypotenuse and its legs.  The formula only works when the square of the hypotenuse is on one side of the equation, and the squares of the legs are on the other side.
+
+But this is not true of the Law of Cosines.  The formula works no matter what two sides of the triangle you pick to derive the length of the third side from.  That is, these formulas are all valid, and they have the same "form":
+
+$$c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
+$$a^2 = c^2 + b^2 - 2 c b \ cos(A)$$
+$$b^2 = a^2 + c^2 - 2 a c \ cos(B)$$
+
+or,
+
+$$\vec{c}\cdot\vec{c} = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}$$
+$$\vec{a}\cdot\vec{a} = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}$$
+$$\vec{b}\cdot\vec{b} = \vec{b}\cdot\vec{a} + \vec{b}\cdot\vec{c}$$
+
+
+That's what I mean by symmetry, and that the Law of Cosines has it, but the Pythagorean Theorem does not.
+
+
+
+
+
+## Writing vectors in terms of other vectors
+
+Apart from the nice observation that we can calculate lengths of a third side soley from information about the other two sides, who cares?  We do.  It turns out that a great simplification in dealing with vectors is if, instead of dealing with each vector on its own, like $\vec{c}$ in $\mathbb{R}^2$, we pick just two vectors that point in somewhat different directions, like $\vec{a}$ and $\vec{b}$, and then stretch or shrink those vectors (that is, make them point in the same direction, but of different lengths from the original), add them, and then use the sum of those two vectors as a stand-in for whatever vector $\vec{c}$ we want.  In math terms, we want to find multiples $\alpha$ of $\vec{a}$ and $\beta$ of $\vec{b}$ such that:
+
+$$\vec{c} = \alpha\vec{a} + \beta\vec{b}$$
+It may seem weird, but it does turn out that writing every possible vector $\vec{c}$ in terms of two other vectors you pick at the outset (scalar multiples of $\vec{a}$ and $\vec{b}$) makes other calculations you want to much more manageable.  In the end, if you have some experience, you will probably end up picking $\vec{a}$ and $\vec{b}$ as you standard coordinate axes in the $x$ and $y$ direction, also denoted as either $\hat{i}$ and $\hat{j}$, or once you get into more dimensions than two, $\hat{e}_{1}$ and $\hat{e}_{2}$.  But that will come later.
+
+How do you do this?  It turns out that you can calculate $\alpha$ and $\beta$ for that representation above purely with inner products, and combining inner products with the standard addition, subtraction, multiplication, and division operations.  It's not pretty -- in fact, it looks kind of gross, but it is ultimately calculable.  I won't go into the derivations of how you get there, but it turns out that with enough algebra, you can show that you can calculate the following:
+
+$$\alpha = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{b}\cdot\vec{c})-(\vec{b}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})^2\cdot(\vec{b}\cdot\vec{b})^2}$$
+$$\beta = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})-(\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})^2\cdot(\vec{b}\cdot\vec{b})^2}$$
+As I said, not the prettiest thing, but computable!  And that is the goal.  It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+# Intuition from $\mathbb{R}^2$
 
 At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of $\mathbb{R}^2$ and $\mathbb{R}^3$.  These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.
 
@@ -127,7 +241,6 @@ The insight here is that for a given vector space, rather than work with the raw
 
 
 
-<!--
 You could think about this as follows: all you have are the vectors, and you are given a really big set of rules that tells you what vector you get when you add any two vectors.  You just have to find that rule in the set.  It would be like memorizing your times tables way way far beyond your 1-digit by 1-digit table you have in elementary school.  Some savants do this to perform faster computations -- they may memorize all 2-digit by 2-digit products, and that can significantly speed up their already fast computations.  Some even have some key 3-digit by 3-digit products memorized.
 
 If you think about it, in $\mathbb{R}^n$, that scalar relationship is a pattern you notice about how the vectors adhere to.  But it isn't necessary -- you could just memorize what resulting vector you get when you add any two vectors together.

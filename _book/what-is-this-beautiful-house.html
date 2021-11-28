@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-11-10" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -85,9 +85,8 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
 <li class="chapter" data-level="2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html"><i class="fa fa-check"></i><b>2</b> Well, How Did I Get Here?</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#intuition-about-mathbbrn"><i class="fa fa-check"></i><b>2.1</b> Intuition about <span class="math inline">\(\mathbb{R}^n\)</span></a></li>
-<li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-axioms"><i class="fa fa-check"></i><b>2.2</b> The Axioms</a></li>
-<li class="chapter" data-level="2.3" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#why-are-the-axioms-this-way"><i class="fa fa-check"></i><b>2.3</b> Why are the axioms this way?</a></li>
+<li class="chapter" data-level="2.1" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
+<li class="chapter" data-level="2.2" data-path="well-how-did-i-get-here.html"><a href="well-how-did-i-get-here.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="what-is-this-beautiful-house.html"><a href="what-is-this-beautiful-house.html"><i class="fa fa-check"></i><b>3</b> What is This Beautiful House?</a>
 <ul>
@@ -133,7 +132,7 @@ set in the _output.yml file.</p>" />
 <p>The approach I’ll take here is to start with <span class="math inline">\(\mathbb{R}^2\)</span>, and work up to more general abstractions. We’ll start with the most commonly understood stuff, and then start to wiggle stuff around to see what happens and how we can use it. We will rely on things we know intuitively about Euclidian space, like being able to construct perpendicular and parallel lines, measure lengths and angles, and the like. Then we will start to erase and replace things with more abstract concepts, until we get to a level of some abstract generality. With this established, we will hop over to the vector space of quantum states, and we’ll be able to pull over the general abstractions, as some of the concrete intuitions don’t work in quantum vector spaces.</p>
 <div id="scenario-1-orthonormal-vectors" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Scenario 1: Orthonormal vectors</h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="images/orthonormal-decomposition.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
 <p class="caption">
 Figure 3.1: How most of us understand vector decomposition
@@ -158,7 +157,7 @@ Figure 3.1: How most of us understand vector decomposition
 </div>
 <div id="scenario-2-getting-a-little-more-artsy-any-two-linearly-independent-vectors" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Scenario 2: Getting a little more artsy: any two linearly independent vectors</h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="images/parallelogram-decomposition.png" alt="Scalars decomposition using general vectors." width="75%" height="75%" />
 <p class="caption">
 Figure 3.2: Scalars decomposition using general vectors.
@@ -180,8 +179,8 @@ Figure 3.2: Scalars decomposition using general vectors.
 <h2><span class="header-section-number">3.2</span> Inner products</h2>
 <p>Inner products, in their most general form, don’t seem to lend themselves to a good intuition. Parts of inner products have useful interpretations, in certain circumstances, but it will be helpful to build up to that.</p>
 <p>So let’s start with a place where the inner product shows up naturally – The Law of Cosines:</p>
-<p><span class="math display">\[c^2 = a^2 + b^2 - 2 a b \ cos(C)\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<p><span class="math display">\[(\text{Law of Cosines}) \ \ \  c^2 = a^2 + b^2 - 2 a b \ cos(C)\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="images/law-of-cosines.png" alt="Law of Cosines" width="50%" height="50%" />
 <p class="caption">
 Figure 3.3: Law of Cosines
@@ -203,7 +202,7 @@ or <span class="math inline">\(c = a - b\)</span>, or <span class="math inline">
 <p>In between, when the lines are perpendicular, no adjustment to the Pythagorean theorem calculation is needed.</p>
 <p>So, when the angle is small, the lines point pretty much in the same direction, and the inner product is more positive. At the other end, when the angle is wide, the lines are pointing away from each other, and the inner product is more negative.</p>
 <p>So you can get the idea that the inner product measures some notion of two lines pointing in the same, opposite, or perpendicular direction, based on the size of the inner product value.</p>
-<p>As an aside, you may recall that:</p>
+<p>As an aside, there’s some cool analogs between <span class="math inline">\(cos\)</span> and <span class="math inline">\(sin\)</span>. You may recall that:</p>
 <p><span class="math display">\[\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]</span>
 and
 <span class="math display">\[|\vec{x} \times \vec{y}| = |\vec{x}| \cdot |\vec{y}| \cdot \sin(\theta)\]</span>
@@ -241,7 +240,7 @@ Here's how an inner product function is defined on a vector space.  Do not study
 
 <div class="figure" style="text-align: center">
 <img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)Like with Medusa, don't look directly at this, at least not yet.</p>
+<p class="caption">(\#fig:unnamed-chunk-9)Like with Medusa, don't look directly at this, at least not yet.</p>
 </div>
 
 Let's talk a little bit about what some of the definition is there to do.

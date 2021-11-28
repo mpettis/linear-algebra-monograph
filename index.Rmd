@@ -2,6 +2,8 @@
 title: "Linear Algebra: An Intuitionist Approach"
 header-includes:
 - \usepackage{braket}
+- \usepackage{mathtools}
+- \usepackage{amsmath}
 author: "Matt Pettis"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

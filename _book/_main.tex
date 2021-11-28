@@ -70,6 +70,8 @@
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage{braket}
+\usepackage{mathtools}
+\usepackage{amsmath}
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -78,7 +80,7 @@
 
 \title{Linear Algebra: An Intuitionist Approach}
 \author{Matt Pettis}
-\date{2021-11-10}
+\date{2021-11-28}
 
 \begin{document}
 \maketitle
@@ -169,140 +171,96 @@ Point of view is worth 80 IQ points
 -- Alan Kay
 \end{quote}
 
-\hypertarget{intuition-about-mathbbrn}{%
-\section{\texorpdfstring{Intuition about \(\mathbb{R}^n\)}{Intuition about \textbackslash mathbb\{R\}\^{}n}}\label{intuition-about-mathbbrn}}
+\hypertarget{mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines}{%
+\section{\texorpdfstring{\(\mathbb{R}^2\), the Pythagorean Theorem, and the Law of Cosines}{\textbackslash mathbb\{R\}\^{}2, the Pythagorean Theorem, and the Law of Cosines}}\label{mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines}}
 
-At this point, if you are reading this as opposed to an intro to linear algebra book, I assume the one thing you have is a good familiarity with are the vector spaces of \(\mathbb{R}^2\) and \(\mathbb{R}^3\). These are the vector spaces used extensively in physics and engineering to model things like position, velocity, and forces.
+Let's start with what we know pretty solidly -- the Pythagorean Theorem. We know that, if we have a triangle \(\triangle ABC\), with \(C\) being a right angle, then:
 
-You know that you can add two vectors by putting the tail of one vector at the head of the other and connecting the base of one to the tip of the other vector.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/vector_parallelogram_law} 
-
-}
-
-\caption{Parallelogram Law of Addition}\label{fig:unnamed-chunk-1}
-\end{figure}
-
-And we know how to stretch, shrink, and flip a vector, which we do by multiplying a vector by a real number. If you multiply a vector by \(1/2\), the length of the vector shrinks to one-half its original length (but the direction doesn't change). If you multiply a vector by \(3 \sqrt{2}\) the magnitude of the result is stretched by that amount.
+\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/Vector-scaling} 
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/LofC-PythThm} 
 
 }
 
-\caption{Vector Scaling}\label{fig:unnamed-chunk-2}
+\caption{Pythagorean Theorem}\label{fig:unnamed-chunk-1}
 \end{figure}
 
-These are the prototypical vector spaces, one I'd argue 99 times out of 100 people imagine if they know what a vector space is already. And if this is the only space you have to deal with, this intuition is pretty much all you need. It will take you far. But if you study quantum state space vectors, with their complex entries, and the notion of \(\mathbb{R}^n\) vector spaces can help some of your intuition, and for other parts, you are totally at sea as to how the hell you are supposed to interpret things.
+The thing to note here is that the relationship of the three sides in a right triangle has a very tidy little relationship according to the theorem. \(\vec{c}^2\) is totally determined by \(a\)'s and \(b\)'s value in a right triangle.
 
-So it may help to go back to \(\mathbb{R}^n\) and do some careful syntax-to-interpretation explanations. And take some of the things we take for granted as obvious and cast them in new, abstract lights.
-
-We just discussed how addition and scalar multiplication are performed. But we should note the choices we made to do what seems so natural to us.
-
-First, addition. We did it using the parallelogram law. How come we didn't choose to make the resulting vector have a length equal to the sum of the length of the two starting vectors? You can see from the picture the length of our resulting vector is usually shorter, but never longer, than the length of the two vectors you are adding. You should counter, ``well, that's because things like forces don't work that way. If I have two equal and opposite forces acting on an object, I want the result to be no net force. If the magnitudes were added, which direction would the result point? Doesn't make sense, so we can't use that because it doesn't model the situation.''
-
-Good answer, reader!
-
-We want our model to reflect what is going on. So that sort of addition is out. It turns out head-to-tail addition does model things like forces. What is also intuitive is that for any arrow, or force, or velocity, you can ``counteract'' it with another arrow/force/velocity. You could not do this if the magnitues themselves always add. You can never add two positive things to get a net zero, which would represent two things counteracting each other.
-
-Second, just what do we mean by multiplying a vector by a scalar? That's a little trickier. We know what we mean: we shrink and grow the vector, in the same direction, by the scalar's sign and magnitude. As above, multiplying a vector by \(1/2\) shrinks its length to \(1/2\) the original length, but the direction stays the same.
-
-But if you are an engineer or scientist, your unit-analysis Spidey-sense should start to tingle\ldots{} if scalars and vectors are different things, and I multiply them, whatever happens, I shouldn't get a vector out, like we are seeing.
-
-A dirty little detail is usually glossed over. Because it is short-circuiting to your intuition about stretching or shrinking, people don't talk about what \(\alpha \vec{x}\) is. Your brain probably assumes it is a multiplication, and what the scalar is multiplying is the ``magnitude'' property of the vector. You can think about it that way for \(\mathbb{R}^n\) vectors. But that's not really a scalar-vector multiplication. What it really is is the scalar acting as a function that maps a vector to another vector. Like so:
-
-\[ f_{\alpha} : V \to V , \alpha \in \mathbb{R} \]
-So, \(\alpha \vec{x}\) is really shorthand for \(f_{\alpha}(\vec{x})\).
-
-For \(\mathbb{R}^n\), that function is the function that stretches or shrinks the magnitude of the vector by \(\alpha\). Again, this may seem like nit-picky pedantry, but we have to start leveraging this fact in the near future to keep some other things clear\ldots{}
-
-\hypertarget{the-axioms}{%
-\section{The Axioms}\label{the-axioms}}
-
-So if vector spaces were just stretching and head-to-tail vector additions, mathematicians probably wouldn't make the seemingly awkward definition that are always presented in the first three pages of any textbook:
-
-From Wikipedia:
+But what happens if we keep \(\vec{a}\) and \(\vec{b}\) the same length, but start to wiggle the right angle at the top, making it smaller or larger?
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth,height=1\textheight]{images/vector-space-axioms-wikipedia_2} 
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/LofC-acute-obtuse} 
 
 }
 
-\caption{[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...}\label{fig:unnamed-chunk-3}
+\caption{Acute and obtuse triangles}\label{fig:unnamed-chunk-2}
 \end{figure}
 
-It is a bad way to start, because you really have no frame of reference for what any of the terms mean. It is frustrating and made me angry \textbf{We shouldn't really start here.}
+You'll note that the length of \(\vec{c}\) will shrink or grow from what it is in a right triangle with the same leg lengths. Can we make an equation like the Pythagorean Theorem that accounts for this deviation from what you get if you had a right triangle? Turns out, yes you can, and that \emph{adjusted} formula is known as \textbf{The Law of Cosines}:
 
-This reminds me of the joke about a cab driver driving around the Seattle area in a fog, and he asks a guy coming out of a building if he can tell the cabbie where he is. The guy looks at him and says, ``You're in a cab,'' and walks on. The cabbie says ``Perfect, I know where I am.'' The fare asks him how he can figure out anything from what the guy outside said, and the cabbie say, ``Well, he told me something that was completely true and completely useless. So this must be the Microsoft building.''
+\[(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
 
-There's so many questions that should be triggered. Like:
+This should make some rough sense as a formula. As C shrinks below 90 degrees, \(cos(C)\) becomes slightly positive, and \(-2 a b \ cos(C)\) will ultimately reduce the value of the right side of the equation, and \(c^2\) will be a little smaller than what it would be if \(C\) were a right trangle. In the other direction, as C grows above 90 degrees, \(cos(C)\) becomes slightly negative, and so \(-2 a b \ cos(C)\) becomes slightly positive, and \(c^2\) the right hand side makes \(c^2\) a little larger, so length \(c\) is a little larger.
 
-\begin{itemize}
-\tightlist
-\item
-  Why so many simple axioms?
-\item
-  What are vectors, really?
-\item
-  What is a field, really?
-\item
-  What does it mean to add vectors?
-\item
-  What does it mean to multiply a vector by a scalar?
-\item
-  How do I know what other vector \(a \cdot \vec{u}\) becomes?
-\item
-  It looks like the scalar field talks about how \emph{scalar addition} and \emph{scalar multiplication} works. But vectors only talk about \emph{vector addition}. What's up with that?
-\end{itemize}
+I won't derive it here, as it is easy to find proofs. We should ask why this formula is important. Note that if you look at the diagrams, you will notice that:
 
-With \(\mathbb{R}^n\), we can look over the axioms and confirm that yep, they meet the axioms, because we have a strong intuition about how addtion of vectors work, how scalars stretch the vectors, and how the addition and multiplication of scalar (read: real) numbers work.
+\[(1) \ \ \ \ \ c = b \ cos(A) + a \ cos(B)\]
 
-We can boil these axioms down as follows:
+in all cases. That's pretty easy to see. What the Law of Cosines does, through some trigonometric identity substitutions, is re-express that equation, going from the angles that \(\vec{c}\) makes with \(\vec{a}\) and \(\vec{b}\), to using the angle that \(\vec{a}\) and \(\vec{b}\) make with each other instead. So the Law of cosines expresses \(\vec{c}\) totally in terms of the lengths of \(\vec{a}\) and \(\vec{b}\) and the angle they make with each other, never relying on information about \(c\).
 
-\begin{itemize}
-\tightlist
-\item
-  It won't matter what order you do your operations in, you are guaranteed to get the same answer. All of the axioms that deal with associativity, commutativity, compatibility, and distributivity are telling us this.
-\item
-  Your vector space has an element that acts as a \(\vec{0}\) element, and every vector has an opposite that, when you add them together, gives you \(\vec{0}\).
-\item
-  Your scalar field, which has a 1 in it, when combined with a vector, won't change that vector. Or, \(1 \cdot \vec{x} = \vec{x}\)
-\end{itemize}
+It turns out that that this concept, of expressing vectors in terms of other vectors, is crucial in linear algebra, and we'll build up some concepts which may seem weird or abstract at the beginning, but turns out to be super useful in general, as it helps us lift off of reasoning about vector spaces in Euclidian space to general vector spaces.
 
-But that doesn't answer why we say what we want in a vector space that way. Even more, we don't have a good idea of what other structures my meet these axioms and be a vector space. Or how to interpret that.
+\hypertarget{the-inner-product-or-dot-product}{%
+\section{The Inner Product, or Dot Product}\label{the-inner-product-or-dot-product}}
 
-\hypertarget{why-are-the-axioms-this-way}{%
-\section{Why are the axioms this way?}\label{why-are-the-axioms-this-way}}
+Let's look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of \(-2\), we are left with:
 
-In elementary school, you learned your 1-digit by 1-digit times tables by rote. And then you learned how you could leverage that to multiply numbers bigger than 1-digit together by using the 1-digit table entries, putting the results in certain columns, learning how to carry, write down partial sums, and add them together. You need only know the 1-digit times tables and a procedure with special addition rules to handle the multiplication of any two numbers of any length.
+\[(2) \ \ \ \ \ a b \ cos(C)\]
 
-\emph{That} reduction to a small set of memorized multiplication facts and easy rules to combine the results to get us any arbitrary computation is what we are striving for in vector spaces. We don't want to have to memorize the sum of every two-vector combination in the space, because by my last count, I'm pretty sure there are more than 57 vectors in \(\mathbb{R}^2\) alone. What we want is a nice way to get a fixed set of facts we have to know about, and find simple procedures to compute the facts only as we need them.
+That particular computation, in Euclidian Space, is known as the \textbf{inner product of \(\vec{a}\) and \(\vec{b}\)}. It shows up in many contexts, and in general, the inner product will have different notations:
+\[\vec{a} \cdot \vec{b}\]
 
-So here's the game plan, to try and tackle complex things like \(\mathbb{R}^n\) and other things that will qualify as vector spaces. We are going to reference some topics that will be familiar to you if you've dealt with linear algebras before, but haven't talked about yet here:
+\[ <\vec{a}, \vec{b}>\]
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.53}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.47}}@{}}
-\toprule
-Task & Vector space concept \\
-\midrule
-\endhead
-Get a fixed number of facts (vectors \(\vec{x}_{i}\)) we need to deal with, like the times table. & Pick linearly independent vectors \(\vec{x}_{i}\). \\
-Figure out how to express them as simple combinations of known facts & Linear combinations with scalars: \(\vec{x} = \alpha_{1} \vec{x}_{1} + \alpha_{1} \vec{x}_{1} + ... + \alpha_{n} \vec{x}_{n}\). A minimal set of linearly independent vectors that can do this is called a \emph{basis}. \\
-Discover that for vector spaces (finite ones), any set of vectors that work to do this \emph{always} has the same number of vectors & This is the dimensionality \(N\) of the space. \\
-Figure out how to calculate \(\alpha_{i}\) for a given set of vectors. & To do this, we'll have to create the concept of the \emph{inner product}. \\
-Find out that lots of choices of \(\vec{x}_{i}\) will work to express any vector, but \emph{certain} ones are easier to compute the \(\alpha_{i}\)'s for. & These will be vectors that are orthogonal and of a certain size (magnitude = 1). The word that captures both of these concepts is \emph{orthonormal}. There are still lots of orthonormal sets. \\
-Figure out how to take an arbirary linear independent set and construct an equivalent orthonormal set out of them, because they are easier to deal with. & This is the Gram-Schmidt theorem. \\
-\bottomrule
-\end{longtable}
+\[ <\vec{a}|\vec{b}>\]
 
-This will be enough for now. Once we get into functions \emph{between} vector spaces, and pick out the special functions (the \emph{linear} transforms), we'll talk about what \emph{eigenvectors} and \emph{eigenvalues} are. But not yet.
+How do we interpret this? There are a few components that go into building this up.
 
-The insight here is that for a given vector space, rather than work with the raw vectors themselves, it is easier to break them down into computations on known vectors (the basis), and do scalar multiplication (really, mappings that work like the underlying arithmetic on the scalars) on those basis vectors. This is because the operations on the scalar field, and the way they map (or stretch) the basis vectors is ultimately an easier accounting scheme. So we go through all of this work to find linear independent sets, bases, orthonormal bases, an inner product function, etc., so that we can use the inner product to easily get scalar coefficients and go on our merry way doing calculations on the vector space elements themselves in terms of their fewer and simpler basis elements.
+First is \(cos(C)\), which is the angle between \(\vec{a}\) and \(\vec{b}\). The cosine can be thought of as a measure of how much two lines, or vectors, point in the same direction. A value of 1 means they point completely in the same direction, -1 means they point in opposite directions, and 0 means that they are perpendicular to each other. We discussed above with the Law of Cosines that ``point-in-the-same-direction'' measure is baked into the adjustment to the Pythagorean Theorem to calculate the length of a third side of a triangle given the other two.
+
+Second, how do we interpret multiplying the cosine by the lengths of \(a\) and \(b\)? Here we will make a stunning insight. Let's look back at equation (1). If we multiply both sides of the equation by \(c\), we get:
+
+\[c^2 = cb\ cos(A) + ca\ cos(B)\]
+or,
+\[c^2 = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}\]
+by the definition of inner product we saw above. So if you squint, this kinda sorta looks like the Pythagorean Theorem. Furthermore, You can think of \(c^2\) as the inner product of a vector with itself, as the angle between a vector and itself can reasonably be thought of as 0, and \(cos(0) = 1\). So we can further rewrite the above as:
+
+\[\vec{c}\cdot\vec{c} = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}\]
+Again, squinting, that is starting to look a lot like the Pythagorean Theorem, at least on the surface.
+
+So, for Euclidian space, I like to think of the inner product, or dot product, as something you can calculate that accounts for how much in the same direction two vectors point (the cosine part), and add factors that make it dimensionally correct so that you can write a Pythagorean Theorem-like formula relating the lengths of sides of any triangle.
+
+It turns out that the inner product has a lot of super-useful properties, mostly due to the high degree of symmetry it has.
+
+What do I mean by ``symmetry''? Notice in the Pythagorean Theorem we distinguish between the hypotenuse and its legs. The formula only works when the square of the hypotenuse is on one side of the equation, and the squares of the legs are on the other side.
+
+But this is not true of the Law of Cosines. The formula works no matter what two sides of the triangle you pick to derive the length of the third side from. That is, these formulas are all valid, and they have the same ``form'':
+
+\[c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
+\[a^2 = c^2 + b^2 - 2 c b \ cos(A)\]
+\[b^2 = a^2 + c^2 - 2 a c \ cos(B)\]
+
+or,
+
+\[\vec{c}\cdot\vec{c} = \vec{c}\cdot\vec{b} + \vec{c}\cdot\vec{a}\]
+\[\vec{a}\cdot\vec{a} = \vec{a}\cdot\vec{b} + \vec{a}\cdot\vec{c}\]
+\[\vec{b}\cdot\vec{b} = \vec{b}\cdot\vec{a} + \vec{b}\cdot\vec{c}\]
+
+That's what I mean by symmetry, and that the Law of Cosines has it, but the Pythagorean Theorem does not.
 
 \hypertarget{what-is-this-beautiful-house}{%
 \chapter{What is This Beautiful House?}\label{what-is-this-beautiful-house}}
@@ -325,7 +283,7 @@ The approach I'll take here is to start with \(\mathbb{R}^2\), and work up to mo
 
 }
 
-\caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-4}
+\caption{How most of us understand vector decomposition}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 This is picking vectors so that you have effectively the Cartesian coordinate plane that you are used to -- \(v1\) and \(v2\) act like the x- and y-axis of your high school years.
@@ -369,7 +327,7 @@ This seems like a boring observation, but, as I've said before, this will be imp
 
 }
 
-\caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-5}
+\caption{Scalars decomposition using general vectors.}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 You might find yourself in a situation where you have two reference vectors that are not perpendicular to each other, and not of unit lenghts. That is the situation above. It is not neat and familiar like the first orthonormal case. But it will work. Any vector \(\vec{r}\) can be written by stretching or shrinking both \(\vec{v1}\) and \(\vec{v2}\) by just the right amounts so that you can add them, parallelogram-wise, to get to the same spot as \(\vec{r}\).
@@ -396,7 +354,7 @@ Inner products, in their most general form, don't seem to lend themselves to a g
 
 So let's start with a place where the inner product shows up naturally -- The Law of Cosines:
 
-\[c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
+\[(\text{Law of Cosines}) \ \ \  c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
 
 \begin{figure}
 
@@ -404,7 +362,7 @@ So let's start with a place where the inner product shows up naturally -- The La
 
 }
 
-\caption{Law of Cosines}\label{fig:unnamed-chunk-6}
+\caption{Law of Cosines}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
@@ -435,7 +393,7 @@ So, when the angle is small, the lines point pretty much in the same direction, 
 
 So you can get the idea that the inner product measures some notion of two lines pointing in the same, opposite, or perpendicular direction, based on the size of the inner product value.
 
-As an aside, you may recall that:
+As an aside, there's some cool analogs between \(cos\) and \(sin\). You may recall that:
 
 \[\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\theta)\]
 and
@@ -473,7 +431,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-8}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-10}
 \end{figure}
 
 Some notes on the picture:
