@@ -1,4 +1,4 @@
-# Well, How Did I Get Here?
+# Inner Products: $\mathbb{R}^2$, Pythagorean Theoroem, and Law of Cosines
 
 > It takes a very unusual mind to undertake the analysis of the obvious.
 >
@@ -7,6 +7,8 @@
 > Point of view is worth 80 IQ points
 >
 > -- Alan Kay
+
+Here we are going to lay the groundwork vector spaces, particularly the aspect of inner products.  We'll start with the most common prototype vector space: $\mathbb{R}$.  This will relate the intuition of geometry and trigonometry to the algebraic machinery of inner products.
 
 
 ## $\mathbb{R}^2$, the Pythagorean Theorem, and the Law of Cosines
@@ -119,7 +121,7 @@ $$\alpha = \frac{\vec{a}\cdot\vec{c}}{\vec{a}\cdot\vec{a}}$$
 $$\beta = \frac{\vec{b}\cdot\vec{c}}{\vec{b}\cdot\vec{b}}$$
 With this simplification, you should think, "Wow, I should probably choose my vectors to be perpendicular to each other!"  And that is what orthogonality is -- vectors whose inner products are 0.  When they are geometric vectors, like above, orthogonality is a synonym for perpendicularity.  We just use *orthogonality* in the future when we have inner product, but not good geometry to go with them.
 
-To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of $\vec{a}$ and $vec{b}$ are $= 1$.  Then you can forget about the denomiators, as you then get:
+To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of $\vec{a}$ and $\vec{b}$ are $= 1$.  Then you can forget about the denomiators, as you then get:
 
 $$\alpha = \vec{a}\cdot\vec{c}$$
 $$\beta = \vec{b}\cdot\vec{c}$$
