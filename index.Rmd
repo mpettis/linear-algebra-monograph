@@ -64,8 +64,6 @@ These definitions don't come in an inspiration, like Athena springing fully form
 
 This monograph is intended give you the motivations of why linear algebra is the way it is.  It will address:
 
-- Where do those rules about a vector space come from?
-- What's the big deal about linear independence?
 - What would make you come up with an idea like an inner product?
 - What's helpful about orthogonality?
 - Eigenvectors: how do they even work?

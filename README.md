@@ -1,13 +1,6 @@
-Welcome! 
+Some personal interpretations and explanations of linear algebra.  Inspired by discussions with the Quantum Computing group.
 
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). 
+View it with:
 
-This template provides a skeleton file structure that you can edit to create your book. 
+https://htmlpreview.github.io/?https://github.com/mpettis/linear-algebra-monograph/blob/main/_book/index.html
 
-The contents inside the .Rmd files provide some pointers to help you get started, but feel free to also delete the content in each file and start fresh.
-
-Additional resources:
-
-The **bookdown** book: https://bookdown.org/yihui/bookdown/
-
-The **bookdown** package reference site: https://pkgs.rstudio.com/bookdown
