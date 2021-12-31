@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach</title>
+  <meta name="description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="mpettis/linear-algebra-monograph" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
+  
+  <meta name="twitter:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Matt Pettis" />
+
+
+<meta name="date" content="2021-12-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-nu-start.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>2</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
+<li class="chapter" data-level="2.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
+<li class="chapter" data-level="2.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>2.3</b> Writing vectors in terms of other vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.4</b> Orthogonality and Normality</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.4.1</b> Gram-Schmidt Orthonormalization</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.5</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>3</b> Title tbd</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>3.1</b> Properties of inner products</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>5</b> A Nu Start</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>5.1</b> Lines that run roughly in the same direction</a></li>
+<li class="chapter" data-level="5.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>5.2</b> Inner Products</a></li>
+<li class="chapter" data-level="5.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>5.3</b> Orthogonality and Normality</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>5.3.1</b> Gram-Schmidt Orthonormalization</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>5.4</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>6</b> Eigenvectors and Eigenvalues</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Linear Algebra: An Intuitionist Approach</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="eigenvectors-and-eigenvalues" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Eigenvectors and Eigenvalues</h1>
+<p>Part of the motivation from the last chapter was to simplify calculations. The simplification process was something like this:</p>
+<ul>
+<li>Instead of talking about each vector uniquely, find a small set of vectors through which you can express every other vector in that space you could possibly want to talk about.</li>
+<li>Be picky about that set, and pick the smallest set of vectors you can get away with.</li>
+<li>Find a relatively easy function (inner product) that makes calculating the scalars that you need to use with that small set of vectors to represent any other vector.</li>
+<li>Be more picky about that small set of vectors (the basis) in a way that makes computing the scalars more computationally simple – that is by selecting a set of vectors that are mutually orthogonal. This makes a lot of terms in the scalar computation reduce to zero and make a simpler computation.</li>
+<li>Be even more picky about that set and make sure the <em>length</em> of the basis vectors are <span class="math inline">\(1\)</span>. This gives you an orthonormal basis.</li>
+</ul>
+<p>These ways of being very picky about what basis set of vectors you choose to represent any other vector in the space pays off by making the scalar multiplier computations you need to make to get the right expression much more simple by introducing a lot of zero terms.</p>
+<p>Having vectors lying around seems pretty limited in its usefulness. On their own, they don’t really do much. You can think about using vectors to keep track of things like position of a particle, or velocity of an airplane, but by themselves, they don’t give you much more than an accounting system of limited use.</p>
+<p>So how do we make them useful? It turns out that one of the powerful things to do with vectors is to transform them from one vector into another. Why? One way is by giving you the tools to figure out where you have to aim an initial vector in order to hit a target vector. Let’s do an example.</p>
+<p>The common example is linear systems of equations. I grew up on a farm, so let’s talk about Crazy Larry’s Seed Shop. Here, you can use dollars or euros (because if I recall anything about my rural upbringing, it was very cosmopolitan). However, these are the rules for how Crazy Larry will sell you stuff (he’s not crazy because of his low, low prices):</p>
+<ul>
+<li>For every dollar you pay him, he will give you 2 bags of corn and 2 bags of wheat.</li>
+<li>For every euro you pay him, he will give you 3 bags of corn and 1 bag of wheat.</li>
+</ul>
+<p>That’s the deal. Crazy, right?</p>
+<p>So, you do some sample trades to get a feel for what goes on.</p>
+<ul>
+<li>If you give just a dollar or just a euro, you get what was laid out in the rules above – very simple.</li>
+<li>If you give 1 dollar and 1 euro, you get 2 bags of corn and 2 of wheat from the dollar, and 3 of corn and 1 of wheat from the euro, for a total of 5 bags of corn and 3 bags of wheat.</li>
+<li>If you give 8 dollars and 3 euros, you get a total of 25 bags of corn and 19 bags of wheat.</li>
+</ul>
+<p>And so on. Its a lot of accounting. First, since we just spent a chapter on Euclidian vectors, let’s model these calculations as vectors in a Euclidian space. Truthfully, that’s probably the biggest advantage of Euclidian spaces – you can model a lot of problems with vectors in them.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="images/CrazyCornWheat.jpg" alt="Crazy Larry, of course, has drawn out his crazy scheme." width="75%" height="75%" />
+<p class="caption">
+Figure 6.1: Crazy Larry, of course, has drawn out his crazy scheme.
+</p>
+</div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-nu-start.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-eigenvectors-and-eigenvalues.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

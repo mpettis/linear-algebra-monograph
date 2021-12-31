@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 A Nu Start | Linear Algebra: An Intuitionist Approach</title>
+  <meta name="description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 A Nu Start | Linear Algebra: An Intuitionist Approach" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="mpettis/linear-algebra-monograph" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 A Nu Start | Linear Algebra: An Intuitionist Approach" />
+  
+  <meta name="twitter:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
+point of view.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Matt Pettis" />
+
+
+<meta name="date" content="2021-12-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="how-do-i-work-this.html"/>
+<link rel="next" href="eigenvectors-and-eigenvalues.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>2</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
+<li class="chapter" data-level="2.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
+<li class="chapter" data-level="2.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>2.3</b> Writing vectors in terms of other vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.4</b> Orthogonality and Normality</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.4.1</b> Gram-Schmidt Orthonormalization</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.5</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>3</b> Title tbd</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>3.1</b> Properties of inner products</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>5</b> A Nu Start</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>5.1</b> Lines that run roughly in the same direction</a></li>
+<li class="chapter" data-level="5.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>5.2</b> Inner Products</a></li>
+<li class="chapter" data-level="5.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>5.3</b> Orthogonality and Normality</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>5.3.1</b> Gram-Schmidt Orthonormalization</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>5.4</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>6</b> Eigenvectors and Eigenvalues</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Linear Algebra: An Intuitionist Approach</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-nu-start" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> A Nu Start</h1>
+<p>It is probably intuitive that if you specify the lengths of two lines and the angles between them, then the tip-to-tip distance of the two lines is fixed, and can be calculated. Let’s look at an example below. There, we assume that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the two lines, and <span class="math inline">\(C\)</span> is the angle between them. If we specify values for those three parts, then the length of <span class="math inline">\(c\)</span> is also determined.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="images/LofC-PythThm.jpg" alt="Pythagorean Theorem, Law of Cosines" width="75%" height="75%" />
+<p class="caption">
+Figure 5.1: Pythagorean Theorem, Law of Cosines
+</p>
+</div>
+<p>If <span class="math inline">\(C\)</span> is a right angle, like above, we can calculate <span class="math inline">\(c\)</span> via the Pythagorean Theorem:</p>
+<p><span class="math display">\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]</span>
+However, if <span class="math inline">\(C\)</span> were not a right angle, but instead was any old angle, you could still compute the length of <span class="math inline">\(c\)</span> if you knew the angles <span class="math inline">\(c\)</span> makes with <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. It should be straightforward to see in the diagram that:</p>
+<p><span class="math display">\[(1) \ \ \ \ \ c = b \ cos(A) + a \ cos(B)\]</span></p>
+<p>With some fancy trigonometry, you can find a formula for <span class="math inline">\(c\)</span> (or equally, <span class="math inline">\(c^2\)</span>) with a formula that involves just the angle <span class="math inline">\(C\)</span> instead of angles <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. We call that formula the <strong>Law of Cosines</strong>:</p>
+<p><span class="math display">\[(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)\]</span></p>
+<p>You can see that it looks a lot like the Pythagorean Theorem. In fact, when <span class="math inline">\(C\)</span> is 90 degrees, the last term is <span class="math inline">\(0\)</span>, and we are back to the Pythagorean Theorem.</p>
+<p>That was a whirlwind tour of some nice formulas, and I didn’t even annoy you with a proof of the Law of Cosines. It is nothing special, and just involves some clever trigonometric substitutions and identities using the sum of angles formulas, available anywhere you can search the internet.</p>
+<p>One thing I’d like to highlight here is that the relationships that are helpful are posed as quadratics. That is, the Pythagorean Theorem relates the squares of the sides. If you were to talk in units, these relationships are in terms of <span class="math inline">\(length^2\)</span>, not straight <span class="math inline">\(length\)</span>. That quadratic relationship makes some things a bit harder, but other, more important things, a bit easier.</p>
+<p>What I really want to highlight are some aspects of this problem that turn out to be the ones we need to hold on to when we want to develop the heavier machinery of linear algebra, where in many cases we can’t always run back to a nice geometric picture to look at.</p>
+<div id="lines-that-run-roughly-in-the-same-direction" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Lines that run roughly in the same direction</h2>
+<p>Let’s go back to the triangle at the top of the page. Look at <span class="math inline">\(b\ cos(A)\)</span>, and imagine if you pull the point <span class="math inline">\(C\)</span> straight up, following the path the perpendicular dotted line would go if it kept going up. What happens? Well, angle <span class="math inline">\(C\)</span> gets smaller, and sides <span class="math inline">\(b\)</span> and <span class="math inline">\(a\)</span> get longer and longer. But the part of <span class="math inline">\(c\)</span> made up by <span class="math inline">\(b\ cos(A)\)</span> keeps staying the same length.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-13"></span>
+<img src="images/Triangles-bcosA.jpg" alt="Triangles with same third side length" width="75%" height="75%" />
+<p class="caption">
+Figure 5.2: Triangles with same third side length
+</p>
+</div>
+<p>In fact, if you make any triangle with the same horizontal line, and a vertex somewhere on the dashed line, then <span class="math inline">\(b\ cos(A)\)</span> will be the same for any triangle you make in this manner.</p>
+<p>Another way to think of this is: how much of <span class="math inline">\(b\)</span> accounts for the total length of <span class="math inline">\(AC\)</span>? In all of the triangles shown, the answer is: equal amounts. As the vertex gets further away from <span class="math inline">\(AC\)</span>, <span class="math inline">\(b\)</span> gets <em>longer</em>, but points in a direction that is more away from <span class="math inline">\(AC\)</span> than in the same direction of it.</p>
+<p>This idea – the interplay of line lengths and how much they do or do not point in the same direction – is at the heart of <em>inner products</em>. Inner products can be used in many different disguises in different situations. But here, in normal-geometry Euclidian space, the inner product, also known as the dot product in this space, of two lines is the product of the length of those two lines and the cosine of the angle between them. That “cosine of the angle between them” accounts for how much in the same direction the two lines are pointing.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="images/Triangles-bcosA-rightTriangle.jpg" alt="Zero inner product of b and c" width="75%" height="75%" />
+<p class="caption">
+Figure 5.3: Zero inner product of b and c
+</p>
+</div>
+<p>One more important observation… In the above, when <span class="math inline">\(A\)</span> is a right angle, there is no <span class="math inline">\(b\ cos(C)\)</span> component, or really, it is 0. Because <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are pointing perpendicular to each other. In other words, <span class="math inline">\(b\)</span> doesn’t point at all in any direction of <span class="math inline">\(c\)</span>, so the inner (dot) product is zero. This is a condition that we will heavily exploit in all of linear algebra. You can get a hint as to why… in this case, we get a right triangle, and the relation of the sides is given by the Pythagorean theorem, which has simpler terms than the Law of Cosines. This “zero inner product” condition will be exploited to make computations relatively straight-forward, and interpretations will be simplified as well.</p>
+</div>
+<div id="inner-products" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Inner Products</h2>
+<p>Let’s look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of <span class="math inline">\(-2\)</span>, we are left with:</p>
+<p><span class="math display">\[(2) \ \ \ \ \ a b \ cos(C)\]</span>
+That’s the inner product of the vectors <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>, with <span class="math inline">\(C\)</span> being the angle between those two vectors.</p>
+<p>There’s reason we go through all of these gymnastics, to come up with the Pythagorean Theorem and the Law of Cosines, and that is this: it will simplify some other really hard things.</p>
+<p>Let’s talk about vector spaces. I’ll make assumptions at this point that you know what this is, in at least a geometric sense. It’s the Euclidian space where you draw arrows, and you can add two arrows graphically by placing the tail of one vector on the head (arrow) part of the other, and drawing a new arrow from the base of the one vector to the tip of the other one. And you can “scalar multiply” an arrow by multiplying it by a real number, and that real number will make a new arrow along the same direction as the original arrow, but whose length is changed by the magnitude of the scalar (real number). Negative numbers will reverse the direction of the arrow, but the length is still changed by the magnitude of the scalar.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="images/parallelogram-decomposition.png" alt="Vector addition, scalar multiplication" width="75%" height="75%" />
+<p class="caption">
+Figure 5.4: Vector addition, scalar multiplication
+</p>
+</div>
+<p>In the above picture, we have made the picture so that if you scale <span class="math inline">\(\vec{v1}\)</span> by <span class="math inline">\(a1\)</span> and <span class="math inline">\(\vec{v2}\)</span> by <span class="math inline">\(a2\)</span>, and add them together, you get <span class="math inline">\(\vec{r}\)</span>. Or:</p>
+<p><span class="math display">\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]</span></p>
+<p>Spoiler alert: inner products are the thing you need to compute to figure out the values for <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span>.</p>
+<p>Here’s the rub: vectors in a vector space are pretty much an unmanageable mess unless you put some effort into organizing them. The easiest way to make an accounting system is to pick a certain number of special fixed vectors and <em>write every other vector in terms of those special vectors.</em></p>
+<p>For Euclidian space, the number of vectors you pick depends on the <em>dimension</em> of your space. So, <span class="math inline">\(\mathbb{R}^2\)</span>, or the Cartesian Plane, requires that you pick only two vectors (and those vectors can be any two vectors as long as one isn’t a scalar multiple of the other). <span class="math inline">\(\mathbb{R}^3\)</span> takes 3 vectors (and in that set of 3, the restriction is that you can’t write one of those vectors as a sum of scalar multiples of the other two). And so on.</p>
+<p>Once you have your set of special vectors that meet the above criteria (this set is known as a basis), you can write any other vector as a sum of scalar multiple of those vectors. For example, if you’ve picked two vectors <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> from <span class="math inline">\(\mathbb{R}^2\)</span>, with the restriction above, you can write any other vector <span class="math inline">\(r\)</span> in terms of them. To repeat our formula with slightly different terms:</p>
+<p><span class="math display">\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]</span>
+And for any <span class="math inline">\(r\)</span>, you can find scalars <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span> that will make this work. The key is: <em>how do you find <span class="math inline">\(a1\)</span> and <span class="math inline">\(a2\)</span>?</em>.</p>
+<p>The answer is: inner products. Without going through the grungy math, I will give you the grungy result, which I will say <strong>Don’t scrutinize this too much.</strong> I just want to make the point that the scalars you need can be calculated in terms of inner products and simple addition, subtraction, multiplication, and division.</p>
+<p><span class="math display">\[a1 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v2}\cdot\vec{r})-(\vec{v2}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]</span></p>
+<p><span class="math display">\[a2 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})-(\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]</span></p>
+<p>Not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.</p>
+<p>The idea is: basic arithmetic and inner producst are cheap/easy to compute. Keeping track of scalars is also cheap/easy. Keeping track of individual vectors is hard. The easiest compromise is to use the fewest individual vectors, and as many scalars and vector additions as needed to decompose any given vector into a set of pre-picked vectors. That’s what a <em>basis</em> is: a pre-picked set of vectors with which we can express any other vector we want.</p>
+</div>
+<div id="orthogonality-and-normality-1" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Orthogonality and Normality</h2>
+<p>Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> is 90 degrees, then <span class="math inline">\(\vec{v1}\cdot\vec{v2} = 0\)</span>. If you, at the outset, <em>pick</em> the vectors <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:</p>
+<p><span class="math display">\[a1 = \frac{\vec{v1}\cdot\vec{r}}{\vec{v1}\cdot\vec{v1}}\]</span></p>
+<p><span class="math display">\[a2 = \frac{\vec{v2}\cdot\vec{r}}{\vec{v2}\cdot\vec{v2}}\]</span>
+With this simplification, you should think, “Wow, I should probably choose my vectors to be perpendicular to each other!” And that is what orthogonality is – vectors whose inner products are 0. When they are geometric vectors, like above, orthogonality is a synonym for perpendicularity. We just use <em>orthogonality</em> in the future when we have inner product, but not good geometry to go with them.</p>
+<p>To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span> are <span class="math inline">\(= 1\)</span>. Then you can forget about the denominators, as you then get:</p>
+<p><span class="math display">\[a1 = \vec{v1}\cdot\vec{r}\]</span>
+<span class="math display">\[a2 = \vec{v2}\cdot\vec{r}\]</span>
+Having length one also has a general name, called being <em>normal</em>, or <em>normality</em>. And it too helps simplify calculations, like above. You can always compute a vector that is normal and in the same direction as your original vector if you divide the vector by its length. Or, scalar multiply it by its reciprocal length. So, for any vector <span class="math inline">\(\vec{v}\)</span>, regardless of length (other than 0), the following vector will have length 1:
+<span class="math display">\[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]</span>
+Again – same direction as <span class="math inline">\(\vec{v}\)</span>, but of length 1.</p>
+<div id="gram-schmidt-orthonormalization-1" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Gram-Schmidt Orthonormalization</h3>
+<p>Big words, straightforward idea.</p>
+<p>TL;DR: Given a set of vectors that form a basis, but are not necessarily orthogonal to each other, or normal, You can use those vectors to create another set of vectors that will work as a basis, <em>and</em> those vectors will be orthonormal.</p>
+<p>Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn’t? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, <em>and</em> those vectors will be orthonormal. Here is a picture – note the algebra looks worse than it is.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="images/gram-schmidt.jpg" alt="Gram-Schmidt: algebra looks worse than it is." width="75%" height="75%" />
+<p class="caption">
+Figure 5.5: Gram-Schmidt: algebra looks worse than it is.
+</p>
+</div>
+<p>Here’s the idea, in straightforward language.</p>
+<ul>
+<li>Take your two vectors, <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>, and pick one of them to start. Say, <span class="math inline">\(\vec{a}\)</span>.</li>
+<li>Normalize it by dividing by it’s length, and call the result <span class="math inline">\(v1\)</span>. Congrats, you have your first orthonormal vector of your new set.</li>
+<li>Find the spot/vector along <span class="math inline">\(\vec{v1}\)</span>, which is the same line/direction as <span class="math inline">\(\vec{a}\)</span>, that will make a right triangle with <span class="math inline">\(\vec{b}\)</span>. Turns out, this calculation is straightforward, and is <span class="math inline">\(&lt;\vec{b},\vec{v1}&gt;\ \vec{v1}\)</span>, or <span class="math inline">\((\vec{b}\cdot\vec{v1})\ \vec{v1}\)</span>.</li>
+<li>Subtract that from <span class="math inline">\(\vec{b}\)</span>, which is <span class="math inline">\(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1}\)</span>. What you are left with is a vector perpendicular to <span class="math inline">\(\vec{v1}\)</span>, so you are almost home.</li>
+<li>Divide that vector by its own length so that you have a normalized vector: <span class="math inline">\(\vec{v2} = \frac{1}{length(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})}\ (\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})\)</span>. Not as ugly as it seems. Congrats, you now have an orthonormal basis with <span class="math inline">\(\vec{v1}\)</span> and <span class="math inline">\(\vec{v2}\)</span>.</li>
+</ul>
+<p>This process can be extended to more than 2 dimensions. It is a process of taking vectors, scaling them to length 1 for normalization, finding projections (making right triangles and picking the cosine leg), subtracting it from your next vector, and then normalizing again. It’s like a great big geometric construction you might have done in geometry in high school with a compass and straight-edge. The process gets a little more algorithmically hairy for more dimensions, but it is repeating this same idea/process over and over again.</p>
+<p>We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a <em>basis</em>. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an <em>orthonormal basis</em>.</p>
+</div>
+</div>
+<div id="summarizing-the-big-points-1" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Summarizing the big points</h2>
+<p>We’ve only worked with <span class="math inline">\(\mathbb{R}^2\)</span>, but we’ve learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:</p>
+<ul>
+<li>You can generalize the Pythagorean Theorem via the Law of Cosines. This allows you to compute the length of any leg of a triangle from the length of the other two sides and the angle between the other two sides.</li>
+<li>The Law of Cosines has embedded in it a quantity we end up calling the <em>inner product</em> of two vectors. This gives some measure of how much in the same direction two sides of a triangle point, and incorporate the length of those two sides so that ultimately you can get a Pythagorean Theorem like equation.</li>
+<li>If we pick the right vectors, we can use the inner product, and standard addition/subtraction/multiplication/division to compute coefficients that can be used with those vectors to represent any other vector we want.</li>
+<li>It’s easier if the vectors we use to write other vectors with are mutually perpendicular and of length 1 (orthonormal).</li>
+<li>We can always make an orthonormal set using the Gram-Schmidt process.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-do-i-work-this.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eigenvectors-and-eigenvalues.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-Single-Summary.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
