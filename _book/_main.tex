@@ -201,7 +201,7 @@ Let's go back to the triangle at the top of the page. Look at \(b\ cos(A)\), and
 
 In fact, if you make any triangle with the same horizontal line, and a vertex somewhere on the dashed line, then \(b\ cos(A)\) will be the same for any triangle you make in this manner.
 
-Another way to think of this is: how much of \(b\) accounts for the total length of \(AC\)? In all of the triangles shown, the answer is: equal amounts. As the vertex gets further away from \(AC\), \(b\) gets \emph{longer}, but points in a direction that is more away from \(AC\) than in the same direction of it.
+Another way to think of this is: how much of \(b\) accounts for the total length of \(AB\)? In all of the triangles shown, the answer is: equal amounts. As the vertex gets further away from \(AB\), \(b\) gets \emph{longer}, but points in a direction that is more away from \(AB\) than in the same direction of it.
 
 This idea -- the interplay of line lengths and how much they do or do not point in the same direction -- is at the heart of \emph{inner products}. Inner products can be used in many different disguises in different situations. But here, in normal-geometry Euclidian space, the inner product, also known as the dot product in this space, of two lines is the product of the length of those two lines and the cosine of the angle between them. That ``cosine of the angle between them'' accounts for how much in the same direction the two lines are pointing.
 
@@ -214,17 +214,20 @@ This idea -- the interplay of line lengths and how much they do or do not point 
 \caption{Zero inner product of b and c}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-One more important observation\ldots{} In the above, when \(A\) is a right angle, there is no \(b\ cos(C)\) component, or really, it is 0. Because \(b\) and \(c\) are pointing perpendicular to each other. In other words, \(b\) doesn't point at all in any direction of \(c\), so the inner (dot) product is zero. This is a condition that we will heavily exploit in all of linear algebra. You can get a hint as to why\ldots{} in this case, we get a right triangle, and the relation of the sides is given by the Pythagorean theorem, which has simpler terms than the Law of Cosines. This ``zero inner product'' condition will be exploited to make computations relatively straight-forward, and interpretations will be simplified as well.
+One more important observation\ldots{} In the above, when \(A\) is a right angle, there is no \(b\ cos(C)\) component, or really, it is 0. Because \(b\) and \(c\) are pointing perpendicular to each other. In other words, \(b\) doesn't point at all in any direction of \(c\), so the inner (dot) product is zero. This is a condition, called \emph{orthogonality}, that we will heavily exploit in all of linear algebra. You can get a hint as to why\ldots{} in this case, we get a right triangle, and the relation of the sides is given by the Pythagorean theorem, which has simpler terms than the Law of Cosines. This ``zero inner product'' condition will be exploited to make computations relatively straight-forward, and interpretations will be simplified as well.
 
 \hypertarget{inner-products}{%
 \section{Inner Products}\label{inner-products}}
 
-Let's look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of \(-2\), we are left with:
+A quick note here -- I'm goint to be somewhat fast and loose with talking about line lengths, like \(c\), and the same line as a vector, which I'll write as \(\vec{c}\). I'll probably need to become more precise on further revisions, but keep this in mind as you read\ldots{}
+
+Let's look at that adjustment factor to the Pythagorean Theorem in the formula \emph{(The Law of Cosines)} that allows us to calculate any third side knowing the other two. Taking out the factor of \(-2\), we are left with:
 
 \[(2) \ \ \ \ \ a b \ cos(C)\]
-That's the inner product of the vectors \(\vec{a}\) and \(\vec{b}\), with \(C\) being the angle between those two vectors.
+That's the inner product of the vectors \(\vec{a}\) and \(\vec{b}\), with \(C\) being the angle between those two vectors. We write inner products in Euclidian space like:
 
-There's reason we go through all of these gymnastics, to come up with the Pythagorean Theorem and the Law of Cosines, and that is this: it will simplify some other really hard things.
+\[\vec{a}\cdot\vec{b} = a b \ cos(C)\]
+There's reason we went through all of these gymnastics, to come up with the \emph{Pythagorean Theorem} and the \emph{Law of Cosines}, and that is this: it will simplify some other uglier calculations down the road, and we'll talk about those.
 
 Let's talk about vector spaces. I'll make assumptions at this point that you know what this is, in at least a geometric sense. It's the Euclidian space where you draw arrows, and you can add two arrows graphically by placing the tail of one vector on the head (arrow) part of the other, and drawing a new arrow from the base of the one vector to the tip of the other one. And you can ``scalar multiply'' an arrow by multiplying it by a real number, and that real number will make a new arrow along the same direction as the original arrow, but whose length is changed by the magnitude of the scalar (real number). Negative numbers will reverse the direction of the arrow, but the length is still changed by the magnitude of the scalar.
 
@@ -241,18 +244,18 @@ In the above picture, we have made the picture so that if you scale \(\vec{v1}\)
 
 \[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
 
-Spoiler alert: inner products are the thing you need to compute to figure out the values for \(a1\) and \(a2\).
+\emph{Spoiler alert:} inner products are the thing you need to compute to figure out the values for \(a1\) and \(a2\).
 
-Here's the rub: vectors in a vector space are pretty much an unmanageable mess unless you put some effort into organizing them. The easiest way to make an accounting system is to pick a certain number of special fixed vectors and \emph{write every other vector in terms of those special vectors.}
+Here's the rub: vectors in a vector space are pretty much an unmanageable mess unless you put some effort into organizing them. The easiest way to make an accounting system is to pick a certain number of special fixed vectors and \emph{write every other vector in terms of those special vectors.} One thing to know is, in general, there are a lot of vectors sets you could choose to write all other vectors in terms of. The art of working with your vector spaces is to pick sets that make whatever problem you are working on easier.
 
 For Euclidian space, the number of vectors you pick depends on the \emph{dimension} of your space. So, \(\mathbb{R}^2\), or the Cartesian Plane, requires that you pick only two vectors (and those vectors can be any two vectors as long as one isn't a scalar multiple of the other). \(\mathbb{R}^3\) takes 3 vectors (and in that set of 3, the restriction is that you can't write one of those vectors as a sum of scalar multiples of the other two). And so on.
 
-Once you have your set of special vectors that meet the above criteria (this set is known as a basis), you can write any other vector as a sum of scalar multiple of those vectors. For example, if you've picked two vectors \(\vec{v1}\) and \(\vec{v2}\) from \(\mathbb{R}^2\), with the restriction above, you can write any other vector \(r\) in terms of them. To repeat our formula with slightly different terms:
+Once you have your set of special vectors that meet the above criteria (this set is known as a \emph{basis}), you can write any other vector as a sum of scalar multiple of those vectors. For example, if you've picked two vectors \(\vec{v1}\) and \(\vec{v2}\) from \(\mathbb{R}^2\), with the restriction above, you can write any other vector \(r\) in terms of them. To repeat our formula:
 
 \[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
 And for any \(r\), you can find scalars \(a1\) and \(a2\) that will make this work. The key is: \emph{how do you find \(a1\) and \(a2\)?}.
 
-The answer is: inner products. Without going through the grungy math, I will give you the grungy result, which I will say \textbf{Don't scrutinize this too much.} I just want to make the point that the scalars you need can be calculated in terms of inner products and simple addition, subtraction, multiplication, and division.
+The answer is: inner products. Without going through the grungy math, I will give you the grungy result, to which I will say: \textbf{Don't scrutinize this too much.} I just want to make the point that the scalars you need can be calculated in terms of the following operations: inner products, addition, subtraction, multiplication, and division.
 
 \[a1 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v2}\cdot\vec{r})-(\vec{v2}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]
 
@@ -285,6 +288,8 @@ Again -- same direction as \(\vec{v}\), but of length 1.
 
 Big words, straightforward idea.
 
+Also note: there is a second notation for inner products: \(<\vec{a},\vec{b}>\). I use this convention here because it was easier to deal with in my pictures. Also, this notation is used for other places where you have the concept of inner product, but it isn't necessarily a run-of-the-mill Euclidian space.
+
 TL;DR: Given a set of vectors that form a basis, but are not necessarily orthogonal to each other, or normal, You can use those vectors to create another set of vectors that will work as a basis, \emph{and} those vectors will be orthonormal.
 
 Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn't? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, \emph{and} those vectors will be orthonormal. Here is a picture -- note the algebra looks worse than it is.
@@ -305,7 +310,7 @@ Here's the idea, in straightforward language.
 \item
   Take your two vectors, \(\vec{a}\) and \(\vec{b}\), and pick one of them to start. Say, \(\vec{a}\).
 \item
-  Normalize it by dividing by it's length, and call the result \(v1\). Congrats, you have your first orthonormal vector of your new set.
+  Normalize it by dividing by it's length, and call the result \(v1\). Congrats, you have your first normal vector of your new orthonormal set.
 \item
   Find the spot/vector along \(\vec{v1}\), which is the same line/direction as \(\vec{a}\), that will make a right triangle with \(\vec{b}\). Turns out, this calculation is straightforward, and is \(<\vec{b},\vec{v1}>\ \vec{v1}\), or \((\vec{b}\cdot\vec{v1})\ \vec{v1}\).
 \item
