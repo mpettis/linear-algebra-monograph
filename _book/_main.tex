@@ -80,7 +80,7 @@
 
 \title{Linear Algebra: An Intuitionist Approach}
 \author{Matt Pettis}
-\date{2021-12-11}
+\date{2021-12-31}
 
 \begin{document}
 \maketitle
@@ -156,8 +156,273 @@ This monograph is intended give you the motivations of why linear algebra is the
 
 I'll approach this as science would ideally approach this. What do we observe? What sort of simplifications can we make to help us understand what is going on? What sort of models help us understand the important parts?
 
-\hypertarget{inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines}{%
-\chapter{\texorpdfstring{Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines}{Inner Products: \textbackslash mathbb\{R\}\^{}2, Pythagorean Theoroem, and Law of Cosines}}\label{inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines}}
+\hypertarget{a-nu-start}{%
+\chapter{A Nu Start}\label{a-nu-start}}
+
+It is probably intuitive that if you specify the lengths of two lines and the angles between them, then the tip-to-tip distance of the two lines is fixed, and can be calculated. Let's look at an example below. There, we assume that \(a\) and \(b\) are the two lines, and \(C\) is the angle between them. If we specify values for those three parts, then the length of \(c\) is also determined.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/LofC-PythThm} 
+
+}
+
+\caption{Pythagorean Theorem, Law of Cosines}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+If \(C\) is a right angle, like above, we can calculate \(c\) via the Pythagorean Theorem:
+
+\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]
+However, if \(C\) were not a right angle, but instead was any old angle, you could still compute the length of \(c\) if you knew the angles \(c\) makes with \(a\) and \(b\). It should be straightforward to see in the diagram that:
+
+\[(1) \ \ \ \ \ c = b \ cos(A) + a \ cos(B)\]
+
+With some fancy trigonometry, you can find a formula for \(c\) (or equally, \(c^2\)) with a formula that involves just the angle \(C\) instead of angles \(A\) and \(B\). We call that formula the \textbf{Law of Cosines}:
+
+\[(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
+
+You can see that it looks a lot like the Pythagorean Theorem. In fact, when \(C\) is 90 degrees, the last term is \(0\), and we are back to the Pythagorean Theorem.
+
+That was a whirlwind tour of some nice formulas, and I didn't even annoy you with a proof of the Law of Cosines. It is nothing special, and just involves some clever trigonometric substitutions and identities using the sum of angles formulas, available anywhere you can search the internet.
+
+One thing I'd like to highlight here is that the relationships that are helpful are posed as quadratics. That is, the Pythagorean Theorem relates the squares of the sides. If you were to talk in units, these relationships are in terms of \(length^2\), not straight \(length\). That quadratic relationship makes some things a bit harder, but other, more important things, a bit easier.
+
+What I really want to highlight are some aspects of this problem that turn out to be the ones we need to hold on to when we want to develop the heavier machinery of linear algebra, where in many cases we can't always run back to a nice geometric picture to look at.
+
+\hypertarget{lines-that-run-roughly-in-the-same-direction}{%
+\section{Lines that run roughly in the same direction}\label{lines-that-run-roughly-in-the-same-direction}}
+
+Let's go back to the triangle at the top of the page. Look at \(b\ cos(A)\), and imagine if you pull the point \(C\) straight up, following the path the perpendicular dotted line would go if it kept going up. What happens? Well, angle \(C\) gets smaller, and sides \(b\) and \(a\) get longer and longer. But the part of \(c\) made up by \(b\ cos(A)\) keeps staying the same length.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/Triangles-bcosA} 
+
+}
+
+\caption{Triangles with same third side length}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+In fact, if you make any triangle with the same horizontal line, and a vertex somewhere on the dashed line, then \(b\ cos(A)\) will be the same for any triangle you make in this manner.
+
+Another way to think of this is: how much of \(b\) accounts for the total length of \(AC\)? In all of the triangles shown, the answer is: equal amounts. As the vertex gets further away from \(AC\), \(b\) gets \emph{longer}, but points in a direction that is more away from \(AC\) than in the same direction of it.
+
+This idea -- the interplay of line lengths and how much they do or do not point in the same direction -- is at the heart of \emph{inner products}. Inner products can be used in many different disguises in different situations. But here, in normal-geometry Euclidian space, the inner product, also known as the dot product in this space, of two lines is the product of the length of those two lines and the cosine of the angle between them. That ``cosine of the angle between them'' accounts for how much in the same direction the two lines are pointing.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/Triangles-bcosA-rightTriangle} 
+
+}
+
+\caption{Zero inner product of b and c}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+One more important observation\ldots{} In the above, when \(A\) is a right angle, there is no \(b\ cos(C)\) component, or really, it is 0. Because \(b\) and \(c\) are pointing perpendicular to each other. In other words, \(b\) doesn't point at all in any direction of \(c\), so the inner (dot) product is zero. This is a condition that we will heavily exploit in all of linear algebra. You can get a hint as to why\ldots{} in this case, we get a right triangle, and the relation of the sides is given by the Pythagorean theorem, which has simpler terms than the Law of Cosines. This ``zero inner product'' condition will be exploited to make computations relatively straight-forward, and interpretations will be simplified as well.
+
+\hypertarget{inner-products}{%
+\section{Inner Products}\label{inner-products}}
+
+Let's look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of \(-2\), we are left with:
+
+\[(2) \ \ \ \ \ a b \ cos(C)\]
+That's the inner product of the vectors \(\vec{a}\) and \(\vec{b}\), with \(C\) being the angle between those two vectors.
+
+There's reason we go through all of these gymnastics, to come up with the Pythagorean Theorem and the Law of Cosines, and that is this: it will simplify some other really hard things.
+
+Let's talk about vector spaces. I'll make assumptions at this point that you know what this is, in at least a geometric sense. It's the Euclidian space where you draw arrows, and you can add two arrows graphically by placing the tail of one vector on the head (arrow) part of the other, and drawing a new arrow from the base of the one vector to the tip of the other one. And you can ``scalar multiply'' an arrow by multiplying it by a real number, and that real number will make a new arrow along the same direction as the original arrow, but whose length is changed by the magnitude of the scalar (real number). Negative numbers will reverse the direction of the arrow, but the length is still changed by the magnitude of the scalar.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/parallelogram-decomposition} 
+
+}
+
+\caption{Vector addition, scalar multiplication}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+In the above picture, we have made the picture so that if you scale \(\vec{v1}\) by \(a1\) and \(\vec{v2}\) by \(a2\), and add them together, you get \(\vec{r}\). Or:
+
+\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
+
+Spoiler alert: inner products are the thing you need to compute to figure out the values for \(a1\) and \(a2\).
+
+Here's the rub: vectors in a vector space are pretty much an unmanageable mess unless you put some effort into organizing them. The easiest way to make an accounting system is to pick a certain number of special fixed vectors and \emph{write every other vector in terms of those special vectors.}
+
+For Euclidian space, the number of vectors you pick depends on the \emph{dimension} of your space. So, \(\mathbb{R}^2\), or the Cartesian Plane, requires that you pick only two vectors (and those vectors can be any two vectors as long as one isn't a scalar multiple of the other). \(\mathbb{R}^3\) takes 3 vectors (and in that set of 3, the restriction is that you can't write one of those vectors as a sum of scalar multiples of the other two). And so on.
+
+Once you have your set of special vectors that meet the above criteria (this set is known as a basis), you can write any other vector as a sum of scalar multiple of those vectors. For example, if you've picked two vectors \(\vec{v1}\) and \(\vec{v2}\) from \(\mathbb{R}^2\), with the restriction above, you can write any other vector \(r\) in terms of them. To repeat our formula with slightly different terms:
+
+\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
+And for any \(r\), you can find scalars \(a1\) and \(a2\) that will make this work. The key is: \emph{how do you find \(a1\) and \(a2\)?}.
+
+The answer is: inner products. Without going through the grungy math, I will give you the grungy result, which I will say \textbf{Don't scrutinize this too much.} I just want to make the point that the scalars you need can be calculated in terms of inner products and simple addition, subtraction, multiplication, and division.
+
+\[a1 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v2}\cdot\vec{r})-(\vec{v2}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]
+
+\[a2 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})-(\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]
+
+Not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.
+
+The idea is: basic arithmetic and inner producst are cheap/easy to compute. Keeping track of scalars is also cheap/easy. Keeping track of individual vectors is hard. The easiest compromise is to use the fewest individual vectors, and as many scalars and vector additions as needed to decompose any given vector into a set of pre-picked vectors. That's what a \emph{basis} is: a pre-picked set of vectors with which we can express any other vector we want.
+
+\hypertarget{orthogonality-and-normality}{%
+\section{Orthogonality and Normality}\label{orthogonality-and-normality}}
+
+Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between \(\vec{v1}\) and \(\vec{v2}\) is 90 degrees, then \(\vec{v1}\cdot\vec{v2} = 0\). If you, at the outset, \emph{pick} the vectors \(\vec{v1}\) and \(\vec{v2}\) to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:
+
+\[a1 = \frac{\vec{v1}\cdot\vec{r}}{\vec{v1}\cdot\vec{v1}}\]
+
+\[a2 = \frac{\vec{v2}\cdot\vec{r}}{\vec{v2}\cdot\vec{v2}}\]
+With this simplification, you should think, ``Wow, I should probably choose my vectors to be perpendicular to each other!'' And that is what orthogonality is -- vectors whose inner products are 0. When they are geometric vectors, like above, orthogonality is a synonym for perpendicularity. We just use \emph{orthogonality} in the future when we have inner product, but not good geometry to go with them.
+
+To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of \(\vec{v1}\) and \(\vec{v2}\) are \(= 1\). Then you can forget about the denominators, as you then get:
+
+\[a1 = \vec{v1}\cdot\vec{r}\]
+\[a2 = \vec{v2}\cdot\vec{r}\]
+Having length one also has a general name, called being \emph{normal}, or \emph{normality}. And it too helps simplify calculations, like above. You can always compute a vector that is normal and in the same direction as your original vector if you divide the vector by its length. Or, scalar multiply it by its reciprocal length. So, for any vector \(\vec{v}\), regardless of length (other than 0), the following vector will have length 1:
+\[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]
+Again -- same direction as \(\vec{v}\), but of length 1.
+
+\hypertarget{gram-schmidt-orthonormalization}{%
+\subsection{Gram-Schmidt Orthonormalization}\label{gram-schmidt-orthonormalization}}
+
+Big words, straightforward idea.
+
+TL;DR: Given a set of vectors that form a basis, but are not necessarily orthogonal to each other, or normal, You can use those vectors to create another set of vectors that will work as a basis, \emph{and} those vectors will be orthonormal.
+
+Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn't? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, \emph{and} those vectors will be orthonormal. Here is a picture -- note the algebra looks worse than it is.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/gram-schmidt} 
+
+}
+
+\caption{Gram-Schmidt: algebra looks worse than it is.}\label{fig:unnamed-chunk-5}
+\end{figure}
+
+Here's the idea, in straightforward language.
+
+\begin{itemize}
+\tightlist
+\item
+  Take your two vectors, \(\vec{a}\) and \(\vec{b}\), and pick one of them to start. Say, \(\vec{a}\).
+\item
+  Normalize it by dividing by it's length, and call the result \(v1\). Congrats, you have your first orthonormal vector of your new set.
+\item
+  Find the spot/vector along \(\vec{v1}\), which is the same line/direction as \(\vec{a}\), that will make a right triangle with \(\vec{b}\). Turns out, this calculation is straightforward, and is \(<\vec{b},\vec{v1}>\ \vec{v1}\), or \((\vec{b}\cdot\vec{v1})\ \vec{v1}\).
+\item
+  Subtract that from \(\vec{b}\), which is \(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1}\). What you are left with is a vector perpendicular to \(\vec{v1}\), so you are almost home.
+\item
+  Divide that vector by its own length so that you have a normalized vector: \(\vec{v2} = \frac{1}{length(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})}\ (\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})\). Not as ugly as it seems. Congrats, you now have an orthonormal basis with \(\vec{v1}\) and \(\vec{v2}\).
+\end{itemize}
+
+This process can be extended to more than 2 dimensions. It is a process of taking vectors, scaling them to length 1 for normalization, finding projections (making right triangles and picking the cosine leg), subtracting it from your next vector, and then normalizing again. It's like a great big geometric construction you might have done in geometry in high school with a compass and straight-edge. The process gets a little more algorithmically hairy for more dimensions, but it is repeating this same idea/process over and over again.
+
+We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a \emph{basis}. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an \emph{orthonormal basis}.
+
+\hypertarget{summarizing-the-big-points}{%
+\section{Summarizing the big points}\label{summarizing-the-big-points}}
+
+We've only worked with \(\mathbb{R}^2\), but we've learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:
+
+\begin{itemize}
+\tightlist
+\item
+  You can generalize the Pythagorean Theorem via the Law of Cosines. This allows you to compute the length of any leg of a triangle from the length of the other two sides and the angle between the other two sides.
+\item
+  The Law of Cosines has embedded in it a quantity we end up calling the \emph{inner product} of two vectors. This gives some measure of how much in the same direction two sides of a triangle point, and incorporate the length of those two sides so that ultimately you can get a Pythagorean Theorem like equation.
+\item
+  If we pick the right vectors, we can use the inner product, and standard addition/subtraction/multiplication/division to compute coefficients that can be used with those vectors to represent any other vector we want.
+\item
+  It's easier if the vectors we use to write other vectors with are mutually perpendicular and of length 1 (orthonormal).
+\item
+  We can always make an orthonormal set using the Gram-Schmidt process.
+\end{itemize}
+
+\hypertarget{in-progress---eigenvectors-and-eigenvalues}{%
+\chapter{IN PROGRESS - Eigenvectors and Eigenvalues}\label{in-progress---eigenvectors-and-eigenvalues}}
+
+Part of the motivation from the last chapter was to simplify calculations. The simplification process was something like this:
+
+\begin{itemize}
+\tightlist
+\item
+  Instead of talking about each vector uniquely, find a small set of vectors through which you can express every other vector in that space you could possibly want to talk about.
+\item
+  Be picky about that set, and pick the smallest set of vectors you can get away with.
+\item
+  Find a relatively easy function (inner product) that makes calculating the scalars that you need to use with that small set of vectors to represent any other vector.
+\item
+  Be more picky about that small set of vectors (the basis) in a way that makes computing the scalars more computationally simple -- that is by selecting a set of vectors that are mutually orthogonal. This makes a lot of terms in the scalar computation reduce to zero and make a simpler computation.
+\item
+  Be even more picky about that set and make sure the \emph{length} of the basis vectors are \(1\). This gives you an orthonormal basis.
+\end{itemize}
+
+These ways of being very picky about what basis set of vectors you choose to represent any other vector in the space pays off by making the scalar multiplier computations you need to make to get the right expression much more simple by introducing a lot of zero terms.
+
+Having vectors lying around seems pretty limited in its usefulness. On their own, they don't really do much. You can think about using vectors to keep track of things like position of a particle, or velocity of an airplane, but by themselves, they don't give you much more than an accounting system of limited use.
+
+So how do we make them useful? It turns out that one of the powerful things to do with vectors is to transform them from one vector into another. Why? One way is by giving you the tools to figure out where you have to aim an initial vector in order to hit a target vector. Let's do an example.
+
+The common example is linear systems of equations. I grew up on a farm, so let's talk about Crazy Larry's Seed Shop. Here, you can use dollars or euros (because if I recall anything about my rural upbringing, it was very cosmopolitan). However, these are the rules for how Crazy Larry will sell you stuff (he's not crazy because of his low, low prices):
+
+\begin{itemize}
+\tightlist
+\item
+  For every dollar you pay him, he will give you 2 bags of corn and 2 bags of wheat.
+\item
+  For every euro you pay him, he will give you 3 bags of corn and 1 bag of wheat.
+\item
+  This is all proportional. Half a dollar will get you 1 bag of corn and 1 bag of wheat, etc.
+\item
+  If necessary, the trade can go the other way. Crazy Larry will pay you a dollar if you give him 2 bags of corn and 2 bags of wheat, etc.
+\end{itemize}
+
+That's the deal. Crazy, right?
+
+So, you do some sample trades to get a feel for what goes on.
+
+\begin{itemize}
+\tightlist
+\item
+  If you give just a dollar or just a euro, you get what was laid out in the rules above -- very simple.
+\item
+  If you give 1 dollar and 1 euro, you get 2 bags of corn and 2 of wheat from the dollar, and 3 of corn and 1 of wheat from the euro, for a total of 5 bags of corn and 3 bags of wheat.
+\item
+  If you give 8 dollars and 3 euros, you get a total of 25 bags of corn and 19 bags of wheat.
+\end{itemize}
+
+Another thing that makes Crazy Larry crazy is that he is inflexible in these rules. You can't just ask him ``how much if I just want to buy corn alone?'' The rules are the rules, and you have to take what the rules buy you.
+
+And so on. Its a lot of accounting. First, since we just spent a chapter on Euclidian vectors, let's model these calculations as vectors in a Euclidian space. Truthfully, that's probably the biggest advantage of Euclidian spaces -- you can model a lot of problems with vectors in them.
+
+Ok, now say you have a target -- you know how much corn and wheat you want. Lets say you want 13 bags of corn and 9 bags of wheat. Is it even possible to buy this from Crazy Larry? You sit down, do some trial and error, and find out, yes, you can do this if you pay 3.5 dollars and 2 euros.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/CrazyCornWheat} 
+
+}
+
+\caption{Crazy Larry, of course, has drawn out his crazy scheme.}\label{fig:unnamed-chunk-6}
+\end{figure}
+
+Well, you can see that you can model your payment and your seed bags as vectors easily on a Cartesian (Euclidian) plane. Let's dissect this and make the ideas explicit.
+
+\begin{itemize}
+\tightlist
+\item
+  Your payment is a vector, with the 2 components being the dollars and the euros you pay.
+\item
+  Your seed received is a vector, with the 2 components being corn and wheat.
+\item
+  Crazy Larry's rules are the transformation.
+\end{itemize}
+
+\hypertarget{old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines}{%
+\chapter{\texorpdfstring{OLD - Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines}{OLD - Inner Products: \textbackslash mathbb\{R\}\^{}2, Pythagorean Theoroem, and Law of Cosines}}\label{old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines}}
 
 \begin{quote}
 It takes a very unusual mind to undertake the analysis of the obvious.
@@ -186,7 +451,7 @@ Let's start with what we know pretty solidly -- the Pythagorean Theorem. We know
 
 }
 
-\caption{Pythagorean Theorem}\label{fig:unnamed-chunk-1}
+\caption{Pythagorean Theorem}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 The thing to note here is that the relationship of the three sides in a right triangle has a very tidy little relationship according to the theorem. \(\vec{c}^2\) is totally determined by \(a\)'s and \(b\)'s value in a right triangle.
@@ -199,7 +464,7 @@ But what happens if we keep \(\vec{a}\) and \(\vec{b}\) the same length, but sta
 
 }
 
-\caption{Acute and obtuse triangles}\label{fig:unnamed-chunk-2}
+\caption{Acute and obtuse triangles}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 You'll note that the length of \(\vec{c}\) will shrink or grow from what it is in a right triangle with the same leg lengths. Can we make an equation like the Pythagorean Theorem that accounts for this deviation from what you get if you had a right triangle? Turns out, yes you can, and that \emph{adjusted} formula is known as \textbf{The Law of Cosines}:
@@ -278,8 +543,8 @@ How do you do this? It turns out that you can calculate \(\alpha\) and \(\beta\)
 \[\beta = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})-(\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{b})}\]
 As I said, not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.
 
-\hypertarget{orthogonality-and-normality}{%
-\section{Orthogonality and Normality}\label{orthogonality-and-normality}}
+\hypertarget{orthogonality-and-normality-1}{%
+\section{Orthogonality and Normality}\label{orthogonality-and-normality-1}}
 
 Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between \(\vec{a}\) and \(\vec{b}\) is 90 degrees, then \(\vec{a}\cdot\vec{b} = 0\). If you, at the outset, \emph{pick} the vectors \(\vec{a}\) and \(\vec{b}\) to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:
 
@@ -296,8 +561,8 @@ Having length one also has a general name, called being \emph{normal}, or \emph{
 \[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]
 Again -- same direction as \(\vec{v}\), but of length 1.
 
-\hypertarget{gram-schmidt-orthonormalization}{%
-\subsection{Gram-Schmidt Orthonormalization}\label{gram-schmidt-orthonormalization}}
+\hypertarget{gram-schmidt-orthonormalization-1}{%
+\subsection{Gram-Schmidt Orthonormalization}\label{gram-schmidt-orthonormalization-1}}
 
 Big words, straightforward idea.
 
@@ -309,7 +574,7 @@ Often, starting vectors for a given problem just kind of fall into your lap, and
 
 }
 
-\caption{Gram-Schmidt: algebra looks worse than it is.}\label{fig:unnamed-chunk-3}
+\caption{Gram-Schmidt: algebra looks worse than it is.}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 Here's the idea, in straightforward language.
@@ -332,8 +597,8 @@ This process can be extended to more than 2 dimensions. It is a process of takin
 
 We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a \emph{basis}. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an \emph{orthonormal basis}.
 
-\hypertarget{summarizing-the-big-points}{%
-\section{Summarizing the big points}\label{summarizing-the-big-points}}
+\hypertarget{summarizing-the-big-points-1}{%
+\section{Summarizing the big points}\label{summarizing-the-big-points-1}}
 
 We've only worked with \(\mathbb{R}^2\), but we've learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:
 
@@ -353,8 +618,8 @@ We've only worked with \(\mathbb{R}^2\), but we've learned a lot and scaffolded 
   We can always make an orthonormal set using the Gram-Schmidt process.
 \end{itemize}
 
-\hypertarget{title-tbd}{%
-\chapter{Title tbd}\label{title-tbd}}
+\hypertarget{old---basic-intuitions}{%
+\chapter{OLD - Basic Intuitions}\label{old---basic-intuitions}}
 
 In the previous chapter, we did a lot of work figuring out how to calculate the length of a side of a triangle using information about the other two sides of the triangle. We also observed that we could pick almost any two vectors in \(\mathbb{R}^2\) and represent any other given vector by shrinking or stretching those two vectors independently and then adding them together.
 
@@ -390,8 +655,8 @@ The motivating assumptions here are:
 
 One of the properties of the inner product is that it is distributive. We always here this, but we are never really told why this is important. Having a function, like
 
-\hypertarget{how-do-i-work-this}{%
-\chapter{How do I work this?}\label{how-do-i-work-this}}
+\hypertarget{old-incomplete---quantum-linear-mapping}{%
+\chapter{OLD, INCOMPLETE - Quantum Linear Mapping}\label{old-incomplete---quantum-linear-mapping}}
 
 My uncle tells the story of how they help transition mechanical engineers fresh out of school to working in industry. A senior engineer tasks them with a simple task: a near complete machine needs a piece -- it is missing a cog. The tell the new engineer to get them one. The new engineer studies the plans, designs the cog, painstakingly laying out the CAD designs for it, and comes back to the senior engineer after a week with his work to review how to machine that part, and how much it will cost. The senior engineer looks it over, says it is the right piece, and pulls out a catalog, and shows him how much it will cost to buy, usually at a fraction of the cost. The lesson they learn: don't create from scratch stuff you can buy cheaply from a catalog.
 
@@ -410,7 +675,7 @@ Here is a picture that captures some of the important information about a quantu
 
 }
 
-\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-11}
+\caption{Two-spin experiment, McIntire}\label{fig:unnamed-chunk-17}
 \end{figure}
 
 Some notes on the picture:
@@ -475,251 +740,6 @@ So, whatever math we come up, it can't be the same classical math that gives a s
 \end{itemize}
 
 So we go talk to the math department\ldots{}
-
-\hypertarget{a-nu-start}{%
-\chapter{A Nu Start}\label{a-nu-start}}
-
-It is probably intuitive that if you specify the lengths of two lines and the angles between them, then the tip-to-tip distance of the two lines is fixed, and can be calculated. Let's look at an example below. There, we assume that \(a\) and \(b\) are the two lines, and \(C\) is the angle between them. If we specify values for those three parts, then the length of \(c\) is also determined.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/LofC-PythThm} 
-
-}
-
-\caption{Pythagorean Theorem, Law of Cosines}\label{fig:unnamed-chunk-12}
-\end{figure}
-
-If \(C\) is a right angle, like above, we can calculate \(c\) via the Pythagorean Theorem:
-
-\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]
-However, if \(C\) were not a right angle, but instead was any old angle, you could still compute the length of \(c\) if you knew the angles \(c\) makes with \(a\) and \(b\). It should be straightforward to see in the diagram that:
-
-\[(1) \ \ \ \ \ c = b \ cos(A) + a \ cos(B)\]
-
-With some fancy trigonometry, you can find a formula for \(c\) (or equally, \(c^2\)) with a formula that involves just the angle \(C\) instead of angles \(A\) and \(B\). We call that formula the \textbf{Law of Cosines}:
-
-\[(\text{Law of Cosines}) \ \ \ \ \ c^2 = a^2 + b^2 - 2 a b \ cos(C)\]
-
-You can see that it looks a lot like the Pythagorean Theorem. In fact, when \(C\) is 90 degrees, the last term is \(0\), and we are back to the Pythagorean Theorem.
-
-That was a whirlwind tour of some nice formulas, and I didn't even annoy you with a proof of the Law of Cosines. It is nothing special, and just involves some clever trigonometric substitutions and identities using the sum of angles formulas, available anywhere you can search the internet.
-
-One thing I'd like to highlight here is that the relationships that are helpful are posed as quadratics. That is, the Pythagorean Theorem relates the squares of the sides. If you were to talk in units, these relationships are in terms of \(length^2\), not straight \(length\). That quadratic relationship makes some things a bit harder, but other, more important things, a bit easier.
-
-What I really want to highlight are some aspects of this problem that turn out to be the ones we need to hold on to when we want to develop the heavier machinery of linear algebra, where in many cases we can't always run back to a nice geometric picture to look at.
-
-\hypertarget{lines-that-run-roughly-in-the-same-direction}{%
-\section{Lines that run roughly in the same direction}\label{lines-that-run-roughly-in-the-same-direction}}
-
-Let's go back to the triangle at the top of the page. Look at \(b\ cos(A)\), and imagine if you pull the point \(C\) straight up, following the path the perpendicular dotted line would go if it kept going up. What happens? Well, angle \(C\) gets smaller, and sides \(b\) and \(a\) get longer and longer. But the part of \(c\) made up by \(b\ cos(A)\) keeps staying the same length.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/Triangles-bcosA} 
-
-}
-
-\caption{Triangles with same third side length}\label{fig:unnamed-chunk-13}
-\end{figure}
-
-In fact, if you make any triangle with the same horizontal line, and a vertex somewhere on the dashed line, then \(b\ cos(A)\) will be the same for any triangle you make in this manner.
-
-Another way to think of this is: how much of \(b\) accounts for the total length of \(AC\)? In all of the triangles shown, the answer is: equal amounts. As the vertex gets further away from \(AC\), \(b\) gets \emph{longer}, but points in a direction that is more away from \(AC\) than in the same direction of it.
-
-This idea -- the interplay of line lengths and how much they do or do not point in the same direction -- is at the heart of \emph{inner products}. Inner products can be used in many different disguises in different situations. But here, in normal-geometry Euclidian space, the inner product, also known as the dot product in this space, of two lines is the product of the length of those two lines and the cosine of the angle between them. That ``cosine of the angle between them'' accounts for how much in the same direction the two lines are pointing.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/Triangles-bcosA-rightTriangle} 
-
-}
-
-\caption{Zero inner product of b and c}\label{fig:unnamed-chunk-14}
-\end{figure}
-
-One more important observation\ldots{} In the above, when \(A\) is a right angle, there is no \(b\ cos(C)\) component, or really, it is 0. Because \(b\) and \(c\) are pointing perpendicular to each other. In other words, \(b\) doesn't point at all in any direction of \(c\), so the inner (dot) product is zero. This is a condition that we will heavily exploit in all of linear algebra. You can get a hint as to why\ldots{} in this case, we get a right triangle, and the relation of the sides is given by the Pythagorean theorem, which has simpler terms than the Law of Cosines. This ``zero inner product'' condition will be exploited to make computations relatively straight-forward, and interpretations will be simplified as well.
-
-\hypertarget{inner-products}{%
-\section{Inner Products}\label{inner-products}}
-
-Let's look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of \(-2\), we are left with:
-
-\[(2) \ \ \ \ \ a b \ cos(C)\]
-That's the inner product of the vectors \(\vec{a}\) and \(\vec{b}\), with \(C\) being the angle between those two vectors.
-
-There's reason we go through all of these gymnastics, to come up with the Pythagorean Theorem and the Law of Cosines, and that is this: it will simplify some other really hard things.
-
-Let's talk about vector spaces. I'll make assumptions at this point that you know what this is, in at least a geometric sense. It's the Euclidian space where you draw arrows, and you can add two arrows graphically by placing the tail of one vector on the head (arrow) part of the other, and drawing a new arrow from the base of the one vector to the tip of the other one. And you can ``scalar multiply'' an arrow by multiplying it by a real number, and that real number will make a new arrow along the same direction as the original arrow, but whose length is changed by the magnitude of the scalar (real number). Negative numbers will reverse the direction of the arrow, but the length is still changed by the magnitude of the scalar.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/parallelogram-decomposition} 
-
-}
-
-\caption{Vector addition, scalar multiplication}\label{fig:unnamed-chunk-15}
-\end{figure}
-
-In the above picture, we have made the picture so that if you scale \(\vec{v1}\) by \(a1\) and \(\vec{v2}\) by \(a2\), and add them together, you get \(\vec{r}\). Or:
-
-\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
-
-Spoiler alert: inner products are the thing you need to compute to figure out the values for \(a1\) and \(a2\).
-
-Here's the rub: vectors in a vector space are pretty much an unmanageable mess unless you put some effort into organizing them. The easiest way to make an accounting system is to pick a certain number of special fixed vectors and \emph{write every other vector in terms of those special vectors.}
-
-For Euclidian space, the number of vectors you pick depends on the \emph{dimension} of your space. So, \(\mathbb{R}^2\), or the Cartesian Plane, requires that you pick only two vectors (and those vectors can be any two vectors as long as one isn't a scalar multiple of the other). \(\mathbb{R}^3\) takes 3 vectors (and in that set of 3, the restriction is that you can't write one of those vectors as a sum of scalar multiples of the other two). And so on.
-
-Once you have your set of special vectors that meet the above criteria (this set is known as a basis), you can write any other vector as a sum of scalar multiple of those vectors. For example, if you've picked two vectors \(\vec{v1}\) and \(\vec{v2}\) from \(\mathbb{R}^2\), with the restriction above, you can write any other vector \(r\) in terms of them. To repeat our formula with slightly different terms:
-
-\[\vec{r} = a1\cdot\vec{v1} + a2\cdot\vec{v2}\]
-And for any \(r\), you can find scalars \(a1\) and \(a2\) that will make this work. The key is: \emph{how do you find \(a1\) and \(a2\)?}.
-
-The answer is: inner products. Without going through the grungy math, I will give you the grungy result, which I will say \textbf{Don't scrutinize this too much.} I just want to make the point that the scalars you need can be calculated in terms of inner products and simple addition, subtraction, multiplication, and division.
-
-\[a1 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v2}\cdot\vec{r})-(\vec{v2}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]
-
-\[a2 = \frac{(\vec{v1}\cdot\vec{v2})\cdot(\vec{v1}\cdot\vec{r})-(\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{r})}{(\vec{v1}\cdot\vec{v2})^2 - (\vec{v1}\cdot\vec{v1})\cdot(\vec{v2}\cdot\vec{v2})}\]
-
-Not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.
-
-The idea is: basic arithmetic and inner producst are cheap/easy to compute. Keeping track of scalars is also cheap/easy. Keeping track of individual vectors is hard. The easiest compromise is to use the fewest individual vectors, and as many scalars and vector additions as needed to decompose any given vector into a set of pre-picked vectors. That's what a \emph{basis} is: a pre-picked set of vectors with which we can express any other vector we want.
-
-\hypertarget{orthogonality-and-normality-1}{%
-\section{Orthogonality and Normality}\label{orthogonality-and-normality-1}}
-
-Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between \(\vec{v1}\) and \(\vec{v2}\) is 90 degrees, then \(\vec{v1}\cdot\vec{v2} = 0\). If you, at the outset, \emph{pick} the vectors \(\vec{v1}\) and \(\vec{v2}\) to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:
-
-\[a1 = \frac{\vec{v1}\cdot\vec{r}}{\vec{v1}\cdot\vec{v1}}\]
-
-\[a2 = \frac{\vec{v2}\cdot\vec{r}}{\vec{v2}\cdot\vec{v2}}\]
-With this simplification, you should think, ``Wow, I should probably choose my vectors to be perpendicular to each other!'' And that is what orthogonality is -- vectors whose inner products are 0. When they are geometric vectors, like above, orthogonality is a synonym for perpendicularity. We just use \emph{orthogonality} in the future when we have inner product, but not good geometry to go with them.
-
-To go one step further, as the dot product of a vector with itself is the square of the length of that vector, you can get even simpler expressions above if the length of \(\vec{v1}\) and \(\vec{v2}\) are \(= 1\). Then you can forget about the denominators, as you then get:
-
-\[a1 = \vec{v1}\cdot\vec{r}\]
-\[a2 = \vec{v2}\cdot\vec{r}\]
-Having length one also has a general name, called being \emph{normal}, or \emph{normality}. And it too helps simplify calculations, like above. You can always compute a vector that is normal and in the same direction as your original vector if you divide the vector by its length. Or, scalar multiply it by its reciprocal length. So, for any vector \(\vec{v}\), regardless of length (other than 0), the following vector will have length 1:
-\[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]
-Again -- same direction as \(\vec{v}\), but of length 1.
-
-\hypertarget{gram-schmidt-orthonormalization-1}{%
-\subsection{Gram-Schmidt Orthonormalization}\label{gram-schmidt-orthonormalization-1}}
-
-Big words, straightforward idea.
-
-TL;DR: Given a set of vectors that form a basis, but are not necessarily orthogonal to each other, or normal, You can use those vectors to create another set of vectors that will work as a basis, \emph{and} those vectors will be orthonormal.
-
-Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn't? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, \emph{and} those vectors will be orthonormal. Here is a picture -- note the algebra looks worse than it is.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/gram-schmidt} 
-
-}
-
-\caption{Gram-Schmidt: algebra looks worse than it is.}\label{fig:unnamed-chunk-16}
-\end{figure}
-
-Here's the idea, in straightforward language.
-
-\begin{itemize}
-\tightlist
-\item
-  Take your two vectors, \(\vec{a}\) and \(\vec{b}\), and pick one of them to start. Say, \(\vec{a}\).
-\item
-  Normalize it by dividing by it's length, and call the result \(v1\). Congrats, you have your first orthonormal vector of your new set.
-\item
-  Find the spot/vector along \(\vec{v1}\), which is the same line/direction as \(\vec{a}\), that will make a right triangle with \(\vec{b}\). Turns out, this calculation is straightforward, and is \(<\vec{b},\vec{v1}>\ \vec{v1}\), or \((\vec{b}\cdot\vec{v1})\ \vec{v1}\).
-\item
-  Subtract that from \(\vec{b}\), which is \(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1}\). What you are left with is a vector perpendicular to \(\vec{v1}\), so you are almost home.
-\item
-  Divide that vector by its own length so that you have a normalized vector: \(\vec{v2} = \frac{1}{length(\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})}\ (\vec{b} - (\vec{b}\cdot\vec{v1})\ \vec{v1})\). Not as ugly as it seems. Congrats, you now have an orthonormal basis with \(\vec{v1}\) and \(\vec{v2}\).
-\end{itemize}
-
-This process can be extended to more than 2 dimensions. It is a process of taking vectors, scaling them to length 1 for normalization, finding projections (making right triangles and picking the cosine leg), subtracting it from your next vector, and then normalizing again. It's like a great big geometric construction you might have done in geometry in high school with a compass and straight-edge. The process gets a little more algorithmically hairy for more dimensions, but it is repeating this same idea/process over and over again.
-
-We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a \emph{basis}. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an \emph{orthonormal basis}.
-
-\hypertarget{summarizing-the-big-points-1}{%
-\section{Summarizing the big points}\label{summarizing-the-big-points-1}}
-
-We've only worked with \(\mathbb{R}^2\), but we've learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:
-
-\begin{itemize}
-\tightlist
-\item
-  You can generalize the Pythagorean Theorem via the Law of Cosines. This allows you to compute the length of any leg of a triangle from the length of the other two sides and the angle between the other two sides.
-\item
-  The Law of Cosines has embedded in it a quantity we end up calling the \emph{inner product} of two vectors. This gives some measure of how much in the same direction two sides of a triangle point, and incorporate the length of those two sides so that ultimately you can get a Pythagorean Theorem like equation.
-\item
-  If we pick the right vectors, we can use the inner product, and standard addition/subtraction/multiplication/division to compute coefficients that can be used with those vectors to represent any other vector we want.
-\item
-  It's easier if the vectors we use to write other vectors with are mutually perpendicular and of length 1 (orthonormal).
-\item
-  We can always make an orthonormal set using the Gram-Schmidt process.
-\end{itemize}
-
-\hypertarget{eigenvectors-and-eigenvalues}{%
-\chapter{Eigenvectors and Eigenvalues}\label{eigenvectors-and-eigenvalues}}
-
-Part of the motivation from the last chapter was to simplify calculations. The simplification process was something like this:
-
-\begin{itemize}
-\tightlist
-\item
-  Instead of talking about each vector uniquely, find a small set of vectors through which you can express every other vector in that space you could possibly want to talk about.
-\item
-  Be picky about that set, and pick the smallest set of vectors you can get away with.
-\item
-  Find a relatively easy function (inner product) that makes calculating the scalars that you need to use with that small set of vectors to represent any other vector.
-\item
-  Be more picky about that small set of vectors (the basis) in a way that makes computing the scalars more computationally simple -- that is by selecting a set of vectors that are mutually orthogonal. This makes a lot of terms in the scalar computation reduce to zero and make a simpler computation.
-\item
-  Be even more picky about that set and make sure the \emph{length} of the basis vectors are \(1\). This gives you an orthonormal basis.
-\end{itemize}
-
-These ways of being very picky about what basis set of vectors you choose to represent any other vector in the space pays off by making the scalar multiplier computations you need to make to get the right expression much more simple by introducing a lot of zero terms.
-
-Having vectors lying around seems pretty limited in its usefulness. On their own, they don't really do much. You can think about using vectors to keep track of things like position of a particle, or velocity of an airplane, but by themselves, they don't give you much more than an accounting system of limited use.
-
-So how do we make them useful? It turns out that one of the powerful things to do with vectors is to transform them from one vector into another. Why? One way is by giving you the tools to figure out where you have to aim an initial vector in order to hit a target vector. Let's do an example.
-
-The common example is linear systems of equations. I grew up on a farm, so let's talk about Crazy Larry's Seed Shop. Here, you can use dollars or euros (because if I recall anything about my rural upbringing, it was very cosmopolitan). However, these are the rules for how Crazy Larry will sell you stuff (he's not crazy because of his low, low prices):
-
-\begin{itemize}
-\tightlist
-\item
-  For every dollar you pay him, he will give you 2 bags of corn and 2 bags of wheat.
-\item
-  For every euro you pay him, he will give you 3 bags of corn and 1 bag of wheat.
-\end{itemize}
-
-That's the deal. Crazy, right?
-
-So, you do some sample trades to get a feel for what goes on.
-
-\begin{itemize}
-\tightlist
-\item
-  If you give just a dollar or just a euro, you get what was laid out in the rules above -- very simple.
-\item
-  If you give 1 dollar and 1 euro, you get 2 bags of corn and 2 of wheat from the dollar, and 3 of corn and 1 of wheat from the euro, for a total of 5 bags of corn and 3 bags of wheat.
-\item
-  If you give 8 dollars and 3 euros, you get a total of 25 bags of corn and 19 bags of wheat.
-\end{itemize}
-
-And so on. Its a lot of accounting. First, since we just spent a chapter on Euclidian vectors, let's model these calculations as vectors in a Euclidian space. Truthfully, that's probably the biggest advantage of Euclidian spaces -- you can model a lot of problems with vectors in them.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth,height=0.75\textheight]{images/CrazyCornWheat} 
-
-}
-
-\caption{Crazy Larry, of course, has drawn out his crazy scheme.}\label{fig:unnamed-chunk-17}
-\end{figure}
 
   \bibliography{book.bib,packages.bib}
 

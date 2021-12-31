@@ -1,4 +1,4 @@
-# Title tbd
+# OLD - Basic Intuitions
 
 In the previous chapter, we did a lot of work figuring out how to calculate the length of a side of a triangle using information about the other two sides of the triangle.  We also observed that we could pick almost any two vectors in $\mathbb{R}^2$ and represent any other given vector by shrinking or stretching those two vectors independently and then adding them together.
 

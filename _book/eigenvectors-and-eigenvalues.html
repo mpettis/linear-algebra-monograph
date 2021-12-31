@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach</title>
+  <title>Chapter 3 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach</title>
   <meta name="description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
+  <meta property="og:title" content="Chapter 3 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
   <meta property="og:type" content="book" />
   
   
@@ -22,7 +22,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="mpettis/linear-algebra-monograph" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
+  <meta name="twitter:title" content="Chapter 3 Eigenvectors and Eigenvalues | Linear Algebra: An Intuitionist Approach" />
   
   <meta name="twitter:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-12-11" />
+<meta name="date" content="2021-12-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,7 +41,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="a-nu-start.html"/>
-
+<link rel="next" href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -83,37 +83,37 @@ set in the _output.yml file.</p>" />
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>2</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
+<li class="chapter" data-level="2" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>2</b> A Nu Start</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
-<li class="chapter" data-level="2.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
-<li class="chapter" data-level="2.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>2.3</b> Writing vectors in terms of other vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.4</b> Orthogonality and Normality</a>
+<li class="chapter" data-level="2.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>2.1</b> Lines that run roughly in the same direction</a></li>
+<li class="chapter" data-level="2.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>2.2</b> Inner Products</a></li>
+<li class="chapter" data-level="2.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.3</b> Orthogonality and Normality</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.4.1</b> Gram-Schmidt Orthonormalization</a></li>
+<li class="chapter" data-level="2.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.3.1</b> Gram-Schmidt Orthonormalization</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.5</b> Summarizing the big points</a></li>
+<li class="chapter" data-level="2.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.4</b> Summarizing the big points</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>3</b> Title tbd</a>
+<li class="chapter" data-level="3" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> Eigenvectors and Eigenvalues</a></li>
+<li class="chapter" data-level="4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>4</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>3.1</b> Properties of inner products</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<li class="chapter" data-level="4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>4.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
+<li class="chapter" data-level="4.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>4.2</b> The Inner Product, or Dot Product</a></li>
+<li class="chapter" data-level="4.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>4.3</b> Writing vectors in terms of other vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>4.4</b> Orthogonality and Normality</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
-<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
+<li class="chapter" data-level="4.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>4.4.1</b> Gram-Schmidt Orthonormalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>5</b> A Nu Start</a>
+<li class="chapter" data-level="4.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>4.5</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>5</b> Title tbd</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>5.1</b> Lines that run roughly in the same direction</a></li>
-<li class="chapter" data-level="5.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>5.2</b> Inner Products</a></li>
-<li class="chapter" data-level="5.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>5.3</b> Orthogonality and Normality</a>
+<li class="chapter" data-level="5.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>5.1</b> Properties of inner products</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>6</b> How do I work this?</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>5.3.1</b> Gram-Schmidt Orthonormalization</a></li>
+<li class="chapter" data-level="6.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>6.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="6.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>6.2</b> What things do we need to model this?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>5.4</b> Summarizing the big points</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>6</b> Eigenvectors and Eigenvalues</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -134,8 +134,8 @@ set in the _output.yml file.</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="eigenvectors-and-eigenvalues" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Eigenvectors and Eigenvalues</h1>
+<div id="eigenvectors-and-eigenvalues" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Eigenvectors and Eigenvalues</h1>
 <p>Part of the motivation from the last chapter was to simplify calculations. The simplification process was something like this:</p>
 <ul>
 <li>Instead of talking about each vector uniquely, find a small set of vectors through which you can express every other vector in that space you could possibly want to talk about.</li>
@@ -151,6 +151,8 @@ set in the _output.yml file.</p>" />
 <ul>
 <li>For every dollar you pay him, he will give you 2 bags of corn and 2 bags of wheat.</li>
 <li>For every euro you pay him, he will give you 3 bags of corn and 1 bag of wheat.</li>
+<li>This is all proportional. Half a dollar will get you 1 bag of corn and 1 bag of wheat, etc.</li>
+<li>If necessary, the trade can go the other way. Crazy Larry will pay you a dollar if you give him 2 bags of corn and 2 bags of wheat, etc.</li>
 </ul>
 <p>That’s the deal. Crazy, right?</p>
 <p>So, you do some sample trades to get a feel for what goes on.</p>
@@ -159,13 +161,21 @@ set in the _output.yml file.</p>" />
 <li>If you give 1 dollar and 1 euro, you get 2 bags of corn and 2 of wheat from the dollar, and 3 of corn and 1 of wheat from the euro, for a total of 5 bags of corn and 3 bags of wheat.</li>
 <li>If you give 8 dollars and 3 euros, you get a total of 25 bags of corn and 19 bags of wheat.</li>
 </ul>
+<p>Another thing that makes Crazy Larry crazy is that he is inflexible in these rules. You can’t just ask him “how much if I just want to buy corn alone?” The rules are the rules, and you have to take what the rules buy you.</p>
 <p>And so on. Its a lot of accounting. First, since we just spent a chapter on Euclidian vectors, let’s model these calculations as vectors in a Euclidian space. Truthfully, that’s probably the biggest advantage of Euclidian spaces – you can model a lot of problems with vectors in them.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<p>Ok, now say you have a target – you know how much corn and wheat you want. Lets say you want 13 bags of corn and 9 bags of wheat. Is it even possible to buy this from Crazy Larry? You sit down, do some trial and error, and find out, yes, you can do this if you pay 3.5 dollars and 2 euros.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="images/CrazyCornWheat.jpg" alt="Crazy Larry, of course, has drawn out his crazy scheme." width="75%" height="75%" />
 <p class="caption">
-Figure 6.1: Crazy Larry, of course, has drawn out his crazy scheme.
+Figure 3.1: Crazy Larry, of course, has drawn out his crazy scheme.
 </p>
 </div>
+<p>Well, you can see that you can model your payment and your seed bags as vectors easily on a Cartesian (Euclidian) plane. Let’s dissect this and make the ideas explicit.</p>
+<ul>
+<li>Your payment is a vector, with the 2 components being the dollars and the euros you pay.</li>
+<li>Your seed received is a vector, with the 2 components being corn and wheat.</li>
+<li>Crazy Larry’s rules are the transformation.</li>
+</ul>
 
 </div>
             </section>
@@ -173,8 +183,8 @@ Figure 6.1: Crazy Larry, of course, has drawn out his crazy scheme.
           </div>
         </div>
       </div>
-<a href="a-nu-start.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="a-nu-start.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -205,7 +215,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-eigenvectors-and-eigenvalues.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-eigenvectors-and-eigenvalues.Rmd",
 "text": "Edit"
 },
 "history": {

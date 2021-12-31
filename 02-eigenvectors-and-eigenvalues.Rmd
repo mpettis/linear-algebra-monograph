@@ -1,4 +1,4 @@
-# Eigenvectors and Eigenvalues
+# IN PROGRESS - Eigenvectors and Eigenvalues
 
 Part of the motivation from the last chapter was to simplify calculations.  The simplification process was something like this:
 

@@ -1,4 +1,4 @@
-# How do I work this?
+# OLD, INCOMPLETE - Quantum Linear Mapping
 
 My uncle tells the story of how they help transition mechanical engineers fresh out of school to working in industry.  A senior engineer tasks them with a simple task: a near complete machine needs a piece -- it is missing a cog.  The tell the new engineer to get them one.  The new engineer studies the plans, designs the cog, painstakingly laying out the CAD designs for it, and comes back to the senior engineer after a week with his work to review how to machine that part, and how much it will cost.  The senior engineer looks it over, says it is the right piece, and pulls out a catalog, and shows him how much it will cost to buy, usually at a fraction of the cost.  The lesson they learn: don't create from scratch stuff you can buy cheaply from a catalog.
 

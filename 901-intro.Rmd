@@ -1,4 +1,4 @@
-# Inner Products: $\mathbb{R}^2$, Pythagorean Theoroem, and Law of Cosines
+# OLD - Inner Products: $\mathbb{R}^2$, Pythagorean Theoroem, and Law of Cosines
 
 > It takes a very unusual mind to undertake the analysis of the obvious.
 >

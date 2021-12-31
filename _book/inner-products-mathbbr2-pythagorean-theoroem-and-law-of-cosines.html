@@ -4,14 +4,14 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach</title>
+  <title>Chapter 4 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach</title>
   <meta name="description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach" />
+  <meta property="og:title" content="Chapter 4 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach" />
   <meta property="og:type" content="book" />
   
   
@@ -22,7 +22,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="mpettis/linear-algebra-monograph" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach" />
+  <meta name="twitter:title" content="Chapter 4 Inner Products: \(\mathbb{R}^2\), Pythagorean Theoroem, and Law of Cosines | Linear Algebra: An Intuitionist Approach" />
   
   <meta name="twitter:description" content="<p>This is a book intent on discussing linear algebra from an intuitionist
 point of view.
@@ -33,14 +33,14 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-12-11" />
+<meta name="date" content="2021-12-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+<link rel="prev" href="eigenvectors-and-eigenvalues.html"/>
 <link rel="next" href="title-tbd.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -83,37 +83,37 @@ set in the _output.yml file.</p>" />
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>2</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
+<li class="chapter" data-level="2" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>2</b> A Nu Start</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>2.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
-<li class="chapter" data-level="2.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>2.2</b> The Inner Product, or Dot Product</a></li>
-<li class="chapter" data-level="2.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>2.3</b> Writing vectors in terms of other vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.4</b> Orthogonality and Normality</a>
+<li class="chapter" data-level="2.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>2.1</b> Lines that run roughly in the same direction</a></li>
+<li class="chapter" data-level="2.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>2.2</b> Inner Products</a></li>
+<li class="chapter" data-level="2.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality"><i class="fa fa-check"></i><b>2.3</b> Orthogonality and Normality</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.4.1</b> Gram-Schmidt Orthonormalization</a></li>
+<li class="chapter" data-level="2.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization"><i class="fa fa-check"></i><b>2.3.1</b> Gram-Schmidt Orthonormalization</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.5</b> Summarizing the big points</a></li>
+<li class="chapter" data-level="2.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.4</b> Summarizing the big points</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>3</b> Title tbd</a>
+<li class="chapter" data-level="3" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> Eigenvectors and Eigenvalues</a></li>
+<li class="chapter" data-level="4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>4</b> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>3.1</b> Properties of inner products</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>4</b> How do I work this?</a>
+<li class="chapter" data-level="4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>4.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
+<li class="chapter" data-level="4.2" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#the-inner-product-or-dot-product"><i class="fa fa-check"></i><b>4.2</b> The Inner Product, or Dot Product</a></li>
+<li class="chapter" data-level="4.3" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#writing-vectors-in-terms-of-other-vectors"><i class="fa fa-check"></i><b>4.3</b> Writing vectors in terms of other vectors</a></li>
+<li class="chapter" data-level="4.4" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>4.4</b> Orthogonality and Normality</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>4.1</b> Lay of the Land</a></li>
-<li class="chapter" data-level="4.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>4.2</b> What things do we need to model this?</a></li>
+<li class="chapter" data-level="4.4.1" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>4.4.1</b> Gram-Schmidt Orthonormalization</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="a-nu-start.html"><a href="a-nu-start.html"><i class="fa fa-check"></i><b>5</b> A Nu Start</a>
+<li class="chapter" data-level="4.5" data-path="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>4.5</b> Summarizing the big points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="title-tbd.html"><a href="title-tbd.html"><i class="fa fa-check"></i><b>5</b> Title tbd</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="a-nu-start.html"><a href="a-nu-start.html#lines-that-run-roughly-in-the-same-direction"><i class="fa fa-check"></i><b>5.1</b> Lines that run roughly in the same direction</a></li>
-<li class="chapter" data-level="5.2" data-path="a-nu-start.html"><a href="a-nu-start.html#inner-products"><i class="fa fa-check"></i><b>5.2</b> Inner Products</a></li>
-<li class="chapter" data-level="5.3" data-path="a-nu-start.html"><a href="a-nu-start.html#orthogonality-and-normality-1"><i class="fa fa-check"></i><b>5.3</b> Orthogonality and Normality</a>
+<li class="chapter" data-level="5.1" data-path="title-tbd.html"><a href="title-tbd.html#properties-of-inner-products"><i class="fa fa-check"></i><b>5.1</b> Properties of inner products</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html"><i class="fa fa-check"></i><b>6</b> How do I work this?</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="a-nu-start.html"><a href="a-nu-start.html#gram-schmidt-orthonormalization-1"><i class="fa fa-check"></i><b>5.3.1</b> Gram-Schmidt Orthonormalization</a></li>
+<li class="chapter" data-level="6.1" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#lay-of-the-land"><i class="fa fa-check"></i><b>6.1</b> Lay of the Land</a></li>
+<li class="chapter" data-level="6.2" data-path="how-do-i-work-this.html"><a href="how-do-i-work-this.html#what-things-do-we-need-to-model-this"><i class="fa fa-check"></i><b>6.2</b> What things do we need to model this?</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points-1"><i class="fa fa-check"></i><b>5.4</b> Summarizing the big points</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>6</b> Eigenvectors and Eigenvalues</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -134,8 +134,8 @@ set in the _output.yml file.</p>" />
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</h1>
+<div id="inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</h1>
 <blockquote>
 <p>It takes a very unusual mind to undertake the analysis of the obvious.</p>
 <p>– Alfred North Whitehead</p>
@@ -145,22 +145,22 @@ set in the _output.yml file.</p>" />
 <p>– Alan Kay</p>
 </blockquote>
 <p>Here we are going to lay the groundwork vector spaces, particularly the aspect of inner products. We’ll start with the most common prototype vector space: <span class="math inline">\(\mathbb{R}\)</span>. This will relate the intuition of geometry and trigonometry to the algebraic machinery of inner products.</p>
-<div id="mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</h2>
+<div id="mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</h2>
 <p>Let’s start with what we know pretty solidly – the Pythagorean Theorem. We know that, if we have a triangle <span class="math inline">\(\triangle ABC\)</span>, with <span class="math inline">\(C\)</span> being a right angle, then:</p>
 <p><span class="math display">\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="images/LofC-PythThm.jpg" alt="Pythagorean Theorem" width="75%" height="75%" />
 <p class="caption">
-Figure 2.1: Pythagorean Theorem
+Figure 4.1: Pythagorean Theorem
 </p>
 </div>
 <p>The thing to note here is that the relationship of the three sides in a right triangle has a very tidy little relationship according to the theorem. <span class="math inline">\(\vec{c}^2\)</span> is totally determined by <span class="math inline">\(a\)</span>’s and <span class="math inline">\(b\)</span>’s value in a right triangle.</p>
 <p>But what happens if we keep <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> the same length, but start to wiggle the right angle at the top, making it smaller or larger?</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="images/LofC-acute-obtuse.jpg" alt="Acute and obtuse triangles" width="75%" height="75%" />
 <p class="caption">
-Figure 2.2: Acute and obtuse triangles
+Figure 4.2: Acute and obtuse triangles
 </p>
 </div>
 <p>You’ll note that the length of <span class="math inline">\(\vec{c}\)</span> will shrink or grow from what it is in a right triangle with the same leg lengths. Can we make an equation like the Pythagorean Theorem that accounts for this deviation from what you get if you had a right triangle? Turns out, yes you can, and that <em>adjusted</em> formula is known as <strong>The Law of Cosines</strong>:</p>
@@ -171,8 +171,8 @@ Figure 2.2: Acute and obtuse triangles
 <p>in all cases. That’s pretty easy to see. What the Law of Cosines does, through some trigonometric identity substitutions, is re-express that equation, going from the angles that <span class="math inline">\(\vec{c}\)</span> makes with <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>, to using the angle that <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> make with each other instead. So the Law of cosines expresses <span class="math inline">\(\vec{c}\)</span> totally in terms of the lengths of <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> and the angle they make with each other, never relying on information about <span class="math inline">\(c\)</span>.</p>
 <p>It turns out that that this concept, of expressing vectors in terms of other vectors, is crucial in linear algebra, and we’ll build up some concepts which may seem weird or abstract at the beginning, but turns out to be super useful in general, as it helps us lift off of reasoning about vector spaces in Euclidian space to general vector spaces.</p>
 </div>
-<div id="the-inner-product-or-dot-product" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> The Inner Product, or Dot Product</h2>
+<div id="the-inner-product-or-dot-product" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> The Inner Product, or Dot Product</h2>
 <p>Let’s look at that adjustment factor to the Pythagorean Theorem that allows us to calculate any third side knowing the other two. Taking out the factor of <span class="math inline">\(-2\)</span>, we are left with:</p>
 <p><span class="math display">\[(2) \ \ \ \ \ a b \ cos(C)\]</span></p>
 <p>That particular computation, in Euclidian Space, is known as the <strong>inner product of <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span></strong>. It shows up in many contexts, and in general, the inner product will have different notations:
@@ -201,8 +201,8 @@ Again, squinting, that is starting to look a lot like the Pythagorean Theorem, a
 <span class="math display">\[\vec{b}\cdot\vec{b} = \vec{b}\cdot\vec{a} + \vec{b}\cdot\vec{c}\]</span></p>
 <p>That’s what I mean by symmetry, and that the Law of Cosines has it, but the Pythagorean Theorem does not.</p>
 </div>
-<div id="writing-vectors-in-terms-of-other-vectors" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Writing vectors in terms of other vectors</h2>
+<div id="writing-vectors-in-terms-of-other-vectors" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Writing vectors in terms of other vectors</h2>
 <p>Apart from the nice observation that we can calculate lengths of a third side soley from information about the other two sides, who cares? We do. It turns out that a great simplification in dealing with vectors is if, instead of dealing with each vector on its own, like <span class="math inline">\(\vec{c}\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span>, we pick just two vectors that point in somewhat different directions, like <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>, and then stretch or shrink those vectors (that is, make them point in the same direction, but of different lengths from the original), add them, and then use the sum of those two vectors as a stand-in for whatever vector <span class="math inline">\(\vec{c}\)</span> we want. In math terms, we want to find multiples <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\beta\)</span> of <span class="math inline">\(\vec{b}\)</span> such that:</p>
 <p><span class="math display">\[\vec{c} = \alpha\vec{a} + \beta\vec{b}\]</span>
 It may seem weird, but it does turn out that writing every possible vector <span class="math inline">\(\vec{c}\)</span> in terms of two other vectors you pick at the outset (scalar multiples of <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span>) makes other calculations you want to much more manageable. In the end, if you have some experience, you will probably end up picking <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> as you standard coordinate axes in the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> direction, also denoted as either <span class="math inline">\(\hat{i}\)</span> and <span class="math inline">\(\hat{j}\)</span>, or once you get into more dimensions than two, <span class="math inline">\(\hat{e}_{1}\)</span> and <span class="math inline">\(\hat{e}_{2}\)</span>. But that will come later.</p>
@@ -211,8 +211,8 @@ It may seem weird, but it does turn out that writing every possible vector <span
 <span class="math display">\[\beta = \frac{(\vec{a}\cdot\vec{b})\cdot(\vec{a}\cdot\vec{c})-(\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{c})}{(\vec{a}\cdot\vec{b})^2 - (\vec{a}\cdot\vec{a})\cdot(\vec{b}\cdot\vec{b})}\]</span>
 As I said, not the prettiest thing, but computable! And that is the goal. It may seem harder, but know that it is indeed far easier to pick a set of vectors and do these computations to represent them than it is to not have that.</p>
 </div>
-<div id="orthogonality-and-normality" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Orthogonality and Normality</h2>
+<div id="orthogonality-and-normality-1" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Orthogonality and Normality</h2>
 <p>Those calculations are indeed a bit gross, so people have looked for ways to make that not so gross. Above we noted that when the angle between vectors is 90 degrees, the cosine is 0. That means that if the angle between <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> is 90 degrees, then <span class="math inline">\(\vec{a}\cdot\vec{b} = 0\)</span>. If you, at the outset, <em>pick</em> the vectors <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> to be ones where the angle between them is 90 degrees, then the above calculations simplify greatly to:</p>
 <p><span class="math display">\[\alpha = \frac{\vec{a}\cdot\vec{c}}{\vec{a}\cdot\vec{a}}\]</span></p>
 <p><span class="math display">\[\beta = \frac{\vec{b}\cdot\vec{c}}{\vec{b}\cdot\vec{b}}\]</span>
@@ -223,14 +223,14 @@ With this simplification, you should think, “Wow, I should probably choose my 
 Having length one also has a general name, called being <em>normal</em>, or <em>normality</em>. And it too helps simplify calculations, like above. You can always compute a vector that is normal and in the same direction as your original vector if you divide the vector by its length. Or, scalar multiply it by its reciprocal length. So, for any vector <span class="math inline">\(\vec{v}\)</span>, regardless of length (other than 0), the following vector will have length 1:
 <span class="math display">\[\frac{1}{\sqrt{\vec{v}\cdot\vec{v}}}\cdot\vec{v}\]</span>
 Again – same direction as <span class="math inline">\(\vec{v}\)</span>, but of length 1.</p>
-<div id="gram-schmidt-orthonormalization" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Gram-Schmidt Orthonormalization</h3>
+<div id="gram-schmidt-orthonormalization-1" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Gram-Schmidt Orthonormalization</h3>
 <p>Big words, straightforward idea.</p>
 <p>Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn’t? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, <em>and</em> those vectors will be orthonormal. Here is a picture – note the algebra looks worse than it is.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="images/gram-schmidt.jpg" alt="Gram-Schmidt: algebra looks worse than it is." width="75%" height="75%" />
 <p class="caption">
-Figure 2.3: Gram-Schmidt: algebra looks worse than it is.
+Figure 4.3: Gram-Schmidt: algebra looks worse than it is.
 </p>
 </div>
 <p>Here’s the idea, in straightforward language.</p>
@@ -245,8 +245,8 @@ Figure 2.3: Gram-Schmidt: algebra looks worse than it is.
 <p>We will call the set of vectors that you can use to represent any other vector (with scalar multiplication and addition) as a <em>basis</em>. If all of the vectors in that basis are of length 1 and are perpendicular, we call that an <em>orthonormal basis</em>.</p>
 </div>
 </div>
-<div id="summarizing-the-big-points" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Summarizing the big points</h2>
+<div id="summarizing-the-big-points-1" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Summarizing the big points</h2>
 <p>We’ve only worked with <span class="math inline">\(\mathbb{R}^2\)</span>, but we’ve learned a lot and scaffolded ourselves to work with some more abstract ideas. They are:</p>
 <ul>
 <li>You can generalize the Pythagorean Theorem via the Law of Cosines. This allows you to compute the length of any leg of a triangle from the length of the other two sides and the angle between the other two sides.</li>
@@ -265,14 +265,14 @@ You know that you can add two vectors by putting the tail of one vector at the h
 
 <div class="figure" style="text-align: center">
 <img src="images/vector_parallelogram_law.png" alt="Parallelogram Law of Addition" width="75%" height="75%" />
-<p class="caption">(\#fig:unnamed-chunk-4)Parallelogram Law of Addition</p>
+<p class="caption">(\#fig:unnamed-chunk-10)Parallelogram Law of Addition</p>
 </div>
 
 And we know how to stretch, shrink, and flip a vector, which we do by multiplying a vector by a real number.  If you multiply a vector by $1/2$, the length of the vector shrinks to one-half its original length (but the direction doesn't change).  If you multiply a vector by $3 \sqrt{2}$ the magnitude of the result is stretched by that amount.
 
 <div class="figure" style="text-align: center">
 <img src="images/Vector-scaling.jpg" alt="Vector Scaling" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5)Vector Scaling</p>
+<p class="caption">(\#fig:unnamed-chunk-11)Vector Scaling</p>
 </div>
 
 These are the prototypical vector spaces, one I'd argue 99 times out of 100 people imagine if they know what a vector space is already.  And if this is the only space you have to deal with, this intuition is pretty much all you need.  It will take you far. But if you study quantum state space vectors, with their complex entries, and the notion of $\mathbb{R}^n$ vector spaces can help some of your intuition, and for other parts, you are totally at sea as to how the hell you are supposed to interpret things.
@@ -308,7 +308,7 @@ From Wikipedia:
 
 <div class="figure" style="text-align: center">
 <img src="images/vector-space-axioms-wikipedia_2.png" alt="[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story..." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...</p>
+<p class="caption">(\#fig:unnamed-chunk-12)[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...</p>
 </div>
 
 It is a bad way to start, because you really have no frame of reference for what any of the terms mean.  It is frustrating and made me angry  **We shouldn't really start here.**
@@ -402,7 +402,7 @@ In the next chapter, we'll take some quantum phenomenon, and figure out how we p
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eigenvectors-and-eigenvalues.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="title-tbd.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -434,7 +434,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/901-intro.Rmd",
 "text": "Edit"
 },
 "history": {
