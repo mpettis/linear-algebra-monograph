@@ -33,7 +33,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-12-31" />
+<meta name="date" content="2022-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -93,7 +93,11 @@ set in the _output.yml file.</p>" />
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.4</b> Summarizing the big points</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="in-progress---eigenvectors-and-eigenvalues.html"><a href="in-progress---eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> IN PROGRESS - Eigenvectors and Eigenvalues</a></li>
+<li class="chapter" data-level="3" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> Eigenvectors and Eigenvalues</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html#transformations-eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>3.1</b> Transformations, Eigenvalues, and Eigenvectors</a></li>
+<li class="chapter" data-level="3.2" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html#linear-transformations"><i class="fa fa-check"></i><b>3.2</b> Linear transformations</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>4</b> OLD - Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>4.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
@@ -177,7 +181,7 @@ The approach I'll take here is to start with $\mathbb{R}^2$, and work up to more
 
 <div class="figure" style="text-align: center">
 <img src="images/orthonormal-decomposition.png" alt="How most of us understand vector decomposition" width="75%" height="75%" />
-<p class="caption">(\#fig:unnamed-chunk-13)How most of us understand vector decomposition</p>
+<p class="caption">(\#fig:unnamed-chunk-14)How most of us understand vector decomposition</p>
 </div>
 
 This is picking vectors so that you have effectively the Cartesian coordinate plane that you are used to -- $v1$ and $v2$ act like the x- and y-axis of your high school years.
@@ -206,7 +210,7 @@ This seems like a boring observation, but, as I've said before, this will be imp
 
 <div class="figure" style="text-align: center">
 <img src="images/parallelogram-decomposition.png" alt="Scalars decomposition using general vectors." width="75%" height="75%" />
-<p class="caption">(\#fig:unnamed-chunk-14)Scalars decomposition using general vectors.</p>
+<p class="caption">(\#fig:unnamed-chunk-15)Scalars decomposition using general vectors.</p>
 </div>
 
 You might find yourself in a situation where you have two reference vectors that are not perpendicular to each other, and not of unit lenghts.  That is the situation above.  It is not neat and familiar like the first orthonormal case.  But it will work.  Any vector $\vec{r}$ can be written by stretching or shrinking both $\vec{v1}$ and $\vec{v2}$ by just the right amounts so that you can add them, parallelogram-wise, to get to the same spot as $\vec{r}$.
@@ -238,7 +242,7 @@ $$(\text{Law of Cosines}) \ \ \  c^2 = a^2 + b^2 - 2 a b \ cos(C)$$
 
 <div class="figure" style="text-align: center">
 <img src="images/law-of-cosines.png" alt="Law of Cosines" width="50%" height="50%" />
-<p class="caption">(\#fig:unnamed-chunk-15)Law of Cosines</p>
+<p class="caption">(\#fig:unnamed-chunk-16)Law of Cosines</p>
 </div>
 
 Before we get to formal definitions, we will take for given the fact that the inner product in Euclidian space is defined as:
@@ -298,7 +302,7 @@ Here's how an inner product function is defined on a vector space.  Do not study
 
 <div class="figure" style="text-align: center">
 <img src="images/inner-product-definition-wikipedia.png" alt="Like with Medusa, don't look directly at this, at least not yet." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-16)Like with Medusa, don't look directly at this, at least not yet.</p>
+<p class="caption">(\#fig:unnamed-chunk-17)Like with Medusa, don't look directly at this, at least not yet.</p>
 </div>
 
 Let's talk a little bit about what some of the definition is there to do.

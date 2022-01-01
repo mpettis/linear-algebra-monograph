@@ -7,7 +7,8 @@ fig:unnamed-chunk-6
 fig:unnamed-chunk-7
 fig:unnamed-chunk-8
 fig:unnamed-chunk-9
-fig:unnamed-chunk-17
+fig:unnamed-chunk-10
+fig:unnamed-chunk-18
 preface
 a-nu-start
 lines-that-run-roughly-in-the-same-direction
@@ -15,7 +16,9 @@ inner-products
 orthogonality-and-normality
 gram-schmidt-orthonormalization
 summarizing-the-big-points
-in-progress---eigenvectors-and-eigenvalues
+eigenvectors-and-eigenvalues
+transformations-eigenvalues-and-eigenvectors
+linear-transformations
 old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines
 mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines
 the-inner-product-or-dot-product

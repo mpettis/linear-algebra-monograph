@@ -33,14 +33,14 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Matt Pettis" />
 
 
-<meta name="date" content="2021-12-31" />
+<meta name="date" content="2022-01-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="in-progress---eigenvectors-and-eigenvalues.html"/>
+<link rel="prev" href="eigenvectors-and-eigenvalues.html"/>
 <link rel="next" href="old---basic-intuitions.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -93,7 +93,11 @@ set in the _output.yml file.</p>" />
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="a-nu-start.html"><a href="a-nu-start.html#summarizing-the-big-points"><i class="fa fa-check"></i><b>2.4</b> Summarizing the big points</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="in-progress---eigenvectors-and-eigenvalues.html"><a href="in-progress---eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> IN PROGRESS - Eigenvectors and Eigenvalues</a></li>
+<li class="chapter" data-level="3" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html"><i class="fa fa-check"></i><b>3</b> Eigenvectors and Eigenvalues</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html#transformations-eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>3.1</b> Transformations, Eigenvalues, and Eigenvectors</a></li>
+<li class="chapter" data-level="3.2" data-path="eigenvectors-and-eigenvalues.html"><a href="eigenvectors-and-eigenvalues.html#linear-transformations"><i class="fa fa-check"></i><b>3.2</b> Linear transformations</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><i class="fa fa-check"></i><b>4</b> OLD - Inner Products: <span class="math inline">\(\mathbb{R}^2\)</span>, Pythagorean Theoroem, and Law of Cosines</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html"><a href="old---inner-products-mathbbr2-pythagorean-theoroem-and-law-of-cosines.html#mathbbr2-the-pythagorean-theorem-and-the-law-of-cosines"><i class="fa fa-check"></i><b>4.1</b> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</a></li>
@@ -149,7 +153,7 @@ set in the _output.yml file.</p>" />
 <h2><span class="header-section-number">4.1</span> <span class="math inline">\(\mathbb{R}^2\)</span>, the Pythagorean Theorem, and the Law of Cosines</h2>
 <p>Let’s start with what we know pretty solidly – the Pythagorean Theorem. We know that, if we have a triangle <span class="math inline">\(\triangle ABC\)</span>, with <span class="math inline">\(C\)</span> being a right angle, then:</p>
 <p><span class="math display">\[(\text{Pythagorean Theorem}) \ \ \ \ \ c^2 = a^2 + b^2\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
 <img src="images/LofC-PythThm.jpg" alt="Pythagorean Theorem" width="75%" height="75%" />
 <p class="caption">
 Figure 4.1: Pythagorean Theorem
@@ -157,7 +161,7 @@ Figure 4.1: Pythagorean Theorem
 </div>
 <p>The thing to note here is that the relationship of the three sides in a right triangle has a very tidy little relationship according to the theorem. <span class="math inline">\(\vec{c}^2\)</span> is totally determined by <span class="math inline">\(a\)</span>’s and <span class="math inline">\(b\)</span>’s value in a right triangle.</p>
 <p>But what happens if we keep <span class="math inline">\(\vec{a}\)</span> and <span class="math inline">\(\vec{b}\)</span> the same length, but start to wiggle the right angle at the top, making it smaller or larger?</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
 <img src="images/LofC-acute-obtuse.jpg" alt="Acute and obtuse triangles" width="75%" height="75%" />
 <p class="caption">
 Figure 4.2: Acute and obtuse triangles
@@ -227,7 +231,7 @@ Again – same direction as <span class="math inline">\(\vec{v}\)</span>, but of
 <h3><span class="header-section-number">4.4.1</span> Gram-Schmidt Orthonormalization</h3>
 <p>Big words, straightforward idea.</p>
 <p>Often, starting vectors for a given problem just kind of fall into your lap, and they are not orthogonal at the start. So how do we actually make an orthonormal set from one that isn’t? Luckily, if you can use those starting vectors (that are not orthogonal) to make all of the other vectors you want, like above, you can can calculate a new set of vectors that will do the same thing, <em>and</em> those vectors will be orthonormal. Here is a picture – note the algebra looks worse than it is.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
 <img src="images/gram-schmidt.jpg" alt="Gram-Schmidt: algebra looks worse than it is." width="75%" height="75%" />
 <p class="caption">
 Figure 4.3: Gram-Schmidt: algebra looks worse than it is.
@@ -265,14 +269,14 @@ You know that you can add two vectors by putting the tail of one vector at the h
 
 <div class="figure" style="text-align: center">
 <img src="images/vector_parallelogram_law.png" alt="Parallelogram Law of Addition" width="75%" height="75%" />
-<p class="caption">(\#fig:unnamed-chunk-10)Parallelogram Law of Addition</p>
+<p class="caption">(\#fig:unnamed-chunk-11)Parallelogram Law of Addition</p>
 </div>
 
 And we know how to stretch, shrink, and flip a vector, which we do by multiplying a vector by a real number.  If you multiply a vector by $1/2$, the length of the vector shrinks to one-half its original length (but the direction doesn't change).  If you multiply a vector by $3 \sqrt{2}$ the magnitude of the result is stretched by that amount.
 
 <div class="figure" style="text-align: center">
 <img src="images/Vector-scaling.jpg" alt="Vector Scaling" width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-11)Vector Scaling</p>
+<p class="caption">(\#fig:unnamed-chunk-12)Vector Scaling</p>
 </div>
 
 These are the prototypical vector spaces, one I'd argue 99 times out of 100 people imagine if they know what a vector space is already.  And if this is the only space you have to deal with, this intuition is pretty much all you need.  It will take you far. But if you study quantum state space vectors, with their complex entries, and the notion of $\mathbb{R}^n$ vector spaces can help some of your intuition, and for other parts, you are totally at sea as to how the hell you are supposed to interpret things.
@@ -308,7 +312,7 @@ From Wikipedia:
 
 <div class="figure" style="text-align: center">
 <img src="images/vector-space-axioms-wikipedia_2.png" alt="[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story..." width="100%" height="100%" />
-<p class="caption">(\#fig:unnamed-chunk-12)[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...</p>
+<p class="caption">(\#fig:unnamed-chunk-13)[Record scratch]  Yep, that's me, Vector Space, spewing a lot of incomprehensible stuff.  But I wasn't always like this.  Let me tell you a story...</p>
 </div>
 
 It is a bad way to start, because you really have no frame of reference for what any of the terms mean.  It is frustrating and made me angry  **We shouldn't really start here.**
@@ -402,7 +406,7 @@ In the next chapter, we'll take some quantum phenomenon, and figure out how we p
           </div>
         </div>
       </div>
-<a href="in-progress---eigenvectors-and-eigenvalues.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eigenvectors-and-eigenvalues.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="old---basic-intuitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
